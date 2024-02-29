@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react"
+import styled from "styled-components"
 
+import Main from './Pages/Main/Main';
+import Info from './Pages/Info/Info';
+
+interface Container{
+  fontsize: number;
+}
+const Container = styled.div<Container>`
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    font-size: ${props => props.fontsize}px;
+`
 function App() {
+  const [fontSize, setFontSize] = useState<number>(Math.floor(window.innerWidth/120))
+    window.addEventListener('resize', () => {
+        setFontSize(Math.floor(window.innerWidth/120))
+      });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Container fontsize={fontSize}>
+        <Main></Main>
+        <Info></Info>
+      </Container>
+    </main>
   );
 }
 
