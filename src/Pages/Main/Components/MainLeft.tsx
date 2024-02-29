@@ -1,15 +1,31 @@
-import styled from "styled-components"
-
+import styled, {keyframes, css} from "styled-components"
+import { useState, useEffect } from "react";
 import Pallete from "../../../Pallete"
 
 interface Text{
-    color:string;
     display: string;
+    typing: boolean;
+}
+interface Button{
+    fade:boolean;
 }
 interface Circle{
     top: string;
     left: string;
 }
+
+const typingAnimation = keyframes`
+    from { width: 0; }
+    to { width: 100%; }
+`;
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const MainLeftContainer = styled.div`
     position: relative;
@@ -41,11 +57,18 @@ const TextDiv = styled.div`
 `
 const Text = styled.span<Text>`
     display: ${props => props.display};
-    font-family: "Black Han Sans", sans-serif;
     font-size: 7em;
-    color: ${props => props.color};
+    overflow: hidden; /* 타이핑 효과를 위해 오버플로우 숨김 설정 */
+    white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+    animation: ${props => props.typing ? typingAnimation : 'none'} 1.5s steps(40, end); /* 타이핑 애니메이션 적용 */
 `
-const Button = styled.button`
+const Text2 = styled(Text)<Text>`
+`
+const Highlight = styled.span`
+    font-family: "Black Han Sans", sans-serif;
+    color: ${Pallete.main_color};
+`
+const Button = styled.button<Button>`
     z-index: 10;
     display: flex;
     width: 25%;
@@ -57,9 +80,11 @@ const Button = styled.button`
     border-radius: 10px;
     font-size: 2em;
     color: #ffffff;
+    opacity: 0;
     &:hover{
         background-color: ${Pallete.main_color_dark};
     }
+    animation: ${props => props.fade ? css `${fadeInAnimation} 1s forwards` : 'none'};
 `
 const BgCircle = styled.div<Circle>`
     position: absolute;
@@ -73,6 +98,21 @@ const BgCircle = styled.div<Circle>`
 `
 
 const MainLeft = () => {
+
+    const [type, setType] = useState<boolean>(false)
+    const [fade, setFade] = useState<boolean>(false)
+    useEffect(() => {
+        setTimeout(() => {
+            setType(true)
+        }, 1200)
+    }, [])
+    useEffect(() => {
+        if(type){
+            setTimeout(() => {
+                setFade(true)
+        }, 1000)
+        }
+    }, [type])
 
     const scrollToBottom = () => {
         window.scrollTo({
@@ -89,11 +129,10 @@ const MainLeft = () => {
             </LogoContainer>
             <TextDiv>
                 <>
-                    <Text color='black' display='block' className="black-han">프론트엔드 개발자</Text>
-                    <Text color={Pallete.main_color} display='inline' className="black-han">송경후</Text>
-                    <Text color='black' display='inline' className="black-han">입니다</Text>
+                    <Text display='block' className="black-han" typing>프론트엔드 개발자</Text>
+                    <Text2 display={type ? 'block' : 'none'} className="black-han" typing={type}><Highlight>송경후</Highlight>입니다</Text2>
                 </>
-                <Button onClick={scrollToBottom}>Learn More</Button>
+                <Button onClick={scrollToBottom} fade={fade}>Learn More</Button>
             </TextDiv>
             <>
                 <BgCircle top='-35' left='-40'></BgCircle>
