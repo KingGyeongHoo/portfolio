@@ -2,9 +2,11 @@ import styled from "styled-components"
 import Pallete from "../../../Pallete"
 
 const MainRightContainer = styled.div`
+    position: relative;
     width: 40%;
     height: 100%;
     background-color: ${Pallete.main_color};
+    z-index: 100;
 `
 const BgImg = styled.img`
     width: 100%;

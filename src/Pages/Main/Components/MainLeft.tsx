@@ -1,5 +1,6 @@
 import styled, {keyframes, css} from "styled-components"
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Pallete from "../../../Pallete"
 
 interface Text{
@@ -36,20 +37,6 @@ const MainLeftContainer = styled.div`
     width: 60%;
     height: 100%;
     background-color: #ffffff;
-`
-const LogoContainer = styled.div`
-    position: absolute;
-    top:0;
-    left:0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 96%;
-    padding: 1% 2%;
-    overflow: hidden;
-`
-const Logo = styled.img`
-    width: 7%;
 `
 const TextDiv = styled.div`
     position: relative;
@@ -98,9 +85,10 @@ const BgCircle = styled.div<Circle>`
 `
 
 const MainLeft = () => {
-
     const [type, setType] = useState<boolean>(false)
     const [fade, setFade] = useState<boolean>(false)
+
+    const dispatch = useDispatch()
     useEffect(() => {
         setTimeout(() => {
             setType(true)
@@ -114,7 +102,8 @@ const MainLeft = () => {
         }
     }, [type])
 
-    const scrollToBottom = () => {
+    const scrollToBottom = ():void => {
+        dispatch({type: 'About'})
         window.scrollTo({
           top: document.body.scrollHeight,
           behavior: 'smooth' // 부드럽게 스크롤
@@ -124,9 +113,6 @@ const MainLeft = () => {
 
     return (
         <MainLeftContainer>
-            <LogoContainer>
-                <Logo src={`${process.env.PUBLIC_URL}/img/logo.png`}></Logo>
-            </LogoContainer>
             <TextDiv>
                 <>
                     <Text display='block' className="black-han" typing>프론트엔드 개발자</Text>
