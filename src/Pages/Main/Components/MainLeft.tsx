@@ -105,8 +105,8 @@ const MainLeft = () => {
     const scrollToBottom = ():void => {
         dispatch({type: 'About'})
         window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth' // 부드럽게 스크롤
+          top: window.innerHeight,
+          behavior: 'smooth'
         });
       };
 

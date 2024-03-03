@@ -1,11 +1,12 @@
-import React from 'react';
 import './App.css';
-import { useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import Navbar from './Pages/Navbar/Navbar';
 import Main from './Pages/Main/Main';
-import Info from './Pages/Info/Info';
+import Info from './Pages/About/About';
+import Skills from './Pages/Skills/Skills';
+import Project from './Pages/Project/Project';
 
 interface ContainerProps{
   fontsize: number;
@@ -31,6 +32,8 @@ function App() {
         <Container fontsize={fontSize}>
           <Main></Main>
           <Info></Info>
+          <Skills></Skills>
+          <Project></Project>
         </Container>
       </main>
     </Container>
