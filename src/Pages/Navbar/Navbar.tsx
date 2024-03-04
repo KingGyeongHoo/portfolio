@@ -6,6 +6,7 @@ import { readBuilderProgram } from "typescript";
 
 interface Navbar{
     isShow:boolean;
+    idx: number;
 }
 interface HighlightProps{
     idx:number;
@@ -20,7 +21,7 @@ const NavbarContainer = styled.div<Navbar>`
     justify-content: space-between;
     width: 96%;
     padding: 0 2%;
-    background-color: ${props => props.isShow ? 'rgba(0,0,0,0)' : '#ffffff'};
+    background-color: ${props => props.idx < 2 ? '#ffffff' : Pallete.main_color};
     z-index: 50;
 `
 const Logo = styled.img`
@@ -47,8 +48,8 @@ const PageDiv = styled.div`
     padding: 0 3%;
     font-size: 1.5em;
 `
-const PageSpan = styled.span`
-    color: ${Pallete.main_color};
+const PageSpan = styled.span<HighlightProps>`
+    color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
     margin-bottom: 5%;
 `
 const HighlightDiv = styled.div`
@@ -57,7 +58,7 @@ const HighlightDiv = styled.div`
 const Highlight = styled.div<HighlightProps>`
     width: 12%;
     padding: 0.5% 0;
-    background-color: ${Pallete.main_color};
+    background-color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
     margin-left: ${props => 23 + (props.idx * 18)}%;
     transition: margin-left 0.5s ease; /* margin-left 변경 시 부드럽게 이동하는 애니메이션 설정 */
 `
@@ -73,14 +74,14 @@ const Navbar = () => {
           });
     }
     return (
-        <NavbarContainer isShow={curPage ===  0? true : false}>
+        <NavbarContainer isShow={curPage ===  0? true : false} idx={curPage}>
             <Logo src={`${process.env.PUBLIC_URL}/img/logo.png`}></Logo>
             <ListContainer>
                 <PageContainer>
                     {pageList.map((el:string, idx:number) => {
                         return(
                             <PageDiv>
-                                <PageSpan onClick={(e) => movePage(e, idx)}>{el}</PageSpan>
+                                <PageSpan onClick={(e) => movePage(e, idx)} idx={curPage}>{el}</PageSpan>
                             </PageDiv>
                         )
                     })} 

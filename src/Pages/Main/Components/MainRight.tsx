@@ -1,11 +1,17 @@
 import styled from "styled-components"
 import Pallete from "../../../Pallete"
 
-const MainRightContainer = styled.div`
+interface Container{
+    url:string;
+}
+
+const MainRightContainer = styled.div<Container>`
     position: relative;
     width: 40%;
     height: 100%;
     background-color: ${Pallete.main_color};
+    background-image: url(${props => props.url});
+    background-size: cover;
     z-index: 100;
 `
 const BgImg = styled.img`
@@ -15,8 +21,7 @@ const BgImg = styled.img`
 
 const MainRight = () => {
     return (
-        <MainRightContainer>
-            <BgImg src={`${process.env.PUBLIC_URL}/img/main_bg.png`}></BgImg>
+        <MainRightContainer url={`${process.env.PUBLIC_URL}/img/main_bg.png`}>
         </MainRightContainer>
     )
 }

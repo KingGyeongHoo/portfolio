@@ -50,6 +50,7 @@ const Text = styled.span<Text>`
     animation: ${props => props.typing ? typingAnimation : 'none'} 1.5s steps(40, end); /* 타이핑 애니메이션 적용 */
 `
 const Text2 = styled(Text)<Text>`
+
 `
 const Highlight = styled.span`
     font-family: "Black Han Sans", sans-serif;

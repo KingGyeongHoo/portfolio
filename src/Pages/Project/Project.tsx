@@ -5,11 +5,12 @@ import styled from "styled-components"
 import Pallete from "../../Pallete"
 
 const InfoContainer = styled.div`
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
     padding: 0;
-    background-color: purple;
+    background-color: #ffffff;
 `
 
 const Project = () => {

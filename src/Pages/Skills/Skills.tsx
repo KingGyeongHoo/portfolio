@@ -1,15 +1,18 @@
 import { useInView } from 'react-intersection-observer';
 import { useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
-const InfoContainer = styled.div`
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
-    padding: 0;
-    background-color: red;
+import Title from '../About/Components/Title';
+import { Container, ContentContainer } from '../About/About';
+
+interface SkillsProps{
+    url:string
+}
+
+const SkillsContainer = styled(Container)`
+    background-color: #ffffff;
 `
 
 const Skills = () => {
@@ -25,8 +28,11 @@ const Skills = () => {
     }, [inView]);
 
     return (
-        <InfoContainer ref={ref}>
-        </InfoContainer>
+        <SkillsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
+            <ContentContainer>
+                <Title title='Skills' color={Pallete.main_color}></Title>
+            </ContentContainer>
+        </SkillsContainer>
     )
 }
 export default Skills
