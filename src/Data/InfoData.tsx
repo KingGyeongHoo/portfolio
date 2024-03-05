@@ -1,6 +1,7 @@
 interface Info{
     index: string;
     content: string;
+    instead?: string;
 }
 
 export const InfoData:Info[] = [
@@ -22,6 +23,7 @@ export const InfoData:Info[] = [
     },
     {
         index: 'UNIV',
-        content: '동국대학교'
+        content: '동국대학교',
+        instead: '전자전기공학부 / 멀티미디어공학과'
     },
 ]

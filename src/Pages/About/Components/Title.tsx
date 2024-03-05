@@ -10,13 +10,16 @@ interface Design{
 }
 
 const TitleContainer = styled.div`
+    display: flex;
+    align-items: center;
     width: 100%;
-    margin-bottom: 2%;
+    height: 10%;
+    margin-bottom: 1%;
     border: 1px solid red;
 `
 const TitleSpan = styled.span<Design>`
     color: ${props => props.color};
-    font-size: 6em;
+    font-size: 5em;
     font-weight: strong;
 `
 

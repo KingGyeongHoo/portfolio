@@ -20,24 +20,30 @@ const NavbarContainer = styled.div<Navbar>`
     flex-direction: row;
     justify-content: space-between;
     width: 96%;
-    padding: 1% 2%;
+    height: 7vh;
+    padding: 0.3% 2%;
     background-color: ${props => props.idx < 2 ? '#ffffff' : Pallete.main_color};
     z-index: 50;
 `
 const Logo = styled.img`
     width: 4%;
+    height: auto;
 `
 const ListContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 35%; 
+    height: 100%;
 `
 const PageContainer = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 0 5%;
     width: 90%;
+    height: 80%;
 `
 const PageDiv = styled.div`
     display: flex;
@@ -45,6 +51,7 @@ const PageDiv = styled.div`
     justify-content: center;
     align-items: center;
     width:20%;
+    height: 100%;
     padding: 0 2.5%;
     font-size: 1.5em;
 `
@@ -56,10 +63,11 @@ const PageSpan = styled.span<HighlightProps>`
 const HighlightDiv = styled.div`
     padding: 0 5%;
     width: 90%;
+    height: 10%;
 `
 const Highlight = styled.div<HighlightProps>`
     width: 20%;
-    padding: 1% 0;
+    height: 100%;
     background-color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
     margin-left: ${props => 2.5 + (props.idx * 25)}%;
     transition: margin-left 0.5s ease; /* margin-left 변경 시 부드럽게 이동하는 애니메이션 설정 */

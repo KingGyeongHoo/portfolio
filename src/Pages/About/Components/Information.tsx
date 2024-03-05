@@ -1,14 +1,35 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, {css, keyframes} from "styled-components";
 
 import Pallete from "../../../Pallete";
 import { InfoData } from "../../../Data/InfoData";
+
+interface Hovered{
+    hover?: boolean;
+}
+
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`;
+const fadeOut = keyframes`
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 1;
+    }
+`;
 
 const InfoContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 40%;
+    height: 45%;
     border: 1px solid yellow;
 `
 const Picture = styled.div`
@@ -44,11 +65,16 @@ const Picture = styled.div`
 const Image = styled.img`
     position: relative;
     width: 90%;
-    height: 60%; /* 이미지의 높이를 자동으로 조정하여 비율 유지 */
+    height: auto;
     z-index: 10;
 `;
 
 const Info = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
     width: 50%;
     height: 100%;
     border: 1px solid pink;
@@ -58,14 +84,11 @@ const InfoDiv = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
-    width: 70%;
-    height: 10%;
-    padding: 1% 5%;
+    width: 100%;
+    height: 15%;
     background-color: rgba(255,255,255,1);
     opacity: 1;
-    margin-bottom: 3%;
     z-index: 50;
     &:last-child{
         margin-bottom: 0;
@@ -74,7 +97,7 @@ const InfoDiv = styled.div`
         content:'';
         position: absolute;
         top: 10%;
-        left: 2%;
+        left: 1%;
         width: 100%;
         height: 100%;
         background-color: rgba(0,0,0,0);
@@ -82,17 +105,24 @@ const InfoDiv = styled.div`
         z-index: 5;
     }
 `
-const  Index = styled.div`
+const Index = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 20%;
-    border: 1px solid purple;
+    justify-content: flex-end;
+    width: 25%;
+    height: 100%;
+    /* margin-left: 5%; */
     color: ${Pallete.main_color};
+    font-size: 1.5em;
+    font-weight: bold;
 `
-const Content = styled(Index)`
+const Content = styled(Index)<Hovered>`
+    justify-content: flex-start;
     width: 60%;
+    margin-left: 10%;
     color: #000000;
+    animation: ${props => props.hover ? css`${fadeIn} 0.5s linear forwards` : css`${fadeOut} 0.5s linear forwards`};
+    z-index: 100;
 `
 const Links = styled.div`
     width: 21%;
@@ -101,16 +131,29 @@ const Links = styled.div`
 `
 
 const Information = () => {
+    const [hover, setHover] = useState(false)
+    console.log(hover)
     return (
         <InfoContainer>
             <Picture>
                 <Image src={`${process.env.PUBLIC_URL}/img/profile.png`}></Image>
             </Picture>
             <Info>
-                {InfoData.map(el => (
+                {InfoData.map((el) => (
                     <InfoDiv>
                         <Index>{el.index}</Index>
-                        <Content>{el.content}</Content>
+                        {el.instead === undefined? (
+                            <Content
+                                hover={true}
+                            >{el.content}</Content>
+                        ) : (
+                            <Content
+                                hover={hover}
+                                onMouseLeave={() => setHover(false)}
+                                onMouseEnter={() => setHover(true)}
+                            >{hover ? el.instead : el.content}</Content>
+                        )}
+                        
                     </InfoDiv>
                 ))}
                     

@@ -14,10 +14,6 @@ const MainRightContainer = styled.div<Container>`
     background-size: cover;
     z-index: 100;
 `
-const BgImg = styled.img`
-    width: 100%;
-    height: 100%;
-`
 
 const MainRight = () => {
     return (
