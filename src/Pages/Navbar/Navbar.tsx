@@ -20,7 +20,7 @@ const NavbarContainer = styled.div<Navbar>`
     flex-direction: row;
     justify-content: space-between;
     width: 96%;
-    padding: 0 2%;
+    padding: 1% 2%;
     background-color: ${props => props.idx < 2 ? '#ffffff' : Pallete.main_color};
     z-index: 50;
 `
@@ -36,36 +36,38 @@ const ListContainer = styled.div`
 const PageContainer = styled.div`
     display: flex;
     flex-direction: row;
-    padding: 0 20%;
-    width: 100%;
+    padding: 0 5%;
+    width: 90%;
 `
 const PageDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:12%;
-    padding: 0 3%;
+    width:20%;
+    padding: 0 2.5%;
     font-size: 1.5em;
 `
 const PageSpan = styled.span<HighlightProps>`
     color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
     margin-bottom: 5%;
+    font-size: 1.5em;
 `
 const HighlightDiv = styled.div`
-    width: 100%;
+    padding: 0 5%;
+    width: 90%;
 `
 const Highlight = styled.div<HighlightProps>`
-    width: 12%;
-    padding: 0.5% 0;
+    width: 20%;
+    padding: 1% 0;
     background-color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
-    margin-left: ${props => 23 + (props.idx * 18)}%;
+    margin-left: ${props => 2.5 + (props.idx * 25)}%;
     transition: margin-left 0.5s ease; /* margin-left 변경 시 부드럽게 이동하는 애니메이션 설정 */
 `
 const Navbar = () => {
     const dispatch = useDispatch()
     const curPage:number = useSelector((state:any) => state.page)
-    const pageList:string[] = ['Main', 'About', 'Skills', 'Project']
+    const pageList:string[] = ['Main', 'About', 'Skills', 'Projects']
     
     const movePage = (e: any, idx: number):void => {
         window.scrollTo({

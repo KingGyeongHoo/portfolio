@@ -21,7 +21,7 @@ const Project = () => {
 
     useEffect(() => {
         if (inView) {
-            dispatch({type:'Project'})
+            dispatch({type:'Projects'})
         }
     }, [inView]);
 

@@ -22,9 +22,9 @@ export const Container = styled.div<InfoProps>`
 export const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     height: 100%;
-    padding: 5%;
+    padding: 5% 10%;
 `
 
 const About = () => {

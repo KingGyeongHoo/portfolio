@@ -12,7 +12,7 @@ export const pageReducer = (state:number = pageState, action:PageAction ):number
             return 1
         case 'Skills':
             return 2
-        case 'Project':
+        case 'Projects':
             return 3
         default:
             return 0
