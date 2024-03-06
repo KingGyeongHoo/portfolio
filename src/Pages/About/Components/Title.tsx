@@ -20,7 +20,7 @@ const TitleContainer = styled.div`
 const TitleSpan = styled.span<Design>`
     color: ${props => props.color};
     font-size: 5em;
-    font-weight: strong;
+    font-weight: bold;
 `
 
 const Title:React.FC<TitleProps> = ({title, color}) => {

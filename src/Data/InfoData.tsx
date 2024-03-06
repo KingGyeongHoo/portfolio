@@ -27,3 +27,23 @@ export const InfoData:Info[] = [
         instead: '전자전기공학부 / 멀티미디어공학과'
     },
 ]
+
+interface Link{
+    redirect: string;
+    file: string;
+}
+
+export const LinkData:Link[] = [
+    {
+        redirect: 'Github',
+        file: 'github.png'
+    },
+    {
+        redirect: 'Blog',
+        file: 'tistory.png'
+    },
+    {
+        redirect: 'Instagram',
+        file: 'instagram.png'
+    }
+]

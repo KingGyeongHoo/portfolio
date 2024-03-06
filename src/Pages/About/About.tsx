@@ -30,12 +30,16 @@ export const ContentContainer = styled.div`
 const About = () => {
     const idx:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
-        threshold: 0.9
+        threshold: 0.4
     });
     const dispatch = useDispatch()
 
     useEffect(() => {
         if (inView) {
+            window.scrollTo({
+                top: window.innerHeight * 1,
+                behavior: 'smooth'
+              });
             dispatch({type:'About'})
         }
     }, [inView]);

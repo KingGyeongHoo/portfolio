@@ -58,7 +58,7 @@ const PageDiv = styled.div`
 const PageSpan = styled.span<HighlightProps>`
     color: ${props => props.idx < 2 ? Pallete.main_color : '#ffffff'};
     margin-bottom: 5%;
-    font-size: 1.5em;
+    font-size: 1.2em;
 `
 const HighlightDiv = styled.div`
     padding: 0 5%;

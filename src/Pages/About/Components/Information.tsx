@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styled, {css, keyframes} from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 import Pallete from "../../../Pallete";
-import { InfoData } from "../../../Data/InfoData";
+import { InfoData, LinkData } from "../../../Data/InfoData";
 
-interface Hovered{
+interface Hovered {
     hover?: boolean;
 }
 
@@ -109,14 +109,14 @@ const Index = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 25%;
+    width: 15%;
     height: 100%;
-    /* margin-left: 5%; */
+    margin-left: 5%;
     color: ${Pallete.main_color};
     font-size: 1.5em;
     font-weight: bold;
 `
-const Content = styled(Index)<Hovered>`
+const Content = styled(Index) <Hovered>`
     justify-content: flex-start;
     width: 60%;
     margin-left: 10%;
@@ -126,8 +126,38 @@ const Content = styled(Index)<Hovered>`
 `
 const Links = styled.div`
     width: 21%;
+    height: 100%;
     margin-left: 4%;
     border: 1px solid skyblue;
+`
+const LinkSpanDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 10%;
+`
+const LinkSpan = styled.span`
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+`
+const LinkDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
+    background-color: ${Pallete.main_color};
+`
+const LinkContent = styled.div`
+    width: 30%;
+    border: 1px solid black;
+`
+const LinkIcon = styled.img`
+    height: 30%;
 `
 
 const Information = () => {
@@ -142,7 +172,7 @@ const Information = () => {
                 {InfoData.map((el) => (
                     <InfoDiv>
                         <Index>{el.index}</Index>
-                        {el.instead === undefined? (
+                        {el.instead === undefined ? (
                             <Content
                                 hover={true}
                             >{el.content}</Content>
@@ -153,12 +183,24 @@ const Information = () => {
                                 onMouseEnter={() => setHover(true)}
                             >{hover ? el.instead : el.content}</Content>
                         )}
-                        
+
                     </InfoDiv>
                 ))}
-                    
+
             </Info>
-            <Links></Links>
+            <Links>
+                <LinkSpanDiv>
+                    <LinkSpan>LINKS</LinkSpan>
+                </LinkSpanDiv>
+                <LinkDiv>
+                    {LinkData.map(el => (
+                        <LinkContent>
+                            <LinkIcon src={`${process.env.PUBLIC_URL}/img/${el.file}`}></LinkIcon>
+                        </LinkContent>
+                    ))}
+                    
+                </LinkDiv>
+            </Links>
         </InfoContainer>
     )
 }
