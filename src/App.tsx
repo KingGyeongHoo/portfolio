@@ -20,7 +20,7 @@ const Container = styled.div<ContainerProps>`
 function App() {
   const [fontSize, setFontSize] = useState<number>(Math.floor(window.innerWidth/120))
     window.addEventListener('resize', () => {
-        setFontSize(Math.floor(window.innerWidth/120))
+        setFontSize(Math.floor(window.innerWidth/240 + window.innerHeight/135))
       });
 
   return (

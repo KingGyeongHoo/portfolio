@@ -23,7 +23,7 @@ export const InfoData:Info[] = [
     },
     {
         index: 'UNIV',
-        content: '동국대학교',
+        content: '동국대학교 서울캠퍼스',
         instead: '전자전기공학부 / 멀티미디어공학과'
     },
 ]
@@ -31,19 +31,23 @@ export const InfoData:Info[] = [
 interface Link{
     redirect: string;
     file: string;
+    link:string;
 }
 
 export const LinkData:Link[] = [
     {
         redirect: 'Github',
-        file: 'github.png'
+        file: 'github.png',
+        link:'https://github.com/KingGyeongHoo'
     },
     {
         redirect: 'Blog',
-        file: 'tistory.png'
+        file: 'tistory.png',
+        link: 'https://kinggh.tistory.com/'
     },
     {
         redirect: 'Instagram',
-        file: 'instagram.png'
+        file: 'instagram.png',
+        link: 'https://www.instagram.com/king_gyeonghoo/'
     }
 ]

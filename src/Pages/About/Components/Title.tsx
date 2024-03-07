@@ -14,7 +14,7 @@ const TitleContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 10%;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
     border: 1px solid red;
 `
 const TitleSpan = styled.span<Design>`

@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
-import Title from "./Components/Title"
+import Title from "./Components/Title";
 import Information from './Components/Information';
+import Text from './Components/Text';
 
 interface InfoProps{
-    url:string
+    url:string;
 }
 export const Container = styled.div<InfoProps>`
     display: flex;
@@ -23,14 +24,14 @@ export const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 100%;
+    /* height: 100%; */
     padding: 5% 10%;
 `
 
 const About = () => {
     const idx:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
-        threshold: 0.4
+        threshold: 0.9
     });
     const dispatch = useDispatch()
 
@@ -49,6 +50,7 @@ const About = () => {
             <ContentContainer>
                 <Title title='About' color='#ffffff'></Title>
                 <Information></Information>
+                <Text></Text>
             </ContentContainer>
         </Container>
     )

@@ -46,7 +46,7 @@ const Text = styled.span<Text>`
     display: ${props => props.display};
     font-size: 7em;
     overflow: hidden; /* 타이핑 효과를 위해 오버플로우 숨김 설정 */
-    white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+    white-space: nowrap;
     animation: ${props => props.typing ? typingAnimation : 'none'} 1.5s steps(40, end); /* 타이핑 애니메이션 적용 */
 `
 const Text2 = styled(Text)<Text>`
