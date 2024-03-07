@@ -9,15 +9,13 @@ interface Design{
     color:string;
 }
 
-const TitleContainer = styled.div`
+const TitleSpan = styled.h1<Design>`
     display: flex;
     align-items: center;
     width: 100%;
     height: 10%;
     margin-bottom: 3%;
     border: 1px solid red;
-`
-const TitleSpan = styled.span<Design>`
     color: ${props => props.color};
     font-size: 5em;
     font-weight: bold;
@@ -25,9 +23,7 @@ const TitleSpan = styled.span<Design>`
 
 const Title:React.FC<TitleProps> = ({title, color}) => {
     return (
-        <TitleContainer>
             <TitleSpan color={color}>{title}</TitleSpan>
-        </TitleContainer>
     )
 }
 export default Title

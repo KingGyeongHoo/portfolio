@@ -8,7 +8,7 @@ interface Hovered {
     hover?: boolean;
 }
 
-const fadeIn = keyframes`
+export const fadeIn = keyframes`
     0% {
         opacity: 0;
     }
@@ -24,7 +24,7 @@ const fadeChange = keyframes`
         opacity: 1;
     }
 `;
-const fadeOut = keyframes`
+export const fadeOut = keyframes`
     0% {
         opacity: 1;
     }
@@ -204,7 +204,7 @@ const Information = () => {
     return (
         <InfoContainer>
             <Picture>
-                <Image src={`${process.env.PUBLIC_URL}/img/profile.png`}></Image>
+                <Image src={`${process.env.PUBLIC_URL}/img/about/profile.png`}></Image>
             </Picture>
             <Info>
                 {InfoData.map((el, idx) => (
@@ -244,7 +244,7 @@ const Information = () => {
                     {LinkData.map((el, idx) => (
                         <LinkContent>
                             <LinkIcon
-                                src={`${process.env.PUBLIC_URL}/img/${el.file}`}
+                                src={`${process.env.PUBLIC_URL}/img/about/${el.file}`}
                                 onMouseLeave={() => setIconHover(999)}
                                 onMouseEnter={() => setIconHover(idx)}
                                 onClick={openWindow(el.link)}

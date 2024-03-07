@@ -6,6 +6,7 @@ import Pallete from "../../Pallete"
 
 import Title from '../About/Components/Title';
 import { Container, ContentContainer } from '../About/About';
+import SkillBox from './Components/SkillBox';
 
 interface SkillsProps{
     url:string
@@ -20,17 +21,20 @@ const Skills = () => {
         threshold: 0.9
     });
     const dispatch = useDispatch()
-
+    const skill = useSelector((state:any) => state.click)
     useEffect(() => {
         if (inView) {
             dispatch({type:'Skills'})
         }
     }, [inView]);
+    console.log(skill)
 
     return (
         <SkillsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
             <ContentContainer>
                 <Title title='Skills' color={Pallete.main_color}></Title>
+                <SkillBox title="Frontend Skills" isAbove={true}></SkillBox>
+                <SkillBox title="Other Skills" isAbove={false}></SkillBox>
             </ContentContainer>
         </SkillsContainer>
     )

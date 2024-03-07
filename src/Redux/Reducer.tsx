@@ -19,8 +19,33 @@ export const pageReducer = (state:number = pageState, action:PageAction ):number
     }
 }
 
+interface OnclickAction{
+    type:string;
+    onClick:boolean;
+}
+const clickState: boolean = false
+export const ClickReducer = (state:boolean = clickState, action: OnclickAction):any => {
+    switch(action.type){
+        case 'Javascript':
+            return {
+                state,
+                skill:'Javascript',
+                isOpen: true
+            }
+        case 'close':
+            return{
+                state,
+                skill:'',
+                isOpen:false
+            }
+        default:
+            return state
+    }
+}
+
 const reducers = combineReducers<any>({
-    page: pageReducer
+    page: pageReducer,
+    click:ClickReducer
 })
 
 export default reducers
