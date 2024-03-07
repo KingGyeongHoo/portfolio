@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled, {css} from "styled-components"
 
 import { SkillData } from "../../../Data/SkillData";
@@ -28,7 +28,9 @@ interface Modal{
 const Container = styled.div`
     position: relative;
     width: 100%;
-    margin: 1% 0;
+    &:first-child{
+        margin-bottom: 1%;
+    }
 `
 const SkillsTitle = styled.h1`
     padding: 1%;
@@ -71,16 +73,6 @@ const SkillProf = styled.p<Prof>`
     font-size: 1.2em;
     font-weight: bold;
 `
-const ModalBackground = styled.div<Modal>`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left:0;
-    display: ${props => props.isOpen ? 'flex' : 'none'};
-    background-color: rgba(0,0,0,0.5);
-    z-index: 200;
-`
 const SkillBox:React.FC<SkillsProps> = ({title,isAbove}) => {
     let data:any[] = []
     if(isAbove){
@@ -88,16 +80,26 @@ const SkillBox:React.FC<SkillsProps> = ({title,isAbove}) => {
     } else {
         data = SkillData.slice(8)
     }
-    const [hover, setHover] = useState(999)
-    const [modalOpen, setModalOpen] = useState(false)
     const dispatch = useDispatch()
+    const skillInfo = useSelector((state:any) => state.skill)
+    const openModal = (skill:string) => {
+        return () => {
+            dispatch({
+                type:skill,
+            })
+            dispatch({
+                type:'Modal_Open',
+            })
+        }
+    }
+    const [hover, setHover] = useState(999)
     return (
         <Container>
             <SkillsTitle>{title}</SkillsTitle>
             <SkillContent>
                 {data.map((el, idx) => {
                     return(
-                        <SkillDiv onClick={() => dispatch({type:el.skill, isOpen: true})}>
+                        <SkillDiv onClick={openModal(el.skill)}>
                             <SkillImg
                                 src={`${process.env.PUBLIC_URL}/img/skills/${el.skill}.png`}
                                 onMouseOver={(event) => {

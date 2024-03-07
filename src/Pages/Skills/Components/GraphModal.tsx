@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { UseSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled, {css} from "styled-components"
 
 import { BgCircles } from "../../Main/Components/MainLeft";
+import { fadeIn, fadeOut } from "../../About/Components/Information";
 interface Modal{
     isOpen:boolean;
 }
@@ -14,19 +15,33 @@ const ModalBackground = styled.div<Modal>`
     top:0;
     left:0;
     display: ${props => props.isOpen ? 'flex' : 'none'};
-    background-color: rgba(255,255,255,0.2);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: ${props => props.isOpen ? css`${fadeIn} 0.3s linear forwards` : css`${fadeOut} 0.3s linear forwards`};
+    z-index: 110;
 `
-const GraphModal:React.FC<Open> = ({open}) => {
-    console.log(`모달은 ${open}`)
-    const  [isOpen, setIsOpen] = useState(true)
+const ModalContainer = styled.div`
+    width: 60%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 40px;
+`
+const GraphModal = () => {
+    const dispatch = useDispatch()
+    const isOpen = useSelector((state:any) => state.isOpen)
+    const skillInfo = useSelector((state:any) => state.skill)
+    console.log(skillInfo)
     const closeModal = () => {
-        setIsOpen(false)
+        dispatch({
+            type: 'Modal_Close',
+        })
     }
     return(
-        <ModalBackground
-            isOpen={open}
-            onClick={closeModal}
-        >
+        <ModalBackground isOpen={isOpen} onClick={closeModal}>
+            <ModalContainer>{skillInfo.skill}</ModalContainer>
         </ModalBackground>
     )
 }

@@ -1,13 +1,36 @@
 interface Skills{
     skill: string;
-    color: string;
+    color?: string;
     prof:number;
+    info?:SkillInfo;
+    totalRate?:number;
+    text?:Array<string>
+}
+interface SkillInfo{
+    proficiency: number;
+    frequency: number;
+    experience: number;
+    applicant: number;
+    study_duration: number;
 }
 export const SkillData:Skills[] = [
     {
         skill: 'Javascript',
         color:'#F7DF1E',
-        prof:3
+        prof:3,
+        info:{
+            proficiency: 90,
+            frequency: 90,
+            experience: 90,
+            applicant: 80,
+            study_duration:90
+        },
+        totalRate:90,
+        text:[
+            "JavaScript를 활용한 상호작용적이고 동적인 웹 애플리케이션 개발 경험이 있습니다",
+            "각종 라이브러리, 함수 등 사용자와의 원활한 상호작용을 위한 풍부한 기술을 보유하고 있습니다.",
+            "프로그래머스 Lv2~3 수준의 문제 해결이 가능합니다"
+        ]
     },
     {
         skill: 'HTML',
