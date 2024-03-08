@@ -4,9 +4,8 @@ interface SkillAction {
   type: string;
 }
 
-const skillState: string = "";
 export const skillReducer = (
-  state: string = skillState,
+  state: any = {},
   action: SkillAction
 ): any => {
   switch (action.type) {
