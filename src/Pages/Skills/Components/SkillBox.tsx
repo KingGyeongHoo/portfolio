@@ -1,28 +1,28 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled, {css} from "styled-components"
+import styled, { css } from "styled-components"
 
 import { SkillData } from "../../../Data/SkillData";
 import Pallete from "../../../Pallete";
 import { fadeIn, fadeOut } from "../../About/Components/Information";
 
-interface SkillsProps{
-    title:string;
-    isAbove:boolean;
+interface SkillsProps {
+    title: string;
+    isAbove: boolean;
 }
-interface Hover{
+interface Hover {
     isHover: boolean;
 }
-interface Skill{
-    skill:string;
+interface Skill {
+    skill: string;
     color: string;
-    isSc:boolean;
+    isSc: boolean;
 }
-interface Prof{
-    prof:number;
+interface Prof {
+    prof: number;
 }
-interface Modal{
-    isOpen:boolean;
+interface Modal {
+    isOpen: boolean;
 }
 
 const Container = styled.div`
@@ -39,6 +39,7 @@ const SkillsTitle = styled.h1`
 const SkillContent = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
@@ -66,31 +67,29 @@ const SkillDesc = styled.p<Skill>`
     font-size: ${props => props.isSc ? '1.3em' : '1.8em'};
     font-weight: bold;
 `
-const SkillProf = styled.p<Prof>`
+export const SkillProf = styled.p<Prof>`
     text-align: center;
-    color:${props => props.prof > 2 ? Pallete.prof_familiar : 
-    props.prof > 1 ? Pallete.prof_learning : Pallete.prof_experienced};
+    color:${props => props.prof > 2 ? Pallete.prof_familiar :
+        props.prof > 1 ? Pallete.prof_learning : Pallete.prof_experienced};
     font-size: 1.2em;
     font-weight: bold;
 `
-const SkillBox:React.FC<SkillsProps> = ({title,isAbove}) => {
-    let data:any[] = []
-    if(isAbove){
+const SkillBox: React.FC<SkillsProps> = ({ title, isAbove }) => {
+    let data: any[] = []
+    if (isAbove) {
         data = SkillData.slice(0, 8)
     } else {
         data = SkillData.slice(8)
     }
     const dispatch = useDispatch()
-    const skillInfo = useSelector((state:any) => state.skill)
-    const openModal = (skill:string) => {
-        return () => {
-            dispatch({
-                type:skill,
-            })
-            dispatch({
-                type:'Modal_Open',
-            })
-        }
+    const skillInfo = useSelector((state: any) => state.skill)
+    const openModal = (skill: string) => {
+        dispatch({
+            type: skill,
+        })
+        dispatch({
+            type: 'Modal_Open',
+        })
     }
     const [hover, setHover] = useState(999)
     return (
@@ -98,13 +97,14 @@ const SkillBox:React.FC<SkillsProps> = ({title,isAbove}) => {
             <SkillsTitle>{title}</SkillsTitle>
             <SkillContent>
                 {data.map((el, idx) => {
-                    return(
-                        <SkillDiv onClick={openModal(el.skill)}>
+                    return (
+                        <SkillDiv onClick={() => openModal(el.skill)}>
                             <SkillImg
                                 src={`${process.env.PUBLIC_URL}/img/skills/${el.skill}.png`}
                                 onMouseOver={(event) => {
                                     event.stopPropagation()
-                                    setHover(idx)}
+                                    setHover(idx)
+                                }
                                 }
                                 onMouseLeave={(event) => {
                                     event.stopPropagation()
@@ -113,7 +113,11 @@ const SkillBox:React.FC<SkillsProps> = ({title,isAbove}) => {
                             ></SkillImg>
                             <SkillDescDiv isHover={hover === idx}>
                                 <SkillDesc skill={el.skill} color={el.color} isSc={idx === 5 && isAbove}>{el.skill}</SkillDesc>
-                                <SkillProf prof={el.prof}>familiar</SkillProf>
+                                <SkillProf prof={el.prof}>
+                                    {el.prof > 2 ? 'Familiar' : (
+                                        el.prof > 1 ? 'Learning' : 'Experienced'
+                                    )}
+                                </SkillProf>
                             </SkillDescDiv>
                         </SkillDiv>
                     )

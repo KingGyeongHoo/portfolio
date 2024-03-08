@@ -15,7 +15,7 @@ const reducers = combineReducers<any>({
 const persistConfig = {
     key: "root", // localStorage key 
     storage, // localStorage
-    whitelist: ["figureReducer"], // target (reducer name)
+    whitelist: ["skill"], // target (reducer name)
   }
 
 

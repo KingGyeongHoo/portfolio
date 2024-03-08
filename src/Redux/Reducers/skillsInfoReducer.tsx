@@ -20,6 +20,28 @@ export const skillReducer = (
       return SkillData[3];
     case "Redux":
       return SkillData[4];
+    case "Styled-Components":
+      return SkillData[5];
+    case "AXIOS":
+      return SkillData[6];
+    case "Typescript":
+      return SkillData[7];
+    case "Python":
+      return SkillData[8];
+    case "AWS":
+      return SkillData[9];
+    case "Netlify":
+      return SkillData[10];
+    case "Node.js":
+      return SkillData[11];
+    case "Git":
+      return SkillData[12];
+    case "Figma":
+      return SkillData[13];
+    case "Photoshop":
+      return SkillData[14];
+    case "Jira":
+      return SkillData[15];
     default:
       return state;
   }
