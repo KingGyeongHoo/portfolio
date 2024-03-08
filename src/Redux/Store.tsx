@@ -1,12 +1,21 @@
-import { legacy_createStore as createStore } from 'redux';
+import { legacy_createStore as createStore, combineReducers } from 'redux';
 import { persistStore, persistReducer  } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import reducers from './Reducer';
+
+import { pageReducer } from './Reducers/pageReducer';
+import { modalOpenReducer} from './Reducers/modalOpenReducer';
+import { skillReducer } from './Reducers/skillsInfoReducer';
+
+const reducers = combineReducers<any>({
+  page: pageReducer,
+  isOpen:modalOpenReducer,
+  skill:skillReducer
+})
 
 const persistConfig = {
     key: "root", // localStorage key 
     storage, // localStorage
-    whitelist: ["figureReducer"], // target (reducer name)
+    whitelist: ["skill"], // target (reducer name)
   }
 
 

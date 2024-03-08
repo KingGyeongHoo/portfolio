@@ -37,10 +37,6 @@ const About = () => {
 
     useEffect(() => {
         if (inView) {
-            window.scrollTo({
-                top: window.innerHeight * 1,
-                behavior: 'smooth'
-              });
             dispatch({type:'About'})
         }
     }, [inView]);

@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 interface PageAction {
     type: string;
 }
@@ -15,12 +13,6 @@ export const pageReducer = (state:number = pageState, action:PageAction ):number
         case 'Projects':
             return 3
         default:
-            return 0
+            return state
     }
 }
-
-const reducers = combineReducers<any>({
-    page: pageReducer
-})
-
-export default reducers

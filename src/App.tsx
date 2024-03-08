@@ -14,6 +14,7 @@ interface ContainerProps{
 const Container = styled.div<ContainerProps>`
     flex-direction: column;
     width: 100%;
+    height: 100vh;
     padding: 0;
     font-size: ${props => props.fontsize}px;
 `
@@ -29,12 +30,10 @@ function App() {
         <Navbar></Navbar>
       </nav>
       <main>
-        <Container fontsize={fontSize}>
           <Main></Main>
           <Info></Info>
           <Skills></Skills>
           <Project></Project>
-        </Container>
       </main>
     </Container>
     

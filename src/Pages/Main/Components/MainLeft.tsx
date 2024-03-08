@@ -85,6 +85,16 @@ const BgCircle = styled.div<Circle>`
     opacity: 0.1;
 `
 
+export const BgCircles = () => {
+    return(
+        <>
+            <BgCircle top='-35' left='-40'></BgCircle>
+            <BgCircle top='60' left='40'></BgCircle>
+            <BgCircle top='-45' left='65'></BgCircle>
+        </>
+    )
+}
+
 const MainLeft = () => {
     const [type, setType] = useState<boolean>(false)
     const [fade, setFade] = useState<boolean>(false)
@@ -121,11 +131,7 @@ const MainLeft = () => {
                 </>
                 <Button onClick={scrollToBottom} fade={fade}>Learn More</Button>
             </TextDiv>
-            <>
-                <BgCircle top='-35' left='-40'></BgCircle>
-                <BgCircle top='60' left='40'></BgCircle>
-                <BgCircle top='-45' left='65'></BgCircle>
-            </>
+            <BgCircles />
         </MainLeftContainer>
     )
 }
