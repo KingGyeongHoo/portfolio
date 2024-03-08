@@ -4,12 +4,11 @@ import { useDispatch } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
-const InfoContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    padding: 0;
+import Title from '../About/Components/Title';
+import { Container, ContentContainer } from '../About/About';
+
+const ProjectsContainer = styled(Container)`
+    position: relative;
     background-color: #ffffff;
 `
 
@@ -26,8 +25,11 @@ const Project = () => {
     }, [inView]);
 
     return (
-        <InfoContainer ref={ref}>
-        </InfoContainer>
+        <ProjectsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
+            <ContentContainer>
+                <Title title='Projects' color={Pallete.main_color}></Title>
+            </ContentContainer>
+        </ProjectsContainer>
     )
 }
 export default Project
