@@ -28,9 +28,9 @@ export const ContentContainer = styled.div`
 `
 
 const About = () => {
-    const idx:number = useSelector((state:any) => state.page)
+    const curPage:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
-        threshold: 0.9
+        threshold: 0.5
     });
     const dispatch = useDispatch()
 

@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
-import { useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useRef, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
@@ -14,11 +14,11 @@ const ProjectsContainer = styled(Container)`
 `
 
 const Project = () => {
+    const curPage:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
-        threshold: 0.9
+        threshold: 0.5
     });
     const dispatch = useDispatch()
-
     useEffect(() => {
         if (inView) {
             dispatch({type:'Projects'})

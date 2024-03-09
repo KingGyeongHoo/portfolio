@@ -85,11 +85,8 @@ const Info = styled.div`
     justify-content: center;
     align-items: flex-start;
     width: 700px;
-    @media (max-width: 1350) {
+    @media (max-width: 850px) {
         width: 400px; /* 화면이 작아질 때의 너비 */
-    }
-    @media (max-width: 768px) {
-        width: 400px; /* 화면이 더 작아질 때의 너비 */
     }
 `
 
