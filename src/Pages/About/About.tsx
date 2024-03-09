@@ -14,7 +14,6 @@ interface InfoProps{
 export const Container = styled.div<InfoProps>`
     display: flex;
     width: 100%;
-    height: 100vh;
     padding: 0;
     background-color: ${Pallete.main_color};
     background-image: url(${props => props.url});
@@ -24,7 +23,7 @@ export const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
-    /* height: 100%; */
+    height: 90%;
     padding: 5% 10%;
 `
 

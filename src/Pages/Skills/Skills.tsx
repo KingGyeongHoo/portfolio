@@ -24,12 +24,13 @@ const Skills = () => {
     });
     const dispatch = useDispatch()
     const skillInfo = useSelector((state: any) => state.skill)
+    const a = useSelector((state: any) => state.page)
+    console.log(a)
     useEffect(() => {
         if (inView) {
             dispatch({type:'Skills'})
         }
     }, [inView]);
-    console.log(skillInfo)
     return (
         <SkillsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
             {skillInfo.skill === undefined ? '' : <GraphModal></GraphModal>}

@@ -15,7 +15,6 @@ const TitleSpan = styled.h1<Design>`
     width: 100%;
     height: 10%;
     margin-bottom: 3%;
-    border: 1px solid red;
     color: ${props => props.color};
     font-size: 5em;
     font-weight: bold;

@@ -37,6 +37,7 @@ const MainLeftContainer = styled.div`
     width: 60%;
     height: 100%;
     background-color: #ffffff;
+    overflow: hidden;
 `
 const TextDiv = styled.div`
     position: relative;

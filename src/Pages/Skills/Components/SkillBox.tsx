@@ -50,7 +50,10 @@ const SkillDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 12%;
+    width: 190px;
+    height: auto;
+    margin: 1% 0;
+    cursor: pointer;
 `
 const SkillImg = styled.img`
     width: 70%;

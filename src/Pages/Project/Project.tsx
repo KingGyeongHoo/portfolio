@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
+import Card from './Components/Card';
 import Title from '../About/Components/Title';
 import { Container, ContentContainer } from '../About/About';
 
@@ -28,6 +29,7 @@ const Project = () => {
         <ProjectsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
             <ContentContainer>
                 <Title title='Projects' color={Pallete.main_color}></Title>
+                <Card></Card>
             </ContentContainer>
         </ProjectsContainer>
     )
