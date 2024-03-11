@@ -7,6 +7,7 @@ import Pallete from "../../Pallete"
 import Card from './Components/Card';
 import Title from '../About/Components/Title';
 import { Container, ContentContainer } from '../About/About';
+import ProjectsModal from './Components/ProjectsModal';
 
 const ProjectsContainer = styled(Container)`
     position: relative;
@@ -24,9 +25,11 @@ const Project = () => {
             dispatch({type:'Projects'})
         }
     }, [inView]);
+    const project = useSelector((state: any) => state.project)
 
     return (
         <ProjectsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
+            {project.projectName !== undefined ? <ProjectsModal></ProjectsModal> : ''}
             <ContentContainer>
                 <Title title='Projects' color={Pallete.main_color}></Title>
                 <Card></Card>

@@ -24,6 +24,9 @@ const TextTitle = styled.h1`
     color: #ffffff;
     border-bottom: 10px solid #ffffff;
     font-size: 3em;
+    @media (max-width: 850px) {
+        font-size: 2.5em; /* 화면이 작아질 때의 너비 */
+    }
     font-weight: bold;
 `
 const TextContent = styled.p`
@@ -31,6 +34,12 @@ const TextContent = styled.p`
     margin-top: 0.5%;
     color: #ffffff;
     font-size: 1.5em;
+    @media (max-width: 1100px) {
+        font-size: 1.0em;
+    }
+    @media (max-width: 850px) {
+        font-size: 0.8em;
+    }
     font-weight: bold;
 `
 

@@ -1,5 +1,6 @@
 import styled, {keyframes, css} from "styled-components";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Pallete from "../../../Pallete";
 
 import { projectData } from "../../../Data/projectData";
@@ -164,12 +165,17 @@ const Arrow = styled.img`
 `;
 
 const Card = () => {
+  const dispatch = useDispatch()
   const openWindow = (link:string) => {
     if(link.length < 1){
       return () => alert('준비중입니다!')
     } else {
       return () => {window.open(link, '_blank')}
     }
+  }
+  const openProjcetModal = (project:string) => {
+    dispatch({type: project})
+    dispatch({type: 'PModal_Open'})
   }
   return (
     <CardContainer>
@@ -222,8 +228,8 @@ const Card = () => {
                   </LinkDiv>
                 </ContentDiv>
                 <ShowDetailDiv>
-                  <Button>
-                    <ShowDetail>Learn More</ShowDetail>
+                  <Button onClick={() => openProjcetModal(el.projectName)}>
+                    <ShowDetail>Show Detail</ShowDetail>
                     <Arrow
                       src={`${process.env.PUBLIC_URL}/img/projects/Arrow.png`}
                     ></Arrow>

@@ -5,17 +5,21 @@ import storage from 'redux-persist/lib/storage';
 import { pageReducer } from './Reducers/pageReducer';
 import { modalOpenReducer} from './Reducers/modalOpenReducer';
 import { skillReducer } from './Reducers/skillsInfoReducer';
+import { projectModalOpenReducer } from './Reducers/projectsModalOpenReducer';
+import { projectReducer } from './Reducers/projectsInfoReducer';
 
 const reducers = combineReducers<any>({
   page: pageReducer,
   isOpen:modalOpenReducer,
-  skill:skillReducer
+  skill:skillReducer,
+  pIsOpen:projectModalOpenReducer,
+  project: projectReducer
 })
 
 const persistConfig = {
     key: "root", // localStorage key 
     storage, // localStorage
-    whitelist: ["skill"], // target (reducer name)
+    whitelist: ["skill", "project"], // target (reducer name)
   }
 
 
