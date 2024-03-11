@@ -5,8 +5,17 @@ import Pallete from "../../../Pallete";
 import { ModalBackground, ModalContainer, ModalContentDiv } from "../../Skills/Components/GraphModal";
 
 const PModalContainer = styled(ModalContainer)`
-    width: 1000px;
+    width: 1200px;
+    @media (max-width: 1300px) {
+        width: 800px;
+    }
+    @media (max-width: 1100px) {
+        width: 600px;
+    }
     height: 800px;
+    @media (max-height: 720px) {
+        height: 500px;
+    }
     padding: 0;
     overflow: scroll;
     overflow-x:hidden;
@@ -103,9 +112,13 @@ const ProjectsModal = () => {
     const closeProjcetModal = () => {
         dispatch({ type: 'PModal_Close' })
     }
+    const modalContent = document.querySelector('.modal') as HTMLElement;
+    if(modalContent !== null){
+        modalContent.scrollTop = 0;
+    }
     return (
         <ModalBackground isOpen={projectModalOpen} onClick={closeProjcetModal}>
-            <PModalContainer>
+            <PModalContainer className='modal'>
                 <MotalTitleDiv>
                     <ModalTitle>{project.projectName}</ModalTitle>
                 </MotalTitleDiv>

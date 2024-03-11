@@ -41,8 +41,13 @@ export const ModalContainer = styled.div`
   }
   @media (max-width: 600px) {
     width: 400px;
+    font-size: 0.75em;
   }
   height: 800px;
+  @media (max-height: 850px) {
+    height: 500px;
+    font-size: 0.75em;
+  }
   padding: 1%;
   background-color: #ffffff;
   border-radius: 40px;

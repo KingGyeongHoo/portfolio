@@ -14,6 +14,9 @@ interface ImgProps{
 interface FigmaProps {
   color: string;
 }
+interface Hover{
+  isHover: boolean;
+}
 
 const CardContainer = styled.div`
   display: flex;
@@ -22,16 +25,18 @@ const CardContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #ffffff;
 `;
-const CardDiv = styled.div`
+const CardDiv = styled.div<Hover>`
   position: relative;
   width: 450px;
   height: 540px;
-  margin: 1% 0;
+  margin-bottom: 6%;
   padding-bottom: 1%;
   border-radius: 10px;
+  background-color: #ffffff;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  transform: ${props => props.isHover ? 'scale(1.05)' : ''};
   overflow: hidden;
 `;
 const LogoDiv = styled.div<BgProps>`
@@ -165,12 +170,21 @@ const Arrow = styled.img`
 `;
 
 const Card = () => {
+  const [hover, setHover] = useState(999)
   const dispatch = useDispatch()
   const openWindow = (link:string) => {
     if(link.length < 1){
       return () => alert('준비중입니다!')
     } else {
-      return () => {window.open(link, '_blank')}
+      if(link.includes('buyrricade')){
+        return () => {
+          alert('sample Id : sample@gmail.com\nsample Pw : password123!')
+          window.open(link, '_blank')
+        }
+      } else {
+          return () => {window.open(link, '_blank')}
+      }
+      
     }
   }
   const openProjcetModal = (project:string) => {
@@ -182,7 +196,7 @@ const Card = () => {
       {projectData.map((el:any, idx:number) => {
         return (
           <>
-            <CardDiv>
+            <CardDiv isHover={hover === idx} onMouseOver={() => setHover(idx)} onMouseLeave={() => setHover(999)}>
               <TitleDiv>
                 <TitleSpan>{el.projectName}</TitleSpan>
               </TitleDiv>

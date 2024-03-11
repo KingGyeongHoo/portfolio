@@ -7,7 +7,7 @@ interface Text{
     display: string;
     typing: boolean;
 }
-interface Button{
+interface ButtonProps{
     fade:boolean;
 }
 interface Circle{
@@ -46,6 +46,21 @@ const TextDiv = styled.div`
 const Text = styled.span<Text>`
     display: ${props => props.display};
     font-size: 7em;
+    @media (max-width: 1700px){
+        font-size: 6em;
+    }
+    @media (max-width: 1440px){
+        font-size: 5em;
+    }
+    @media (max-width: 1200px){
+        font-size: 4em;
+    }
+    @media (max-width: 960px){
+        font-size: 3em;
+    }
+    @media (max-width: 560px){
+        font-size: 2.5em;
+    }
     overflow: hidden; /* 타이핑 효과를 위해 오버플로우 숨김 설정 */
     white-space: nowrap;
     animation: ${props => props.typing ? typingAnimation : 'none'} 1.5s steps(40, end); /* 타이핑 애니메이션 적용 */
@@ -57,7 +72,7 @@ const Highlight = styled.span`
     font-family: "Black Han Sans", sans-serif;
     color: ${Pallete.main_color};
 `
-const Button = styled.button<Button>`
+const Button = styled.button<ButtonProps>`
     z-index: 10;
     display: flex;
     width: 25%;
@@ -68,6 +83,12 @@ const Button = styled.button<Button>`
     border: 0;
     border-radius: 10px;
     font-size: 2em;
+    @media (max-width: 1640px){
+        font-size: 1.5em;
+    }
+    @media (max-width: 768px){
+        font-size: 1em;
+    }
     color: #ffffff;
     opacity: 0;
     &:hover{
@@ -116,10 +137,14 @@ const MainLeft = () => {
 
     const scrollToBottom = ():void => {
         dispatch({type: 'About'})
-        window.scrollTo({
-          top: window.innerHeight,
-          behavior: 'smooth'
-        });
+        const nextSection = document.querySelector('.About') as HTMLElement;
+        if(nextSection){
+            const nextSectionTop = nextSection.offsetTop;
+            window.scrollTo({
+                top: nextSectionTop,
+                behavior: 'smooth'
+              });
+        }
       };
 
 

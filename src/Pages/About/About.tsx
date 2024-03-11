@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
@@ -23,8 +23,8 @@ export const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 90%;
-    padding: 5% 10%;
+    height: 94%;
+    padding: 3% 10%;
 `
 
 const About = () => {

@@ -21,10 +21,10 @@ const SkillsContainer = styled(Container)`
 const Skills = () => {
     const skillInfo = useSelector((state: any) => state.skill)
     const curPage:number = useSelector((state:any) => state.page)
-    const [threshold, setThreshold] = useState<number>(0.9)
     const [ref, inView] = useInView({
         threshold: 0.5
     });
+    
     const dispatch = useDispatch()
     useEffect(() => {
         if (inView) {
