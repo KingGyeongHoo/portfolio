@@ -146,7 +146,7 @@ export const projectData: any[] = [
     desc: '현재 보고 계시는 프론트엔드 개발자 송경후의 웹 포트폴리오로.정보, 기술 스택, 프로젝트 등을 확인 할 수 있는 페이지 입니다.',
     background: `url(${process.env.PUBLIC_URL}/img/content_bg_main.png)`,
     github: 'https://github.com/KingGyeongHoo/portfolio',
-    deploy: '',
+    deploy: 'https://ghsong.netlify.app/',
     figma: 'https://www.figma.com/file/hlUe473MkhgZR6NyhG7Nx8/Portfolio?type=design&node-id=62%3A14&mode=design&t=pkHbpdN6TtxdqW8M-1',
     info: {
       stacks: [
