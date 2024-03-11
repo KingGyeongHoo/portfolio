@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
@@ -14,7 +14,6 @@ interface InfoProps{
 export const Container = styled.div<InfoProps>`
     display: flex;
     width: 100%;
-    height: 100vh;
     padding: 0;
     background-color: ${Pallete.main_color};
     background-image: url(${props => props.url});
@@ -24,14 +23,14 @@ export const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 80%;
-    /* height: 100%; */
-    padding: 5% 10%;
+    height: 94%;
+    padding: 3% 10%;
 `
 
 const About = () => {
-    const idx:number = useSelector((state:any) => state.page)
+    const curPage:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
-        threshold: 0.9
+        threshold: 0.5
     });
     const dispatch = useDispatch()
 

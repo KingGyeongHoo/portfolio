@@ -13,8 +13,8 @@ interface Modal {
 interface Open {
   open: boolean;
 }
-const ModalBackground = styled.div<Modal>`
-  position: absolute;
+export const ModalBackground = styled.div<Modal>`
+  position: fixed;
   top: 0;
   left: 0;
   display: ${(props) => (props.isOpen ? "flex" : "none")};
@@ -33,16 +33,27 @@ const ModalBackground = styled.div<Modal>`
         `};
   z-index: 110;
 `;
-const ModalContainer = styled.div`
+export const ModalContainer = styled.div`
   position: relative;
-  width: 48%;
-  height: 78%;
+  width: 800px;
+  @media (max-width: 900px) {
+    width: 600px;
+  }
+  @media (max-width: 600px) {
+    width: 400px;
+    font-size: 0.75em;
+  }
+  height: 800px;
+  @media (max-height: 850px) {
+    height: 500px;
+    font-size: 0.75em;
+  }
   padding: 1%;
   background-color: #ffffff;
   border-radius: 40px;
   overflow: hidden;
 `;
-const ModalContentDiv = styled.div`
+export const ModalContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

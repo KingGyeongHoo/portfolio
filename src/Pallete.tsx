@@ -4,6 +4,6 @@ const Pallete = {
     prof_familiar : '#07A017',
     prof_learning : '#EAAC0E',
     prof_experienced : '#D40202',
-
+    font_gray:'#929292'
 }
 export default Pallete

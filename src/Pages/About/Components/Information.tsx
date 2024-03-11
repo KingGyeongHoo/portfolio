@@ -35,42 +35,45 @@ export const fadeOut = keyframes`
 
 const InfoContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 60%;
+    height: 40%;
 `
 const Picture = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 28%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
     margin-right: 2%;
     &::before{
         content:'';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 90%; 
-        height: 90%;
+        top: 5%;
+        left: 5%;
+        width: 320px; 
+        height: 320px; 
         border: 5px solid white;
         z-index: 5; /* 이미지 위에 레이어를 올릴 때 z-index 설정 */
     }
     &::after{
         content:'';
         position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 90%; 
-        height: 90%;
+        bottom: 5%;
+        right: 5%;
+        width: 320px; 
+        height: 320px; 
         border: 5px solid white;
         z-index: 5; /* 이미지 위에 레이어를 올릴 때 z-index 설정 */
     }
 `
 const Image = styled.img`
     position: relative;
-    width: 90%;
+    width: 320px;
     height: auto;
     z-index: 10;
 `;
@@ -79,10 +82,12 @@ const Info = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
-    width: 50%;
-    height: 100%;
+    width: 700px;
+    @media (max-width: 850px) {
+        width: 400px; /* 화면이 작아질 때의 너비 */
+    }
 `
 
 const InfoDiv = styled.div`
@@ -91,7 +96,8 @@ const InfoDiv = styled.div`
     flex-direction: row;
     align-items: center;
     width: 100%;
-    height: 15%;
+    height: 60px;
+    margin: 1.25% 0%;
     background-color: rgba(255,255,255,1);
     opacity: 1;
     z-index: 50;
@@ -104,7 +110,7 @@ const InfoDiv = styled.div`
         top: 10%;
         left: 1%;
         width: 100%;
-        height: 100%;
+        height: 60px;
         background-color: rgba(0,0,0,0);
         border: 3px solid #ffffff;
         z-index: 5;
@@ -139,9 +145,9 @@ const ContentSpan = styled(IndexSpan)<Hovered>`
     animation: ${props => props.hover ? css`${fadeIn} 0.5s linear forwards` : css`${fadeChange} 0.5s linear forwards`};
 `
 const Links = styled.div`
-    width: 21%;
-    height: 100%;
-    margin-left: 4%;
+    width: 315px;
+    height: 400px;
+    margin: 1% 0 1% 4%;
 `
 const LinkSpanDiv = styled.div`
     display: flex;
@@ -173,9 +179,10 @@ const LinkContent = styled.div`
     align-items: center;
     width: 50%;
     height: 30%;
+    cursor: pointer;
 `
 const LinkIcon = styled.img`
-    width: 3.5vw;
+    width: 65px;
     margin: 2%;
 `
 const LinkDescDiv = styled.div<Hovered>`

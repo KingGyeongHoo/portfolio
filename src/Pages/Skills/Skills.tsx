@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
@@ -19,17 +19,18 @@ const SkillsContainer = styled(Container)`
 `
 
 const Skills = () => {
-    const [ref, inView] = useInView({
-        threshold: 0.9
-    });
-    const dispatch = useDispatch()
     const skillInfo = useSelector((state: any) => state.skill)
+    const curPage:number = useSelector((state:any) => state.page)
+    const [ref, inView] = useInView({
+        threshold: 0.5
+    });
+    
+    const dispatch = useDispatch()
     useEffect(() => {
         if (inView) {
             dispatch({type:'Skills'})
         }
     }, [inView]);
-    console.log(skillInfo)
     return (
         <SkillsContainer ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_main.png`}>
             {skillInfo.skill === undefined ? '' : <GraphModal></GraphModal>}
