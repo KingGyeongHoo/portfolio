@@ -69,8 +69,8 @@ const Stacks = styled.div`
     width: 100%;
     margin: 0.3% 0;
 `
-const StacksType = styled.p`
-    width: 15%;
+const StacksType= styled.p`
+    width: 7%;
     margin-right: 5%;
     color: #000000;
     text-align: right;
@@ -87,7 +87,7 @@ const StacksName = styled.p`
 `
 const FunctionUl = styled.ul`
     width: 100%;
-    margin-bottom: 1%;
+    margin-bottom: 7.5%;
 `
 const FunctionTitle = styled.h1`
     color:#000000;
