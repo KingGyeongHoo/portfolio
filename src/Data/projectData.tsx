@@ -38,7 +38,7 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
+          stack: ['Javascript,','HTML,','CSS,', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
         },
         {
           type: 'Backend',
@@ -111,7 +111,7 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
+          stack: ['Javascript,','HTML,','CSS', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
         },
         {
           type: 'Backend',
@@ -177,7 +177,7 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'React,', 'Styled-Components,', 'Redux']
+          stack: ['Javascript,','HTML,','CSS,', 'React,', 'Styled-Components,', 'Redux']
         },
         {
           type: 'Backend',
