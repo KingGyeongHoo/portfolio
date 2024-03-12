@@ -35,6 +35,9 @@ const MainLeftContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 60%;
+    @media (max-width: 560px){
+        width: 100%;
+    }
     height: 100%;
     background-color: #ffffff;
     overflow: hidden;
@@ -59,10 +62,7 @@ const Text = styled.span<TextProps>`
         font-size: 3em;
     }
     @media (max-width: 560px){
-        font-size: 2.5em;
-    }
-    @media (max-width: 480px){
-        font-size: 2em;
+        font-size: 4em;
     }
     overflow: hidden; /* 타이핑 효과를 위해 오버플로우 숨김 설정 */
     white-space: nowrap;

@@ -7,6 +7,10 @@ interface Container{
 
 const MainRightContainer = styled.div<Container>`
     position: relative;
+    display: flex;
+    @media (max-width: 560px){
+        display: none;
+    }
     width: 40%;
     height: 100%;
     background-color: ${Pallete.main_color};
