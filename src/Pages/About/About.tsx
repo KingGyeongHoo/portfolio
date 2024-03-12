@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
-import { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
@@ -28,7 +28,6 @@ export const ContentContainer = styled.div`
 `
 
 const About = () => {
-    const curPage:number = useSelector((state:any) => state.page)
     const [ref, inView] = useInView({
         threshold: 0.5
     });
@@ -38,7 +37,7 @@ const About = () => {
         if (inView) {
             dispatch({type:'About'})
         }
-    }, [inView]);
+    }, [inView, dispatch]);
 
     return (
         <Container ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_white.png`}>

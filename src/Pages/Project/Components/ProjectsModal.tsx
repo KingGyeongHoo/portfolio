@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Pallete from "../../../Pallete";
 import { ModalBackground, ModalContainer, ModalContentDiv } from "../../Skills/Components/GraphModal";
+import { StacksProps, Functions } from "../../../Data/projectData";
 
 const PModalContainer = styled(ModalContainer)`
     width: 1200px;
@@ -39,7 +40,7 @@ const MotalTitleDiv = styled.div`
 const ModalTitle = styled.h1`
     color: #ffffff;
     font-size: 2em;
-    font-weight: bold;
+    font-weight: 900;
 `
 const Contents = styled.div`
     display: flex;
@@ -52,7 +53,7 @@ const ContentTitle = styled.p`
     margin-bottom: 2%;
     border-bottom: 8px solid ${Pallete.main_color};
     font-size: 2em;
-    font-weight: bold;
+    font-weight: 900;
     color: ${Pallete.main_color};
 `
 const StacksDiv = styled.div`
@@ -60,7 +61,7 @@ const StacksDiv = styled.div`
     flex-direction: column;
     width: 100%;
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: 900;
 `
 const Stacks = styled.div`
     display: flex;
@@ -91,18 +92,18 @@ const FunctionUl = styled.ul`
 const FunctionTitle = styled.h1`
     color:#000000;
     font-size: 1.35em;
-    font-weight: bold;
+    font-weight: 900;
 `
 const FunctionLi = styled.li`
     width: 100%;
-    margin: 0.2% 0;
+    margin: 1% 0;
     color: ${Pallete.font_gray};
-    font-weight: bold;
+    font-weight: 400;
 `
 const Feeling = styled.p`
     color: ${Pallete.font_gray};
-    font-weight: bold;
-    margin: 0.2% 0;
+    font-weight: 400;
+    margin: 0.75% 0;
 `
 const ProjectsModal = () => {
     const dispatch = useDispatch()
@@ -126,12 +127,12 @@ const ProjectsModal = () => {
                     <Contents>
                         <ContentTitle>사용 스택</ContentTitle>
                         <StacksDiv>
-                            {projectInfo.stacks.map((el:any, idx:number) => {
+                            {projectInfo.stacks.map((el:StacksProps, idx:number) => {
                                 return (
-                                    <Stacks>
+                                    <Stacks key={idx}>
                                         <StacksType>{el.type}</StacksType>
                                         <StackNamesDiv>
-                                            {el.stack.map((e:string) => <StacksName>{e}</StacksName>)}
+                                            {el.stack.map((e:string, idx:number) => <StacksName key={idx}>{e}</StacksName>)}
                                         </StackNamesDiv>
                                     </Stacks>
                                 )
@@ -140,20 +141,20 @@ const ProjectsModal = () => {
                     </Contents>
                     <Contents>
                         <ContentTitle>주요 기능</ContentTitle>
-                        {projectInfo.functions.map((el:any) => {
+                        {projectInfo.functions.map((el:Functions, idx:number) => {
                             return(
-                                <>
+                                <div key={idx}>
                                     <FunctionTitle>{el.title}</FunctionTitle>
                                     <FunctionUl>
-                                        {el.function.map((e:any) => <FunctionLi>{e}</FunctionLi>)}
+                                        {el.function.map((e:string, idx:number) => <FunctionLi key={idx}>{e}</FunctionLi>)}
                                     </FunctionUl>
-                                </>
+                                </div>
                             )
                         })}
                     </Contents>
                     <Contents>
                         <ContentTitle>느낀 점</ContentTitle>
-                        {projectInfo.feeling.split('.').map((el:string) => <Feeling>{el}</Feeling>)}
+                        {projectInfo.feeling.split('.').map((el:string, idx:number) => <Feeling key={idx}>{el}</Feeling>)}
                     </Contents>
                 </PModalContentDiv>
             </PModalContainer>

@@ -1,14 +1,14 @@
 import styled, {keyframes, css} from "styled-components"
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Pallete from "../../../Pallete"
 
-interface Text{
+interface TextProps{
     display: string;
-    typing: boolean;
+    typing: string;
 }
 interface ButtonProps{
-    fade:boolean;
+    fade:string;
 }
 interface Circle{
     top: string;
@@ -43,7 +43,7 @@ const TextDiv = styled.div`
     position: relative;
     width: 80%;
 `
-const Text = styled.span<Text>`
+const Text = styled.span<TextProps>`
     display: ${props => props.display};
     font-size: 7em;
     @media (max-width: 1700px){
@@ -61,11 +61,14 @@ const Text = styled.span<Text>`
     @media (max-width: 560px){
         font-size: 2.5em;
     }
+    @media (max-width: 480px){
+        font-size: 2em;
+    }
     overflow: hidden; /* 타이핑 효과를 위해 오버플로우 숨김 설정 */
     white-space: nowrap;
     animation: ${props => props.typing ? typingAnimation : 'none'} 1.5s steps(40, end); /* 타이핑 애니메이션 적용 */
 `
-const Text2 = styled(Text)<Text>`
+const Text2 = styled(Text)`
 
 `
 const Highlight = styled.span`
@@ -152,10 +155,10 @@ const MainLeft = () => {
         <MainLeftContainer>
             <TextDiv>
                 <>
-                    <Text display='block' className="black-han" typing>프론트엔드 개발자</Text>
-                    <Text2 display={type ? 'block' : 'none'} className="black-han" typing={type}><Highlight>송경후</Highlight>입니다</Text2>
+                    <Text display='block' className="black-han" typing="true">프론트엔드 개발자</Text>
+                    <Text2 display={type ? 'block' : 'none'} className="black-han" typing={type.toString()}><Highlight>송경후</Highlight>입니다</Text2>
                 </>
-                <Button onClick={scrollToBottom} fade={fade}>Learn More</Button>
+                <Button onClick={scrollToBottom} fade={fade.toString()}>Learn More</Button>
             </TextDiv>
             <BgCircles />
         </MainLeftContainer>

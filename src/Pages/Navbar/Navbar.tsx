@@ -1,8 +1,6 @@
-import styled, { keyframes, css } from "styled-components";
-import { useState, useEffect } from "react";
+import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import Pallete from "../../Pallete";
-import { readBuilderProgram } from "typescript";
 
 interface NavbarProps {
   curPage: number;
@@ -45,12 +43,6 @@ const SelectButton = styled.div<NavbarProps>`
   transition: transform 0.3s ease;
 `;
 const Navbar = () => {
-  const [fontSize, setFontSize] = useState(16);
-
-  window.addEventListener("resize", () => {
-    setFontSize(Math.round(window.innerWidth / 80));
-  });
-
   const dispatch = useDispatch();
   const curPage: number = useSelector((state: any) => state.page);
   const pageList: string[] = ["Main", "About", "Skills", "Projects"];
@@ -71,6 +63,7 @@ const Navbar = () => {
       <NavButton>
         {pageList.map((el: any, idx: number) => (
           <SelectButton
+            key={idx}
             curPage={curPage}
             isSelected={curPage === idx}
             onClick={() => movePage(el)}

@@ -28,7 +28,7 @@ export const InfoData:Info[] = [
     },
 ]
 
-interface Link{
+export interface Link{
     redirect: string;
     file: string;
     link:string;

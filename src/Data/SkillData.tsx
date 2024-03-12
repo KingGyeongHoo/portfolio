@@ -2,8 +2,8 @@ interface Skills{
     skill: string;
     color?: string;
     prof:number;
-    info?:Array<SkillInfo>;
-    text?:string;
+    info:SkillInfo[];
+    text:string;
 }
 interface SkillInfo{
     index: string;
@@ -315,7 +315,7 @@ export const SkillData:Skills[] = [
                 max:100
             }
         ],
-        text:'학부 수업에서 Python을 다뤄본 경험이 있습니다 지속적인 학습으로 데이터 분석 및 인공지능 관련 기술과의 연계를 통한.발전된 웹 애플리케이션을 만드는 것이 목표입니다'
+        text:'학부 수업에서 Python을 다뤄본 경험이 있습니다 지속적인 학습으로 데이터 분석 및 인공지능 관련 기술과의 연계를 통해.발전된 웹 애플리케이션을 만드는 것이 목표입니다'
     }
     ,
     {
