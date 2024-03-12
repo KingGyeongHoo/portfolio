@@ -128,8 +128,7 @@ export const projectData: Project[] = [
       ],
       functions: [{
         title: '필터',
-        function: ['시설구분, 충전소 위치, 충전기 타입 등을 바탕으로 원하는 조건 필터링',
-          '충전소명 검색 ',
+        function: ['시설구분, 충전소 위치, 충전기 타입, 검색결과 등을 바탕으로 원하는 조건 필터링',
           '조건에 일치하는 충전기 대수 표기']
       }, {
         title: '지도',
