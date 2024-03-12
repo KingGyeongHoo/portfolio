@@ -1,5 +1,29 @@
-import Pallete from "../Pallete"
-export const projectData: any[] = [
+interface Project {
+  projectName: string;
+  file: string;
+  percentage: number,
+  title: string;
+  desc: string;
+  background: string;
+  github: string;
+  deploy: string;
+  figma: string;
+  info: Info
+}
+interface Info{
+  stacks: StacksProps[];
+  functions: Functions[];
+  feeling: string;
+}
+export interface StacksProps{
+  type: string;
+  stack: string[];
+}
+export interface Functions{
+  title: string;
+  function: string[];
+}
+export const projectData: Project[] = [
   {
     projectName: 'Buyrricade',
     file: 'buyrricade.png',
@@ -197,10 +221,10 @@ export const projectData: any[] = [
       + '\'포트폴리오를 웹 페이지를 만들어 보는것이 어떻냐\'는 조언을 받아 제작하게 된 개인 포트폴리오 사이트입니다.'
       + 'Javascript로 개발했던 다른 사이트들과 달리 Typescript를 이용해 제작하였습니다.'
       + 'Type을 맞추고, interface를 만드는 것들이 정말 어려웠지만, 하다보니 조금은 익숙해진 것 같습니다.'
-      + '또한, 그동안 머릿속으로 생각만 하고 있던 반응형 웹도 본격적으로 만들어 보았습니다.'
-      + '처음에 무턱대고 시작했다가 크기도 폰트도 이상하게 조절되어 굉장히 힘들었고, 원하는대로 컴포넌트들이 조절되지 않아 굉장히 애를 먹었습니다.'
-      + '하지만 검색과 오픈소스, 그리고 다른 분들의 페이지를 참고하며 반응형 요소를 공부했고, 처음보다 훨씬 좋아진 반응형 웹을 만들 수 있었습니다.'
-      + '비록 Typescript와 반응형 웹을 100% 익혔다고 할 수는 없지만, 새로운 시도를 했고, 어느정도 성과를 거둔 것에는 굉장히 뿌듯함을 느끼고 있습니다.'
+      + '또한, 그동안 머릿속으로 생각만 하고 있던 반응형 웹 + 모바일 버전도 본격적으로 만들어 보았습니다.'
+      + '처음에 무턱대고 시작했다가 크기도 폰트도 이상하게 조절되어 굉장히 힘들었고, 원하는대로 컴포넌트들이 리사이즈되지 않아 굉장히 애를 먹었습니다.'
+      + '하지만 검색과 오픈소스, 그리고 다른 분들의 페이지를 참고하며 반응형 요소를 계속 공부해 처음보다 훨씬 좋아진 반응형 웹을 만들 수 있었습니다.'
+      + '비록 Typescript와 반응형 웹을 100% 익혔다고 할 수는 없지만, 새로운 시도를 했고 어느정도 성과를 거둔 것에 굉장히 뿌듯함을 느끼고 있습니다.'
       + '다음 프로젝트때는 이번에 익힌 스택들을 더더욱 발전시키고, SASS나 Tailwind같은 새로운 스택들에도 도전해 볼 계획입니다.'
     }
   }

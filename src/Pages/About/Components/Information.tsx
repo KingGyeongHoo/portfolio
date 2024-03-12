@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import Pallete from "../../../Pallete";
-import { InfoData, LinkData } from "../../../Data/InfoData";
+import { InfoData, LinkData, Link } from "../../../Data/InfoData";
 
 interface Hovered {
     hover?: boolean;
@@ -128,7 +128,7 @@ const IndexSpan = styled.span`
     width: 100%;
     color: ${Pallete.main_color};
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: 900;
     white-space: pre-wrap;
 `
 const Content = styled(Index)`
@@ -141,6 +141,7 @@ const Content = styled(Index)`
 `
 const ContentSpan = styled(IndexSpan)<Hovered>`
     color: #000000;
+    font-weight: 200;
     z-index: 100;
     animation: ${props => props.hover ? css`${fadeIn} 0.5s linear forwards` : css`${fadeChange} 0.5s linear forwards`};
 `
@@ -158,7 +159,7 @@ const LinkSpanDiv = styled.div`
 `
 const LinkSpan = styled.span`
     font-size: 2em;
-    font-weight: bold;
+    font-weight: 900;
     color: #ffffff;
 `
 const LinkDiv = styled.div`
@@ -198,7 +199,7 @@ const LinkDescDiv = styled.div<Hovered>`
 `
 const LinkDesc = styled.span`
     color: #000000;
-    font-weight: bold;
+    font-weight: 700;
 `
 
 const Information = () => {
@@ -215,7 +216,7 @@ const Information = () => {
             </Picture>
             <Info>
                 {InfoData.map((el, idx) => (
-                    <InfoDiv>
+                    <InfoDiv key={idx}>
                         <Index>
                             <IndexSpan>
                                 {el.index}
@@ -248,8 +249,8 @@ const Information = () => {
                     <LinkSpan>LINKS</LinkSpan>
                 </LinkSpanDiv>
                 <LinkDiv>
-                    {LinkData.map((el, idx) => (
-                        <LinkContent>
+                    {LinkData.map((el:Link, idx:number) => (
+                        <LinkContent key={idx}>
                             <LinkIcon
                                 src={`${process.env.PUBLIC_URL}/img/about/${el.file}`}
                                 onMouseLeave={() => setIconHover(999)}

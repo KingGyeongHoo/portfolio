@@ -13,6 +13,8 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0;
+  font-family: 'Pretendard-Regular';
+  font-weight: 400;
   font-size: 16px;
   @media (max-width: 1350px) {
     font-size: 14px; /* 화면이 작아질 때의 너비 */

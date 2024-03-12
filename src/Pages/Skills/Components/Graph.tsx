@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import Pallete from '../../../Pallete';
-import { TooltipProps } from 'recharts';
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -22,7 +21,7 @@ const CustomTooltipP = styled.p`
 `
 const HighlightSpan = styled.span`
     color: ${Pallete.main_color};
-    font-weight: bold;
+    font-weight: 900;
 `
 
 const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {

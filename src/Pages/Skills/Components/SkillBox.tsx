@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components"
 
 import { SkillData } from "../../../Data/SkillData";
@@ -21,9 +21,6 @@ interface Skill {
 interface Prof {
     prof: number;
 }
-interface Modal {
-    isOpen: boolean;
-}
 
 const Container = styled.div`
     position: relative;
@@ -35,6 +32,7 @@ const Container = styled.div`
 const SkillsTitle = styled.h1`
     padding: 1%;
     color: #000000;
+    font-weight: 900;
 `
 const SkillContent = styled.div`
     display: flex;
@@ -42,6 +40,7 @@ const SkillContent = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    background-color: rgba(255,255,255,0.75);
     width: 100%;
     padding: 1% 0;
 `
@@ -68,14 +67,14 @@ const SkillDesc = styled.p<Skill>`
     text-align: center;
     color:${props => props.color};
     font-size: ${props => props.isSc ? '1.3em' : '1.8em'};
-    font-weight: bold;
+    font-weight: 900;
 `
 export const SkillProf = styled.p<Prof>`
     text-align: center;
     color:${props => props.prof > 2 ? Pallete.prof_familiar :
         props.prof > 1 ? Pallete.prof_learning : Pallete.prof_experienced};
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 500;
 `
 const SkillBox: React.FC<SkillsProps> = ({ title, isAbove }) => {
     let data: any[] = []
@@ -85,7 +84,6 @@ const SkillBox: React.FC<SkillsProps> = ({ title, isAbove }) => {
         data = SkillData.slice(8)
     }
     const dispatch = useDispatch()
-    const skillInfo = useSelector((state: any) => state.skill)
     const openModal = (skill: string) => {
         dispatch({
             type: skill,
@@ -101,7 +99,7 @@ const SkillBox: React.FC<SkillsProps> = ({ title, isAbove }) => {
             <SkillContent>
                 {data.map((el, idx) => {
                     return (
-                        <SkillDiv onClick={() => openModal(el.skill)}>
+                        <SkillDiv key={idx} onClick={() => openModal(el.skill)}>
                             <SkillImg
                                 src={`${process.env.PUBLIC_URL}/img/skills/${el.skill}.png`}
                                 onMouseOver={(event) => {

@@ -17,7 +17,7 @@ const TitleSpan = styled.h1<Design>`
     margin-bottom: 3%;
     color: ${props => props.color};
     font-size: 5em;
-    font-weight: bold;
+    font-weight: 900;
 `
 
 const Title:React.FC<TitleProps> = ({title, color}) => {

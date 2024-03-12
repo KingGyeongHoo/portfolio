@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 
@@ -10,9 +9,7 @@ import Graph from "./Graph";
 interface Modal {
   isOpen: boolean;
 }
-interface Open {
-  open: boolean;
-}
+
 export const ModalBackground = styled.div<Modal>`
   position: fixed;
   top: 0;
@@ -35,7 +32,7 @@ export const ModalBackground = styled.div<Modal>`
 `;
 export const ModalContainer = styled.div`
   position: relative;
-  width: 800px;
+  width: 750px;
   @media (max-width: 900px) {
     width: 600px;
   }
@@ -43,12 +40,12 @@ export const ModalContainer = styled.div`
     width: 400px;
     font-size: 0.75em;
   }
-  height: 800px;
+  height: 750px;
   @media (max-height: 850px) {
     height: 500px;
     font-size: 0.75em;
   }
-  padding: 1%;
+  padding: 3%;
   background-color: #ffffff;
   border-radius: 40px;
   overflow: hidden;
@@ -72,17 +69,17 @@ const GraphDiv = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 60%;
-  margin: 3% 0 5% 0;
+  height: 70%;
+  margin: 3% 0 10% 0;
 `;
 const TotalRate = styled.p`
   margin-top: -5%;
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 900;
 `;
 const Describe = styled.p`
   margin: 0.2% 0;
-  font-weight: bold;
+  font-weight: 400;
 `;
 const GraphModal = () => {
   const dispatch = useDispatch();
@@ -115,8 +112,8 @@ const GraphModal = () => {
               ) / 5}
             </TotalRate>
           </GraphDiv>
-          {skillInfo.text.split(".").map((el: any) => (
-            <Describe>{el}</Describe>
+          {skillInfo.text.split(".").map((el: any, idx:number) => (
+            <Describe key={idx}>{el}</Describe>
           ))}
         </ModalContentDiv>
         <BgCircles></BgCircles>

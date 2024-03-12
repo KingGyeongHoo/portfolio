@@ -1,6 +1,6 @@
-import styled, {keyframes, css} from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Pallete from "../../../Pallete";
 
 import { projectData } from "../../../Data/projectData";
@@ -8,13 +8,13 @@ import { projectData } from "../../../Data/projectData";
 interface BgProps {
   background: string;
 }
-interface ImgProps{
+interface ImgProps {
   percentage: number;
 }
 interface FigmaProps {
   color: string;
 }
-interface Hover{
+interface Hover {
   isHover: boolean;
 }
 
@@ -72,7 +72,7 @@ const TitleDiv = styled.div`
 const TitleSpan = styled.p`
   color: #ffffff;
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
 `;
 const DescDiv = styled.div`
@@ -95,7 +95,7 @@ const ContentTitle = styled.p`
   margin: 3% 0 2% 0;
   font-size: 1.5em;
   text-align: center;
-  font-weight: bold;
+  font-weight: 900;
 `;
 const ContentDescDiv = styled.div`
   width: 90%;
@@ -141,7 +141,7 @@ const LinkSpan = styled.p`
   margin-right: 15%;
   color: #ffffff;
   font-size: 0.8em;
-  font-weight: bold;
+  font-weight: 900;
 `;
 const FigmaSpan = styled.span<FigmaProps>`
   color: ${(props) => props.color};
@@ -172,31 +172,30 @@ const Arrow = styled.img`
 const Card = () => {
   const [hover, setHover] = useState(999)
   const dispatch = useDispatch()
-  const openWindow = (link:string) => {
-    if(link.length < 1){
+  const openWindow = (link: string) => {
+    if (link.length < 1) {
       return () => alert('준비중입니다!')
     } else {
-      if(link.includes('buyrricade')){
+      if (link.includes('buyrricade')) {
         return () => {
           alert('sample Id : sample@gmail.com\nsample Pw : password123!')
           window.open(link, '_blank')
         }
       } else {
-          return () => {window.open(link, '_blank')}
+        return () => { window.open(link, '_blank') }
       }
-      
     }
   }
-  const openProjcetModal = (project:string) => {
-    dispatch({type: project})
-    dispatch({type: 'PModal_Open'})
+  const openProjcetModal = (project: string) => {
+    dispatch({ type: project })
+    dispatch({ type: 'PModal_Open' })
   }
   return (
     <CardContainer>
-      {projectData.map((el:any, idx:number) => {
+      {projectData.map((el: any, idx: number) => {
         return (
           <>
-            <CardDiv isHover={hover === idx} onMouseOver={() => setHover(idx)} onMouseLeave={() => setHover(999)}>
+            <CardDiv key={idx} isHover={hover === idx} onMouseOver={() => setHover(idx)} onMouseLeave={() => setHover(999)}>
               <TitleDiv>
                 <TitleSpan>{el.projectName}</TitleSpan>
               </TitleDiv>
@@ -212,7 +211,7 @@ const Card = () => {
                 <ContentDiv>
                   <ContentTitle>{el.title}</ContentTitle>
                   <ContentDescDiv>
-                    {el.desc.split('.').map((el:string) => <ContentDesc>{el}</ContentDesc>)}
+                    {el.desc.split('.').map((el: string) => <ContentDesc key={idx}>{el}</ContentDesc>)}
                   </ContentDescDiv>
                   <LinkDiv>
                     <Github onClick={openWindow(el.github)}>

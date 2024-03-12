@@ -1,13 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
-interface TitleProps{
-    title: string;
-    color:string;
-}
-interface Design{
-    color:string;
-}
 
 const TextContainer = styled.div`
     display: flex;
@@ -27,7 +18,7 @@ const TextTitle = styled.h1`
     @media (max-width: 850px) {
         font-size: 2.5em; /* 화면이 작아질 때의 너비 */
     }
-    font-weight: bold;
+    font-weight: 900;
 `
 const TextContent = styled.p`
     text-align: center;
@@ -40,7 +31,7 @@ const TextContent = styled.p`
     @media (max-width: 850px) {
         font-size: 0.8em;
     }
-    font-weight: bold;
+    font-weight: 400;
 `
 
 const Text = () => {
