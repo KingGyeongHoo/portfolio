@@ -66,11 +66,12 @@ const StacksDiv = styled.div`
 const Stacks = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     width: 100%;
     margin: 0.3% 0;
 `
 const StacksType= styled.p`
-    width: 7%;
+    width: 10%;
     margin-right: 5%;
     color: #000000;
     text-align: right;
