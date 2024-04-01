@@ -25,6 +25,137 @@ export interface Functions{
 }
 export const projectData: Project[] = [
   {
+    projectName: 'Portfolio',
+    file: 'portfolio.png',
+    percentage: 40,
+    title: 'All about 송경후',
+    desc: '현재 보고 계시는 프론트엔드 개발자 송경후의 웹 포트폴리오로.정보, 기술 스택, 프로젝트 등을 확인 할 수 있는 페이지 입니다.',
+    background: `url(${process.env.PUBLIC_URL}/img/content_bg_main.png)`,
+    github: 'https://github.com/KingGyeongHoo/portfolio',
+    deploy: 'https://ghsong.netlify.app/',
+    figma: 'https://www.figma.com/file/hlUe473MkhgZR6NyhG7Nx8/Portfolio?type=design&node-id=62%3A14&mode=design&t=pkHbpdN6TtxdqW8M-1',
+    info: {
+      stacks: [
+        {
+          type: 'Frontend',
+          stack: ['Javascript,','HTML,','CSS,', 'React,', 'Styled-Components,', 'Redux']
+        },
+        {
+          type: 'Backend',
+          stack: ['-']
+        },
+        {
+          type: 'Deploy',
+          stack: ['Netlify']
+        },
+        {
+          type: 'ETC',
+          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
+        },
+      ],
+      functions: [{
+        title: '메인 페이지',
+        function: ['Keyframe과 애니메이션을 이용한 타이핑 효과',
+          '버튼 클릭시 아래 페이지로 이동']
+      }, {
+        title: '내비게이션 바',
+        function: ['현재 페이지에 해당하는 박스에 하이라이트',
+          '스크롤시 이동하는 페이지에 따라 하이라이트 변경',
+          '클릭시 해당 박스가 가리키는 페이지로 이동']
+      }, {
+        title: 'About',
+        function: ['가상 요소를 이용한 테두리 설정 및 Flexbox를 이용한 반응형 페이지 설계',
+          'Redux를 이용한 전역 상태 관리를 통해 현재 페이지 전달',
+        'useInView Hook을 통해 페이지가 화면에 보일시 Redux에 현재 페이지 저장']
+      }, {
+        title: 'Skills',
+        function: ['전역 상태관리로 Modal 및 스킬별 데이터 관리',
+          'Recharts를 이용한 숙련도, 사용빈도, 경험, 응용력, 공부기간 시각화',
+        '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
+      }, {
+        title: 'Projects',
+        function: [
+          `전역 상태관리로 Modal 및 프로젝트별 데이터 관리`,
+          '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
+      }
+      ],
+      feeling: '오래 전부터 \'내 홈페이지가 있었으면 좋겠다\'라는 생각을 갖고 있었는데, 마침 취업을 준비하며.'
+      + '\'포트폴리오를 웹 페이지를 만들어 보는것이 어떻냐\'는 조언을 받아 제작하게 된 개인 포트폴리오 사이트입니다.'
+      + 'Javascript로 개발했던 다른 사이트들과 달리 Typescript를 이용해 제작하였습니다.'
+      + 'Type을 맞추고, interface를 만드는 것들이 정말 어려웠지만, 하다보니 조금은 익숙해진 것 같습니다.'
+      + '또한, 그동안 머릿속으로 생각만 하고 있던 반응형 웹 + 모바일 버전도 본격적으로 만들어 보았습니다.'
+      + '처음에 무턱대고 시작했다가 크기도 폰트도 이상하게 조절되어 굉장히 힘들었고, 원하는대로 컴포넌트들이 리사이즈되지 않아 굉장히 애를 먹었습니다.'
+      + '하지만 검색과 오픈소스, 그리고 다른 분들의 페이지를 참고하며 반응형 요소를 계속 공부해 처음보다 훨씬 좋아진 반응형 웹을 만들 수 있었습니다.'
+      + '비록 Typescript와 반응형 웹을 100% 익혔다고 할 수는 없지만, 새로운 시도를 했고 어느정도 성과를 거둔 것에 굉장히 뿌듯함을 느끼고 있습니다.'
+      + '다음 프로젝트때는 이번에 익힌 스택들을 더더욱 발전시키고, SASS나 Tailwind같은 새로운 스택들에도 도전해 볼 계획입니다.'
+    }
+  },
+  {
+    projectName: 'CPM',
+    file: 'cpm.png',
+    percentage: 100,
+    title: '전기차, 핸드폰보다 빠르게 충전하자',
+    desc: 'CPM은 사용 가능한 전기차 지도를 한눈에 보여주고.충전기 이용 데이터를 제공하여 보다 효율적이고.빠른 전기차 충전을 제공하는 서비스입니다',
+    background: '#CBC3A4',
+    github: 'https://github.com/KingGyeongHoo/cpm',
+    deploy: 'https://cpm-map.netlify.app',
+    figma: '',
+    info: {
+      stacks: [
+        {
+          type: 'Frontend',
+          stack: ['Javascript,','HTML,','CSS', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
+        },
+        {
+          type: 'Backend',
+          stack: ['AWS']
+        },
+        {
+          type: 'Deploy',
+          stack: ['Netlify']
+        },
+        {
+          type: 'ETC',
+          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
+        },
+      ],
+      functions: [{
+        title: '필터',
+        function: ['시설구분, 충전소 위치, 충전기 타입, 검색결과 등을 바탕으로 원하는 조건 필터링',
+          '조건에 일치하는 충전기 대수 표기']
+      }, {
+        title: '지도',
+        function: ['KakaoMap API를 사용한 지도 어플리케이션 렌더링',
+          'aws-sdk 및 S3를 이용한 데이터 통신 및 위치 렌더링',
+          '필터링된 조건에 부합하는 충전소들만 지도에 표시',
+          '충전소 클릭시 충전기명, 사용 가능 여부 표시',
+          '지도 이동 위치에 따라 상단 지역 주소 변경']
+      }, {
+        title: '충전소 정보',
+        function: ['지도에서 충전기 클릭시 각종 정보 확인',
+          'Redux를 이용한 전역 상태 관리를 통해 충전기 선택시 정보 변경']
+      }, {
+        title: '이용률 분석',
+        function: ['Recharts 라이브러리를 이용한 데이터 시각화',
+          '각 충전소의 요일별, 일별 이용률을 그래프를 통해 시각화',
+          'Custom Graph를 통해 필요한 정보만 표기',
+          'Redux를 이용한 전역 상태 관리를 통해 필터별, 충전소별 그래프 데이터 변경']
+      }, {
+        title: '통계',
+        function: ['선택한 충전소와 전체 충전소의 데이터 비교',
+          `연간 이용량 표기 및 전체 순위 표시`]
+      }
+      ],
+      feeling: '동기의 스타트업 경진대회 출품을 도와주기 위해 시작했지만, 여러 라이브러리와 API를 다뤄보는 과정에서 흥미를 느껴 끝까지 개발하게 되었습니다.'
+      +'카카오맵 API와 Recharts 라이브러리를 주력으로 사용했는데, 초기에는 혼란스럽고 헷갈렸지만 시행착오를 거치고, 개발 문서를 읽음으로써 점차적으로 이를 극복할 수 있었습니다.'
+      +'특히, API의 다양한 기능과 활용법을 이해하는 과정에서 큰 성취감을 느꼈습니다.'
+      +'처음에는 카카오맵의 기능을 이해하고 구현하는것 조차 어려웠으나 익숙해진 후에는 원하는 대로 맵을 개조하여 프로젝트에 필요한 기능을 추가할 수 있었습니다.'
+      +'다만, 이 프로젝트를 개발하면서 반응형 웹 디자인에 대한 고려가 부족했다는 점은 아쉽게 생각합니다.'
+      +'반응형 웹은 만족스러운 UX를 위해 매우 중요한 부분이라고 생각하기 때문에, 앞으로는 이를 고려하여 보다 사용자 친화적이고 다양한 디바이스에서 최적화된 경험을 제공할 수 있도록 노력하겠습니다.'
+      +'또한 프로젝트는 협업이었지만, 개발 자체는 혼자 진행했기에 백엔드 개발자를 한명이라도 섭외하여 함께 작업하며 협업 능력을 키웠으면 어땠을까 하는 아쉬움도 조금은 남습니다.'
+    }
+  },
+  {
     projectName: 'Buyrricade',
     file: 'buyrricade.png',
     percentage: 100,
@@ -97,135 +228,4 @@ export const projectData: Project[] = [
       + '백엔드 파트도 꾸준히 공부하여 스스로 서버를 구현하고, 더욱 강화된 보안/인증 기능을 구현하는 것이 목표입니다'
     }
   },
-  {
-    projectName: 'CPM',
-    file: 'cpm.png',
-    percentage: 100,
-    title: '전기차, 핸드폰보다 빠르게 충전하자',
-    desc: 'CPM은 사용 가능한 전기차 지도를 한눈에 보여주고.충전기 이용 데이터를 제공하여 보다 효율적이고.빠른 전기차 충전을 제공하는 서비스입니다',
-    background: '#CBC3A4',
-    github: 'https://github.com/KingGyeongHoo/cpm',
-    deploy: 'https://cpm-map.netlify.app',
-    figma: '',
-    info: {
-      stacks: [
-        {
-          type: 'Frontend',
-          stack: ['Javascript,','HTML,','CSS', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
-        },
-        {
-          type: 'Backend',
-          stack: ['AWS']
-        },
-        {
-          type: 'Deploy',
-          stack: ['Netlify']
-        },
-        {
-          type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
-        },
-      ],
-      functions: [{
-        title: '필터',
-        function: ['시설구분, 충전소 위치, 충전기 타입, 검색결과 등을 바탕으로 원하는 조건 필터링',
-          '조건에 일치하는 충전기 대수 표기']
-      }, {
-        title: '지도',
-        function: ['KakaoMap API를 사용한 지도 어플리케이션 렌더링',
-          'aws-sdk 및 S3를 이용한 데이터 통신 및 위치 렌더링',
-          '필터링된 조건에 부합하는 충전소들만 지도에 표시',
-          '충전소 클릭시 충전기명, 사용 가능 여부 표시',
-          '지도 이동 위치에 따라 상단 지역 주소 변경']
-      }, {
-        title: '충전소 정보',
-        function: ['지도에서 충전기 클릭시 각종 정보 확인',
-          'Redux를 이용한 전역 상태 관리를 통해 충전기 선택시 정보 변경']
-      }, {
-        title: '이용률 분석',
-        function: ['Recharts 라이브러리를 이용한 데이터 시각화',
-          '각 충전소의 요일별, 일별 이용률을 그래프를 통해 시각화',
-          'Custom Graph를 통해 필요한 정보만 표기',
-          'Redux를 이용한 전역 상태 관리를 통해 필터별, 충전소별 그래프 데이터 변경']
-      }, {
-        title: '통계',
-        function: ['선택한 충전소와 전체 충전소의 데이터 비교',
-          `연간 이용량 표기 및 전체 순위 표시`]
-      }
-      ],
-      feeling: '동기의 스타트업 경진대회 출품을 도와주기 위해 시작했지만, 여러 라이브러리와 API를 다뤄보는 과정에서 흥미를 느껴 끝까지 개발하게 되었습니다.'
-      +'카카오맵 API와 Recharts 라이브러리를 주력으로 사용했는데, 초기에는 혼란스럽고 헷갈렸지만 시행착오를 거치고, 개발 문서를 읽음으로써 점차적으로 이를 극복할 수 있었습니다.'
-      +'특히, API의 다양한 기능과 활용법을 이해하는 과정에서 큰 성취감을 느꼈습니다.'
-      +'처음에는 카카오맵의 기능을 이해하고 구현하는것 조차 어려웠으나 익숙해진 후에는 원하는 대로 맵을 개조하여 프로젝트에 필요한 기능을 추가할 수 있었습니다.'
-      +'다만, 이 프로젝트를 개발하면서 반응형 웹 디자인에 대한 고려가 부족했다는 점은 아쉽게 생각합니다.'
-      +'반응형 웹은 만족스러운 UX를 위해 매우 중요한 부분이라고 생각하기 때문에, 앞으로는 이를 고려하여 보다 사용자 친화적이고 다양한 디바이스에서 최적화된 경험을 제공할 수 있도록 노력하겠습니다.'
-      +'또한 프로젝트는 협업이었지만, 개발 자체는 혼자 진행했기에 백엔드 개발자를 한명이라도 섭외하여 함께 작업하며 협업 능력을 키웠으면 어땠을까 하는 아쉬움도 조금은 남습니다.'
-    }
-  },
-  {
-    projectName: 'Portfolio',
-    file: 'portfolio.png',
-    percentage: 40,
-    title: 'All about 송경후',
-    desc: '현재 보고 계시는 프론트엔드 개발자 송경후의 웹 포트폴리오로.정보, 기술 스택, 프로젝트 등을 확인 할 수 있는 페이지 입니다.',
-    background: `url(${process.env.PUBLIC_URL}/img/content_bg_main.png)`,
-    github: 'https://github.com/KingGyeongHoo/portfolio',
-    deploy: 'https://ghsong.netlify.app/',
-    figma: 'https://www.figma.com/file/hlUe473MkhgZR6NyhG7Nx8/Portfolio?type=design&node-id=62%3A14&mode=design&t=pkHbpdN6TtxdqW8M-1',
-    info: {
-      stacks: [
-        {
-          type: 'Frontend',
-          stack: ['Javascript,','HTML,','CSS,', 'React,', 'Styled-Components,', 'Redux']
-        },
-        {
-          type: 'Backend',
-          stack: ['-']
-        },
-        {
-          type: 'Deploy',
-          stack: ['Netlify']
-        },
-        {
-          type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
-        },
-      ],
-      functions: [{
-        title: '메인 페이지',
-        function: ['Keyframe과 애니메이션을 이용한 타이핑 효과',
-          '버튼 클릭시 아래 페이지로 이동']
-      }, {
-        title: '내비게이션 바',
-        function: ['현재 페이지에 해당하는 박스에 하이라이트',
-          '스크롤시 이동하는 페이지에 따라 하이라이트 변경',
-          '클릭시 해당 박스가 가리키는 페이지로 이동']
-      }, {
-        title: 'About',
-        function: ['가상 요소를 이용한 테두리 설정 및 Flexbox를 이용한 반응형 페이지 설계',
-          'Redux를 이용한 전역 상태 관리를 통해 현재 페이지 전달',
-        'useInView Hook을 통해 페이지가 화면에 보일시 Redux에 현재 페이지 저장']
-      }, {
-        title: 'Skills',
-        function: ['전역 상태관리로 Modal 및 스킬별 데이터 관리',
-          'Recharts를 이용한 숙련도, 사용빈도, 경험, 응용력, 공부기간 시각화',
-        '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
-      }, {
-        title: 'Projects',
-        function: [
-          `전역 상태관리로 Modal 및 프로젝트별 데이터 관리`,
-          '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
-      }
-      ],
-      feeling: '오래 전부터 \'내 홈페이지가 있었으면 좋겠다\'라는 생각을 갖고 있었는데, 마침 취업을 준비하며.'
-      + '\'포트폴리오를 웹 페이지를 만들어 보는것이 어떻냐\'는 조언을 받아 제작하게 된 개인 포트폴리오 사이트입니다.'
-      + 'Javascript로 개발했던 다른 사이트들과 달리 Typescript를 이용해 제작하였습니다.'
-      + 'Type을 맞추고, interface를 만드는 것들이 정말 어려웠지만, 하다보니 조금은 익숙해진 것 같습니다.'
-      + '또한, 그동안 머릿속으로 생각만 하고 있던 반응형 웹 + 모바일 버전도 본격적으로 만들어 보았습니다.'
-      + '처음에 무턱대고 시작했다가 크기도 폰트도 이상하게 조절되어 굉장히 힘들었고, 원하는대로 컴포넌트들이 리사이즈되지 않아 굉장히 애를 먹었습니다.'
-      + '하지만 검색과 오픈소스, 그리고 다른 분들의 페이지를 참고하며 반응형 요소를 계속 공부해 처음보다 훨씬 좋아진 반응형 웹을 만들 수 있었습니다.'
-      + '비록 Typescript와 반응형 웹을 100% 익혔다고 할 수는 없지만, 새로운 시도를 했고 어느정도 성과를 거둔 것에 굉장히 뿌듯함을 느끼고 있습니다.'
-      + '다음 프로젝트때는 이번에 익힌 스택들을 더더욱 발전시키고, SASS나 Tailwind같은 새로운 스택들에도 도전해 볼 계획입니다.'
-    }
-  }
 ]

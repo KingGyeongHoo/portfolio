@@ -92,7 +92,7 @@ const GraphModal = () => {
   };
   return (
     <ModalBackground isOpen={isOpen} onClick={closeModal}>
-      <ModalContainer>
+      <ModalContainer onClick={(e) => e.stopPropagation()}>
         <ModalContentDiv>
           <ModalSkillName>{skillInfo.skill}</ModalSkillName>
           <ModalProf prof={skillInfo.prof}>

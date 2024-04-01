@@ -120,7 +120,7 @@ const ProjectsModal = () => {
     }
     return (
         <ModalBackground isOpen={projectModalOpen} onClick={closeProjcetModal}>
-            <PModalContainer className='modal'>
+            <PModalContainer className='modal' onClick={(e) => e.stopPropagation()}>
                 <MotalTitleDiv>
                     <ModalTitle>{project.projectName}</ModalTitle>
                 </MotalTitleDiv>
