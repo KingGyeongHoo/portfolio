@@ -32,10 +32,16 @@ const PModalContentDiv = styled(ModalContentDiv)`
 const MotalTitleDiv = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 90%;
     height: 6%;
     padding: 2% 5%;
     background-color: ${Pallete.main_color};
+`
+const CloseModal = styled.span`
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 `
 const ModalTitle = styled.h1`
     color: #ffffff;
@@ -104,7 +110,7 @@ const FunctionLi = styled.li`
 const Feeling = styled.p`
     color: ${Pallete.font_gray};
     font-weight: 400;
-    margin: 0.75% 0;
+    margin: 0.5% 0;
 `
 const ProjectsModal = () => {
     const dispatch = useDispatch()
@@ -123,6 +129,7 @@ const ProjectsModal = () => {
             <PModalContainer className='modal' onClick={(e) => e.stopPropagation()}>
                 <MotalTitleDiv>
                     <ModalTitle>{project.projectName}</ModalTitle>
+                    <CloseModal onClick={closeProjcetModal}>X</CloseModal>
                 </MotalTitleDiv>
                 <PModalContentDiv>
                     <Contents>
@@ -141,7 +148,7 @@ const ProjectsModal = () => {
                         </StacksDiv>
                     </Contents>
                     <Contents>
-                        <ContentTitle>주요 기능</ContentTitle>
+                        <ContentTitle>My Role</ContentTitle>
                         {projectInfo.functions.map((el:Functions, idx:number) => {
                             return(
                                 <div key={idx}>
