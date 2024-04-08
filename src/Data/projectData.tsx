@@ -10,8 +10,9 @@ interface Project {
   figma: string;
   info: Info
 }
-interface Info {
+export interface Info {
   stacks: StacksProps[];
+  mainFunction: string[];
   functions: Functions[];
   feeling: string;
 }
@@ -38,7 +39,7 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack:'Typescript, HTML, CSS, React, Styled-Components, Recoil'
+          stack: 'Typescript, HTML, CSS, React, Styled-Components, Recoil'
         },
         {
           type: 'Backend',
@@ -53,6 +54,8 @@ export const projectData: Project[] = [
           stack: 'Git, Github, Figma, Photoshop, Slack, Notion'
         },
       ],
+      mainFunction: ['AI 부동산 가격 예측 데이터 연동', 'Naver API 및 사이드 서버를 통한 뉴스 데이터 수집']
+      ,
       functions: [{
         title: '부동산 검색',
         function: ['REST API를 이용해 검색 조건에 맞는 데이터를 GET한 뒤 검색 결과 컴포넌트에 렌더링',
@@ -118,6 +121,8 @@ export const projectData: Project[] = [
           stack: 'Git, Github, Figma, Photoshop'
         },
       ],
+      mainFunction: ['Media Query를 통한 반응형 웹 구현']
+      ,
       functions: [{
         title: '메인 페이지',
         function: ['Keyframe과 애니메이션을 이용한 타이핑 효과',
@@ -184,6 +189,8 @@ export const projectData: Project[] = [
           stack: 'Git, Github, Figma, Photoshop'
         },
       ],
+      mainFunction: ['KakaoMap API를 사용한 지도 어플리케이션', 'Recharts 그래프 렌더링']
+      ,
       functions: [{
         title: '필터',
         function: ['시설구분, 충전소 위치, 충전기 타입, 검색결과 등을 바탕으로 원하는 조건 필터링',
@@ -248,7 +255,9 @@ export const projectData: Project[] = [
           type: 'ETC',
           stack: 'Git, Github, Figma, Jira'
         },
-      ],
+      ], 
+      mainFunction: ['React-DnD를 이용한 드래그 앤 드롭', 'KakaoPay API 결제']
+      ,
       functions: [{
         title: '메인 페이지',
         function: ['스크롤 버튼 클릭시 화면 자동 스크롤',

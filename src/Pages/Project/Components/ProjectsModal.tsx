@@ -54,7 +54,7 @@ const Contents = styled.div`
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
 `
 const ContentTitle = styled.p`
     margin-bottom: 2%;
@@ -95,7 +95,8 @@ const StacksName = styled.p`
 `
 const FunctionUl = styled.ul`
     width: 100%;
-    margin-bottom: 7.5%;
+    margin-bottom: 3%;
+    padding: 0;
 `
 const FunctionTitle = styled.h1`
     color:#000000;
@@ -104,13 +105,18 @@ const FunctionTitle = styled.h1`
 `
 const FunctionLi = styled.li`
     width: 90%;
-    margin: 1% 0;
+    margin: 1% 0 1% 3%;
     color: ${Pallete.font_gray};
     font-weight: 400;
     p {
         word-wrap:break-word;
+        font-size: 1.2em;
     }
-    
+    span{
+            color: ${Pallete.main_color_dark};
+            font-size: 1.5em;
+            font-weight: bold;
+        }
 `
 const Feeling = styled.p`
     color: ${Pallete.font_gray};
@@ -153,41 +159,70 @@ const ProjectsModal = () => {
                     <CloseModal onClick={closeProjcetModal}>X</CloseModal>
                 </MotalTitleDiv>
                 <PModalContentDiv>
-                    <Contents>
-                        <ContentTitle>사용 스택</ContentTitle>
-                        <StacksDiv>
-                            {projectInfo.stacks.map((el:StacksProps, idx:number) => {
-                                return (
-                                    <Stacks key={idx}>
-                                        <StacksType>{el.type}</StacksType>
-                                        <StackNamesDiv>
-                                            <StacksName>{el.stack}</StacksName>
-                                        </StackNamesDiv>
-                                    </Stacks>
-                                )
-                            })}
-                        </StacksDiv>
-                    </Contents>
-                    <Contents>
-                        <ContentTitle>My Role</ContentTitle>
-                        {projectInfo.functions.map((el:Functions, idx:number) => {
-                            return(
-                                <div key={idx}>
-                                    <FunctionTitle>{el.title}</FunctionTitle>
-                                    <FunctionUl>
-                                        {el.function.map((e:string, idx:number) => <FunctionLi key={idx}><p>{e}</p></FunctionLi>)}
-                                    </FunctionUl>
-                                </div>
-                            )
-                        })}
-                    </Contents>
-                    <Contents>
-                        <ContentTitle>느낀 점</ContentTitle>
-                        {projectInfo.feeling.split('.').map((el:string, idx:number) => <Feeling key={idx}>{el}</Feeling>)}
-                    </Contents>
+                    <UseStacks stacks={projectInfo.stacks}></UseStacks>
+                    <MainFunction mainFunction={projectInfo.mainFunction}></MainFunction>
+                    <MyRole functions={projectInfo.functions}></MyRole>
+                    <Feelings feeling={projectInfo.feeling}></Feelings>
                 </PModalContentDiv>
             </PModalContainer>
         </ModalBackground>
     )
 }
+
+const UseStacks = ({stacks}:any) => {
+    return (
+        <Contents>
+            <ContentTitle>사용 스택</ContentTitle>
+            <StacksDiv>
+                {stacks.map((el:StacksProps, idx:number) => {
+                    return (
+                        <Stacks key={idx}>
+                            <StacksType>{el.type}</StacksType>
+                            <StackNamesDiv>
+                                <StacksName>{el.stack}</StacksName>
+                            </StackNamesDiv>
+                        </Stacks>
+                    )
+                })}
+            </StacksDiv>
+        </Contents>
+    )
+}
+
+const MainFunction = ({mainFunction}:any) => {
+    return (
+        <Contents>
+            <ContentTitle>주요 기능</ContentTitle>
+            <FunctionUl>
+                {mainFunction.map((e:string, idx:number) => <FunctionLi key={idx}><span>{e}</span></FunctionLi>)}
+            </FunctionUl>
+        </Contents>
+    )
+}
+
+const MyRole = ({functions}:any) => {
+    return (
+        <Contents>
+            <ContentTitle>My Role</ContentTitle>
+            {functions.map((el:Functions, idx:number) => {
+                return(
+                    <FunctionUl key={idx}>
+                        <FunctionTitle>{el.title}</FunctionTitle>
+                        {el.function.map((e:string, idx:number) => <FunctionLi key={idx}><p>{e}</p></FunctionLi>)}
+                    </FunctionUl>
+                )
+            })}
+        </Contents>
+    )
+}
+
+const Feelings = ({feeling}:any) => {
+    return (
+        <Contents>
+            <ContentTitle>느낀 점</ContentTitle>
+            {feeling.split('.').map((el:string, idx:number) => <Feeling key={idx}>{el}</Feeling>)}
+        </Contents>
+    )
+}
+
 export default ProjectsModal
