@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 
@@ -90,6 +91,19 @@ const GraphModal = () => {
       type: "Modal_Close",
     });
   };
+  useEffect(() => {
+    const handleKeyDown = (e:KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
   return (
     <ModalBackground isOpen={isOpen} onClick={closeModal}>
       <ModalContainer onClick={(e) => e.stopPropagation()}>

@@ -17,7 +17,7 @@ interface Info {
 }
 export interface StacksProps {
   type: string;
-  stack: string[];
+  stack: string;
 }
 export interface Functions {
   title: string;
@@ -38,19 +38,19 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Typescript,', 'HTML,', 'CSS,', 'React,', 'Styled-Components,', 'Recoil']
+          stack:'Typescript, HTML, CSS, React, Styled-Components, Recoil'
         },
         {
           type: 'Backend',
-          stack: ['Node.js,', 'Express']
+          stack: 'Node.js, Express'
         },
         {
           type: 'Deploy',
-          stack: ['Netlify,', 'CloudType']
+          stack: 'Netlify, CloudType'
         },
         {
           type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop,', 'Slack,', 'Notion']
+          stack: 'Git, Github, Figma, Photoshop, Slack, Notion'
         },
       ],
       functions: [{
@@ -103,19 +103,19 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'HTML,', 'CSS,', 'React,', 'Styled-Components,', 'Redux']
+          stack: 'Javascript, HTML, CSS, React, Styled-Components, Redux'
         },
         {
           type: 'Backend',
-          stack: ['-']
+          stack: '-'
         },
         {
           type: 'Deploy',
-          stack: ['Netlify']
+          stack: 'Netlify'
         },
         {
           type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
+          stack: 'Git, Github, Figma, Photoshop'
         },
       ],
       functions: [{
@@ -169,19 +169,19 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'HTML,', 'CSS', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
+          stack: 'Javascript, HTML, CSS, React, Styled-Components, Redux, AXIOS'
         },
         {
           type: 'Backend',
-          stack: ['AWS']
+          stack: 'AWS'
         },
         {
           type: 'Deploy',
-          stack: ['Netlify']
+          stack: 'Netlify'
         },
         {
           type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Photoshop']
+          stack: 'Git, Github, Figma, Photoshop'
         },
       ],
       functions: [{
@@ -234,19 +234,19 @@ export const projectData: Project[] = [
       stacks: [
         {
           type: 'Frontend',
-          stack: ['Javascript,', 'HTML,', 'CSS,', 'React,', 'Styled-Components,', 'Redux,', 'AXIOS']
+          stack: 'Javascript, HTML, CSS, React, Styled-Components, Redux, AXIOS'
         },
         {
           type: 'Backend',
-          stack: ['Java,', 'Springboot,', 'MySQL,', 'JWT,', 'AWS']
+          stack: 'Java, Springboot, MySQL, JWT, AWS'
         },
         {
           type: 'Deploy',
-          stack: ['Netlify']
+          stack: 'Netlify'
         },
         {
           type: 'ETC',
-          stack: ['Git,', 'Github,', 'Figma,', 'Jira']
+          stack: 'Git, Github, Figma, Jira'
         },
       ],
       functions: [{

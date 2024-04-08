@@ -1,3 +1,4 @@
+import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -90,7 +91,7 @@ const StackNamesDiv = styled.div`
     color: ${Pallete.font_gray};
 `
 const StacksName = styled.p`
-    margin-right: 8px;
+    word-wrap:break-word;
 `
 const FunctionUl = styled.ul`
     width: 100%;
@@ -102,10 +103,14 @@ const FunctionTitle = styled.h1`
     font-weight: 900;
 `
 const FunctionLi = styled.li`
-    width: 100%;
+    width: 90%;
     margin: 1% 0;
     color: ${Pallete.font_gray};
     font-weight: 400;
+    p {
+        word-wrap:break-word;
+    }
+    
 `
 const Feeling = styled.p`
     color: ${Pallete.font_gray};
@@ -120,13 +125,29 @@ const ProjectsModal = () => {
     const closeProjcetModal = () => {
         dispatch({ type: 'PModal_Close' })
     }
+    useEffect(() => {
+        const handleKeyDown = (e:KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            closeProjcetModal()
+          }
+        };
+    
+        document.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+          document.removeEventListener('keydown', handleKeyDown);
+        };
+      }, []);
     const modalContent = document.querySelector('.modal') as HTMLElement;
     if(modalContent !== null){
         modalContent.scrollTop = 0;
     }
     return (
         <ModalBackground isOpen={projectModalOpen} onClick={closeProjcetModal}>
-            <PModalContainer className='modal' onClick={(e) => e.stopPropagation()}>
+            <PModalContainer
+             className='modal'
+              onClick={(e) => e.stopPropagation()}
+            >
                 <MotalTitleDiv>
                     <ModalTitle>{project.projectName}</ModalTitle>
                     <CloseModal onClick={closeProjcetModal}>X</CloseModal>
@@ -140,7 +161,7 @@ const ProjectsModal = () => {
                                     <Stacks key={idx}>
                                         <StacksType>{el.type}</StacksType>
                                         <StackNamesDiv>
-                                            {el.stack.map((e:string, idx:number) => <StacksName key={idx}>{e}</StacksName>)}
+                                            <StacksName>{el.stack}</StacksName>
                                         </StackNamesDiv>
                                     </Stacks>
                                 )
@@ -154,7 +175,7 @@ const ProjectsModal = () => {
                                 <div key={idx}>
                                     <FunctionTitle>{el.title}</FunctionTitle>
                                     <FunctionUl>
-                                        {el.function.map((e:string, idx:number) => <FunctionLi key={idx}>{e}</FunctionLi>)}
+                                        {el.function.map((e:string, idx:number) => <FunctionLi key={idx}><p>{e}</p></FunctionLi>)}
                                     </FunctionUl>
                                 </div>
                             )
