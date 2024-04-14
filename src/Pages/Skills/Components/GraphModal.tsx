@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 
 import Pallete from "../../../Pallete";
-import { BgCircles } from "../../Main/Components/MainLeft";
 import { SkillProf } from "./SkillBox";
 import { fadeIn, fadeOut } from "../../About/Components/Information";
 import Graph from "./Graph";
@@ -130,7 +129,6 @@ const GraphModal = () => {
             <Describe key={idx}>{el}</Describe>
           ))}
         </ModalContentDiv>
-        <BgCircles></BgCircles>
       </ModalContainer>
     </ModalBackground>
   );

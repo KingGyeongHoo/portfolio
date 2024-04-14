@@ -1,12 +1,15 @@
 import "./App.css";
 import React, { useState } from "react";
 import styled from "styled-components";
+import {ThemeProvider} from "styled-components";
 
 import Navbar from "./Pages/Navbar/Navbar";
 import Main from "./Pages/Main/Main";
 import Info from "./Pages/About/About";
 import Skills from "./Pages/Skills/Skills";
 import Project from "./Pages/Project/Project";
+import { GlobalStyles } from "./Styles/GlobalStyle";
+import theme from "./Styles/Theme";
 
 const Container = styled.div`
   flex-direction: column;
@@ -25,25 +28,28 @@ const Container = styled.div`
 `;
 function App() {
   return (
-    <Container>
-      <nav>
-        <Navbar></Navbar>
-      </nav>
-      <main>
-        <section className="Main">
-          <Main></Main>
-        </section>
-        <section className="About">
-          <Info></Info>
-        </section>
-        <section className="Skills">
-          <Skills></Skills>
-        </section>
-        <section className="Projects">
-          <Project></Project>
-        </section>
-      </main>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <GlobalStyles />
+        <nav>
+          <Navbar></Navbar>
+        </nav>
+        <main>
+          <section className="Main">
+            <Main></Main>
+          </section>
+          <section className="About">
+            <Info></Info>
+          </section>
+          <section className="Skills">
+            <Skills></Skills>
+          </section>
+          <section className="Projects">
+            <Project></Project>
+          </section>
+        </main>
+      </Container>
+    </ThemeProvider>
   );
 }
 

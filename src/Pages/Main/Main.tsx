@@ -1,23 +1,22 @@
 import styled from "styled-components"
+import { MainFont } from "./Components/MainFont"
 
-import MainLeft from "./Components/MainLeft"
-import MainRight from "./Components/MainRight"
+import { flexCenter } from "../../Styles/GlobalStyle"
 
-
-const MainContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100vh;
-    padding: 0;
-`
 
 const Main = () => {
     return (
         <MainContainer>
-            <MainLeft />
-            <MainRight />
+            <MainFont></MainFont>
         </MainContainer>
     )
 }
+
+const MainContainer = styled.div`
+    ${flexCenter};
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    background-color: ${({theme}) => theme.bgColor.main};
+`
 export default Main
