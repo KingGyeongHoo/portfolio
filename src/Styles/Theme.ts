@@ -2,10 +2,14 @@ import { DefaultTheme } from "styled-components"
 
 const bgColor = {
     main:'#EFEFEF',
-    intro: '#FCFCFC'
+    intro: '#FCFCFC',
+}
+const fontColor = {
+    light_gray: '#D0D0D0'
 }
 
 const theme:DefaultTheme = {
-    bgColor
+    bgColor,
+    fontColor
 }
 export default theme
