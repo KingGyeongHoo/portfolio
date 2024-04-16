@@ -1,16 +1,39 @@
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
 import Title from "./Components/Title";
 import Information from './Components/Information';
 import Text from './Components/Text';
+import { Scroll } from '../Main/Components/MainFont';
 
 interface InfoProps{
     url:string;
 }
+
+const Intro = () => {
+    const right = Math.max(0, (window.innerHeight * 4 - useSelector((state:any) => state.scroll))/15)
+    console.log(right)
+
+    return (
+        <InrtoContainer scroll={right}>
+            
+        </InrtoContainer>
+    )
+}
+
+const InrtoContainer = styled.div<Scroll>`
+    position: fixed;
+    top: 0;
+    right: ${props => props.scroll}%;
+    width: 100%;
+    height: 100vh;
+    background-color: ${({theme}) => theme.bgColor.intro};
+    transition: right 0.5s ease-in-out;
+`
+
 export const Container = styled.div<InfoProps>`
     display: flex;
     width: 100%;
@@ -27,26 +50,4 @@ export const ContentContainer = styled.div`
     padding: 3% 10%;
 `
 
-const About = () => {
-    const [ref, inView] = useInView({
-        threshold: 0.5
-    });
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        if (inView) {
-            dispatch({type:'About'})
-        }
-    }, [inView, dispatch]);
-
-    return (
-        <Container ref={ref} url={`${process.env.PUBLIC_URL}/img/content_bg_white.png`}>
-            <ContentContainer>
-                <Title title='About' color='#ffffff'></Title>
-                <Information></Information>
-                <Text></Text>
-            </ContentContainer>
-        </Container>
-    )
-}
-export default About
+export default Intro

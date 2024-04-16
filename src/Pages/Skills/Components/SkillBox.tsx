@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 
 import { SkillData } from "../../../Data/SkillData";
 import Pallete from "../../../Pallete";
-import { fadeIn, fadeOut } from "../../About/Components/Information";
+import { fadeIn, fadeOut } from "../../Intro/Components/Information";
 
 interface SkillsProps {
     title: string;

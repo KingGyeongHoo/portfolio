@@ -5,7 +5,7 @@ import {ThemeProvider} from "styled-components";
 
 import Navbar from "./Pages/Navbar/Navbar";
 import Main from "./Pages/Main/Main";
-import Info from "./Pages/About/About";
+import Intro from "./Pages/Intro/Intro";
 import Skills from "./Pages/Skills/Skills";
 import Project from "./Pages/Project/Project";
 import { GlobalStyles } from "./Styles/GlobalStyle";
@@ -38,14 +38,8 @@ function App() {
           <section className="Main">
             <Main></Main>
           </section>
-          <section className="About">
-            <Info></Info>
-          </section>
-          <section className="Skills">
-            <Skills></Skills>
-          </section>
-          <section className="Projects">
-            <Project></Project>
+          <section>
+            <Intro></Intro>
           </section>
         </main>
       </Container>

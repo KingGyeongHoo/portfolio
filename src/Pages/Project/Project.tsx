@@ -5,8 +5,8 @@ import styled from "styled-components"
 import Pallete from "../../Pallete"
 
 import Card from './Components/Card';
-import Title from '../About/Components/Title';
-import { Container, ContentContainer } from '../About/About';
+import Title from '../Intro/Components/Title';
+import { Container, ContentContainer } from '../Intro/Intro';
 import ProjectsModal from './Components/ProjectsModal';
 
 const ProjectsContainer = styled(Container)`
