@@ -1,9 +1,32 @@
 import {styled, keyframes} from "styled-components"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+export interface Font{
+    scroll:number;
+}
 
 export const MainFont = () => {
+    const dispatch = useDispatch()
+    const scroll = useSelector((state:any) => state.scroll)
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          dispatch (
+                {
+                    type: 'SCROLL',
+                    scrollAmt: (scrollTop*2)
+                }
+            )
+        }
     
+        window.addEventListener('scroll', handleScroll)
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }, [])
     return (
-        <FontDiv>
+        <FontDiv scroll={scroll+64}>
             <h1 className='empty'>HI, I'M</h1>
             <h1 className='empty'>FRONTEND</h1>
             <h1 className='empty'>DEVELOPER</h1>
@@ -24,21 +47,28 @@ const moveUpDown = keyframes`
   }
 `;
 
-const FontDiv = styled.div`
-    display: flex;
+const FontDiv = styled.div<Font>`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: ${props => props.scroll < 1400 ? 'flex' : 'none'};
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 80%;
-    animation: ${moveUpDown} 2s ease-in-out infinite;
+    width: 100%;
+    font-size:${props => props.scroll}px;
+    overflow: hidden;
     h1{
-        line-height: 105px;
+        /* line-height: ${props => props.scroll + 25}px; */
         margin: 0;
         padding:0;
-        font-size: 7em;
         @media(max-width: 600px){
             font-size: 4em;
             line-height: 50px;
         }
         font-weight: 900;
+        white-space: nowrap;
     }
     h1.empty {
         color: ${({ theme }) => theme.bgColor.main};
