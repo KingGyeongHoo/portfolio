@@ -34,12 +34,17 @@ const InrtoContainer = styled.div<Scroll>`
     position: fixed;
     top: 0;
     right: ${props => props.scroll}%;
-    ${flexCenter};
+    display: ${props => props.scroll > 100 ? 'none' : 'flex'};
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     width: 100%;
-    height: auto;
-    /* min-height: 100vh; */
-    overflow: scroll;
+    height: 100vh;
+    padding: 10%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     background-color: ${({theme}) => theme.bgColor.intro};
     .con {
         ${flexCenter};
@@ -47,6 +52,9 @@ const InrtoContainer = styled.div<Scroll>`
         width: 30%;
         height: 100%;
         border: 1px solid red;
+        &:nth-child(2){
+            margin-top: 20%;
+        }
     }
 `
 
