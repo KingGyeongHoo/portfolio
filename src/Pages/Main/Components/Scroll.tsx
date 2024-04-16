@@ -4,8 +4,8 @@ import { flexCenter } from "../../../Styles/GlobalStyle"
 export const Scroll = () => {
     const handleScroll = () => {
         window.scrollBy({
-          top: window.innerHeight, // 100vh만큼 아래로 이동
-          behavior: "smooth", // 부드러운 스크롤 효과
+          top: window.innerHeight,
+          behavior: "smooth",
         });
     }
 
@@ -26,7 +26,6 @@ const ScrollDiv = styled.div`
     left: 50%;
     width: 75px;
     height: 8%;
-    transform: translate(-50%, 0);
     &:hover{
             > div{
                 transition: background-color 0.3s ease;
