@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import { Scroll } from "./MainFont";
-import { flexCenter } from "../../../Styles/GlobalStyle";
+import { flexCenter, highlight } from "../../../Styles/GlobalStyle";
 
 export const IntroTitle = () => {
     const scroll = useSelector((state:any) => state.scroll)
@@ -33,7 +33,7 @@ const IntroDiv = styled.div<Scroll>`
         font-weight: 800;
         margin: 5px 0;
         span{
-            color: ${({theme}) => theme.fontColor.hightlight};
+            ${highlight};
         }
     }
 `

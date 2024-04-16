@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
-import Title from "./Components/Title";
-import Information from './Components/Information';
-import Text from './Components/Text';
+import { IntroCard } from './Components/IntroCard';
 import { Scroll } from '../Main/Components/MainFont';
+import { flexCenter } from '../../Styles/GlobalStyle';
 
 interface InfoProps{
     url:string;
@@ -19,7 +18,14 @@ const Intro = () => {
 
     return (
         <InrtoContainer scroll={right}>
-            
+            <div className='con'>
+                <IntroCard></IntroCard>
+                <IntroCard></IntroCard>
+            </div>
+            <div className='con'>
+                <IntroCard></IntroCard>
+                <IntroCard></IntroCard>
+            </div>
         </InrtoContainer>
     )
 }
@@ -28,10 +34,20 @@ const InrtoContainer = styled.div<Scroll>`
     position: fixed;
     top: 0;
     right: ${props => props.scroll}%;
+    ${flexCenter};
+    flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    /* min-height: 100vh; */
+    overflow: scroll;
     background-color: ${({theme}) => theme.bgColor.intro};
-    transition: right 0.5s ease-in-out;
+    .con {
+        ${flexCenter};
+        flex-direction: column;
+        width: 30%;
+        height: 100%;
+        border: 1px solid red;
+    }
 `
 
 export const Container = styled.div<InfoProps>`

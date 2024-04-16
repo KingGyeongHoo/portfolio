@@ -15,3 +15,7 @@ export const flexCenter = css`
   justify-content: center;
   align-items: center;
 `;
+export const highlight = css`
+    font-weight: 900;
+    color: ${({theme}) => theme.fontColor.highlight}
+`
