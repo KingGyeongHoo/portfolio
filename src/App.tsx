@@ -6,7 +6,7 @@ import {ThemeProvider} from "styled-components";
 import Navbar from "./Pages/Navbar/Navbar";
 import Main from "./Pages/Main/Main";
 import Intro from "./Pages/Intro/Intro";
-import Skills from "./Pages/Skills/Skills";
+import Competency from "./Pages/Competency/Competency";
 import Project from "./Pages/Project/Project";
 import { GlobalStyles } from "./Styles/GlobalStyle";
 import theme from "./Styles/Theme";
@@ -40,6 +40,9 @@ function App() {
           </section>
           <section>
             <Intro></Intro>
+          </section>
+          <section>
+            <Competency></Competency>
           </section>
         </main>
       </Container>
