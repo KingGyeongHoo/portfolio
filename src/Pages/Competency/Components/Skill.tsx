@@ -17,11 +17,14 @@ export const Skill = () => {
 
 const SkillContainer = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
 `
 const SkillDiv = styled.div`
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
     margin-top: 2%;

@@ -17,9 +17,11 @@ export const flexCenter = css`
 `;
 export const highlight = css`
     font-weight: 900;
-    color: ${({theme}) => theme.fontColor.highlight};
+    color: ${({ theme }) => theme.fontColor.highlight};
 `
 export const Title = styled.h1`
+    width: 100%;
+    margin-top:5%;
   font-size: 72px;
   font-weight: 900;
   color: black;

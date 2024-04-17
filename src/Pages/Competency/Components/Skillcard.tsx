@@ -14,20 +14,25 @@ const SkillCard = ({skill, url}:Skills) => {
 const SkillCardContainer = styled.div`
     ${flexCenter};
     flex-direction: column;
-    width: 280px;
-    height: 280px;
-    margin: 10px;
+    width: 19%;
+    aspect-ratio: 1 / 1;
+    margin: 0.5%;
     background-color: #F9F9F9;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    &:hover{
+        transform: scale(1.05);
+    }
     img{
-        width: 120px;
-        height: 120px;
+        width: 30%;
+        aspect-ratio: 1 / 1;
     }
     span{
+        text-align: center;
         margin-top: 20px;
         color: black;
         font-weight: 900;
-        font-size: 36px;
+        font-size: 30px;
     }
 `
 export default SkillCard
