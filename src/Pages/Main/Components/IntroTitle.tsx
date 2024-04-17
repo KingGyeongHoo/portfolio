@@ -20,7 +20,7 @@ const IntroDiv = styled.div<Scroll>`
     top: 50%;
     left: 50%;
     ${flexCenter}
-    display: flex;
+    display: ${props => props.scroll > 3700 ? 'none' : 'flex'};
     justify-content: center;
     align-items: center;
     flex-direction: column;

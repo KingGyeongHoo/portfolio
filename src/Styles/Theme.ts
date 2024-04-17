@@ -6,6 +6,7 @@ const bgColor = {
 }
 const fontColor = {
     light_gray: '#D0D0D0',
+    dark_gray:'#676767',
     highlight: '#7D97AE'
 }
 

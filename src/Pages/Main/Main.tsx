@@ -19,7 +19,7 @@ const MainContainer = styled.div`
     ${flexCenter};
     flex-direction: column;
     width: 100%;
-    height: 300vh;
+    height: 400vh;
     padding: 0;
     background-color: ${({theme}) => theme.bgColor.main};
 `
