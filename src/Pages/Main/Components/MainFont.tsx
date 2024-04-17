@@ -1,7 +1,7 @@
-import {styled, keyframes} from "styled-components"
+import {styled} from "styled-components"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-export interface Font{
+export interface Scroll{
     scroll:number;
 }
 
@@ -35,19 +35,7 @@ export const MainFont = () => {
     )
 }
 
-const moveUpDown = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-const FontDiv = styled.div<Font>`
+const FontDiv = styled.div<Scroll>`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -60,7 +48,6 @@ const FontDiv = styled.div<Font>`
     font-size:${props => props.scroll}px;
     overflow: hidden;
     h1{
-        /* line-height: ${props => props.scroll + 25}px; */
         margin: 0;
         padding:0;
         @media(max-width: 600px){

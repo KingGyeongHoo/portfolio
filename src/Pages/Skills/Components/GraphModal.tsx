@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import Pallete from "../../../Pallete";
 import { SkillProf } from "./SkillBox";
-import { fadeIn, fadeOut } from "../../About/Components/Information";
+import { fadeIn, fadeOut } from "../../Intro/Components/Information";
 import Graph from "./Graph";
 interface Modal {
   isOpen: boolean;

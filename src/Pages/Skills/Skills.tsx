@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import Pallete from "../../Pallete"
 
-import Title from '../About/Components/Title';
-import { Container, ContentContainer } from '../About/About';
+import Title from '../Intro/Components/Title';
+import { Container, ContentContainer } from '../Intro/Intro';
 import SkillBox from './Components/SkillBox';
 import GraphModal from './Components/GraphModal';
 

@@ -6,7 +6,8 @@ const bgColor = {
 }
 const fontColor = {
     light_gray: '#D0D0D0',
-    hightlight: '#7D97AE'
+    dark_gray:'#676767',
+    highlight: '#7D97AE'
 }
 
 const theme:DefaultTheme = {
