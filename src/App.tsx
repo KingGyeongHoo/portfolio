@@ -41,6 +41,9 @@ function App() {
           <section>
             <Intro></Intro>
           </section>
+          <section>
+            <Skills></Skills>
+          </section>
         </main>
       </Container>
     </ThemeProvider>
