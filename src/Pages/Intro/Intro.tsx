@@ -1,7 +1,7 @@
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import styled from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 import Pallete from "../../Pallete"
 
 import IntroCard  from './Components/IntroCard';
@@ -14,7 +14,8 @@ interface InfoProps{
 
 const Intro = () => {
     // const right = Math.max(0, (window.innerHeight * 4 - useSelector((state:any) => state.scroll))/15)
-    const right = (window.innerHeight * 4 - useSelector((state:any) => state.scroll))/15
+    const scroll = useSelector((state:any) => state.scroll)
+    const right = Math.abs((window.innerHeight * 4 - scroll)/15) < 10 ? 0 : (window.innerHeight * 4 - scroll)/15
 
     return (
         <InrtoContainer scroll={right}>
@@ -29,6 +30,17 @@ const Intro = () => {
         </InrtoContainer>
     )
 }
+
+const slideUp = keyframes`
+    from {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+`
 
 const InrtoContainer = styled.div<Scroll>`
     position: fixed;
@@ -52,7 +64,7 @@ const InrtoContainer = styled.div<Scroll>`
         width: 400px;
         height: 680px;
         margin: 0 1%;
-        opacity: ${props => 1 - Math.abs(props.scroll/100)};
+        ${props => Math.abs(props.scroll) < 100 && css`animation: ${slideUp} 2s ease forwards;`}
     }
 `
 
