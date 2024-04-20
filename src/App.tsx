@@ -44,6 +44,9 @@ function App() {
           <section>
             <Competency></Competency>
           </section>
+          <section>
+            <Project></Project>
+          </section>
         </main>
       </Container>
     </ThemeProvider>

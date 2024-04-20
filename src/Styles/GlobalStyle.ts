@@ -21,7 +21,7 @@ export const highlight = css`
 `
 export const Title = styled.h1`
     width: 100%;
-    margin-top:5%;
+    margin-top:2%;
   font-size: 72px;
   font-weight: 900;
   color: black;

@@ -32,6 +32,7 @@ const EducationContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 3%;
 `
 const EducationContent = styled.div`
     ${flexCenter};
