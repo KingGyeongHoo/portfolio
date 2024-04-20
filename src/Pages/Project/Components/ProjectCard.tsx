@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { Project } from "../../../Data/projectData";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../../Styles/GlobalStyle";
+
+import ProjectModal from "./ProjectModal";
 
 interface Content{
   content: Project
@@ -15,9 +18,10 @@ export const ProjectCard = ({content, idx}:Content) => {
   const dispatch = useDispatch()
   const selectedIdx = useSelector((state:any) => state.selectedIdx)
   const isSelected = selectedIdx === idx
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const handleClick = () => {
     if(isSelected){
-
+      setIsModalOpen(true)
     } else {
       dispatch({
         type:idx.toString()
@@ -26,6 +30,7 @@ export const ProjectCard = ({content, idx}:Content) => {
   }
   return (
     <ProjectCardContainer>
+      {isModalOpen ? <ProjectModal content={content} closeModal={setIsModalOpen}></ProjectModal> : ''}
       <ProjectContentDiv isSelected={isSelected} background={content.background} onClick={handleClick}>
         <div className="project-img">
           <img src={`${process.env.PUBLIC_URL}/img/projects/${content.file}`}></img>

@@ -45,7 +45,6 @@ const EducationContent = styled.div`
         align-items: center;
         width: 100%;
         margin: 1% 0;
-        /* border: 1px solid red; */
         h2{
             margin: 0 2%;
             color: black;
