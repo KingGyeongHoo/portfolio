@@ -74,19 +74,22 @@ const ProjectModal = () => {
               <h2>My Role</h2>
               <div></div>
           </div>
-          {project.info.stacks.map((el: Functions, idx: number) => {
+          <MyroleDiv>
+            {project.info.functions.map((el: Functions, idx: number) => {
                 return (
                   <MyroleUl>
                     <h3>
                       {el.title}
                     </h3>
-                    {/* {el.function.map((content:string, idx:number) => {
+                    {el.function.map((content:string, idx:number) => {
                       return <li>{content}</li>
-                    })} */}
+                    })}
                   </MyroleUl>
                 )
               })
             }
+          </MyroleDiv>
+            
         </ContentDivider>
       </ModalContainer>
     </ModalBackground>
@@ -153,14 +156,23 @@ const TechUl = styled.ul`
     }
   }
 `
-const MyroleUl = styled.div`
+const MyroleDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 1.5% 0;
+`
+const MyroleUl = styled.ul`
   width: 100%;
   margin-bottom: 1.5%;
   h3{
     ${highlight};
+    margin-left: -2%;
+    font-size:24px;
   }
   li{
     margin: 1% 0;
+    font-size: 20px;
   }
 `
 

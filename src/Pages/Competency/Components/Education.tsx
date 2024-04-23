@@ -17,7 +17,7 @@ export const Education = () => {
                             <div></div>
                         </div>
                         <div className="content">
-                            <h3 className="name">{el.place}</h3>
+                            <h3 className="name">{el.place.split('&')[0]}<br/>{el.place.split('&')[1]}</h3>
                             <div></div>
                             <h3 className="date">{el.date}</h3>
                         </div>

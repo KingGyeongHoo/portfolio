@@ -54,7 +54,7 @@ export const ContentDivider = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
+        /* align-items: center; */
         width: 90%;
         height: auto;
         h3{
@@ -68,7 +68,7 @@ export const ContentDivider = styled.div`
         }
         div{
             width: 6px;
-            height: 30px;
+            height: auto;
             margin: 0 2%;
             background-color: ${({ theme }) => theme.fontColor.dark_gray};
         }
