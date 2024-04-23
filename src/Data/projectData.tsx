@@ -31,7 +31,7 @@ export const projectData: Project[] = [
     file: 'homepredictor.png',
     percentage: 40,
     title: 'AI 부동산 예측 서비스',
-    desc: 'HomePredictor는 혼란한 부동산 시장 속 3개월 후의 집값을 예측해.현명한 소비 및 투자를 도와주는 AI 부동산 예측 서비스입니다.',
+    desc: 'HomePredictor는 혼란한 부동산 시장 속, 3개월 후의 집값을 예측해 현명한 소비 및 투자를 도와주는 AI 부동산 예측 서비스입니다.',
     background: '#378ce7',
     type:'Team Project',
     github: 'https://github.com/KingGyeongHoo/homepredictor',

@@ -19,6 +19,9 @@ export const ProjectCard = ({content, idx}:Content) => {
   const handleClick = () => {
     if(isSelected){
       dispatch({
+        type:content.projectName
+      })
+      dispatch({
         type:'Modal_Open'
       })
     } else {
@@ -92,6 +95,7 @@ const ProjectContentDiv = styled.div<IsSelected>`
       bottom: 2%;
       right: 2%;
       font-size: 18px;
+      color:${({theme}) => theme.fontColor.highlight};
     }
   }
 `
