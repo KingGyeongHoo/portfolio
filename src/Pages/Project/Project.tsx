@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components"
 import { Title } from '../../Styles/GlobalStyle';
 import { Carousel } from './Components/Carousel';
+import ProjectModal from './Components/ProjectModal';
 
 
 const Project = () => {
     return (
         <ProjectsContainer>
+            <ProjectModal></ProjectModal>
             <Title>Projects</Title>
             <Carousel></Carousel>
         </ProjectsContainer>

@@ -19,7 +19,6 @@ export const Carousel = () => {
     const idx = useSelector((state:any) => state.selectedIdx)
 
     useEffect(() => {
-        console.log(idx)
         if(idx <= 0){
             dispatch({
                 type: '0'

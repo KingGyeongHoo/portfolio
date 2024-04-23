@@ -3,25 +3,32 @@ import { Project } from "../../../Data/projectData";
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../../Styles/GlobalStyle";
 
-interface Content{
-    content: Project;
-    closeModal:any;
+interface IsOpen{
+  isOpen:boolean;
 }
 
-const ProjectModal = ({content, closeModal}:Content) => {
-
+const ProjectModal = () => {
+  const dispatch = useDispatch()
+  const isOpen = useSelector((state:any) => state.isOpen)
+  const closeModal = () => {
+    dispatch({
+      type:'Modal_Close'
+    })
+  }
   return (
-    <ModalBackground onClick={closeModal(false)}></ModalBackground>
+    <ModalBackground onClick={closeModal} isOpen={isOpen}></ModalBackground>
   );
 };
 
-const ModalBackground = styled.div`
+const ModalBackground = styled.div<IsOpen>`
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vh;
-    height: 100vh;
+    display: ${({isOpen}) => isOpen ? 'flex' : 'none'};
+    width: 100%;
+    height: 100%;
     background-color: rgba(0,0,0,0.2);
+    z-index: 15;
 `
 
 export default ProjectModal
