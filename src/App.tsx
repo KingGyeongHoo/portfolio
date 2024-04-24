@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import {ThemeProvider} from "styled-components";
 
-import Navbar from "./Pages/Navbar/Navbar";
 import Main from "./Pages/Main/Main";
 import Intro from "./Pages/Intro/Intro";
 import Competency from "./Pages/Competency/Competency";
@@ -19,21 +18,12 @@ const Container = styled.div`
   font-family: 'Pretendard-Regular';
   font-weight: 400;
   font-size: 16px;
-  @media (max-width: 1350px) {
-    font-size: 14px; /* 화면이 작아질 때의 너비 */
-  }
-  @media (max-width: 768px) {
-    font-size: 12px; /* 화면이 더 작아질 때의 너비 */
-  }
 `;
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Container>
+    <Container>
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <nav>
-          <Navbar></Navbar>
-        </nav>
         <main>
           <section className="Main">
             <Main></Main>
@@ -48,8 +38,8 @@ function App() {
             <Project></Project>
           </section>
         </main>
-      </Container>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Container>
   );
 }
 

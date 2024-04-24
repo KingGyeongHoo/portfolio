@@ -88,6 +88,7 @@ const CardContainer = styled.div`
     width: 100%;
     height: 50%;
     margin: 2% 0;
+    padding: 0 1%;
     background-color: white;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
     div {
@@ -98,6 +99,9 @@ const CardContainer = styled.div`
             color: black;
             font-weight: 900;
             font-size: 36px;
+            @media(max-width : 600px){
+              font-size: 18px;
+            }
             text-align: center;
         }
         p {
@@ -106,6 +110,9 @@ const CardContainer = styled.div`
             font-weight: 900;
             span{
                 ${highlight}
+            }
+            @media(max-width : 600px){
+              font-size: 10px;
             }
         }
     }

@@ -2,19 +2,13 @@ import { legacy_createStore as createStore, combineReducers } from 'redux';
 import { persistStore, persistReducer  } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { pageReducer } from './Reducers/pageReducer';
 import { modalOpenReducer} from './Reducers/modalOpenReducer';
-import { skillReducer } from './Reducers/skillsInfoReducer';
-import { projectModalOpenReducer } from './Reducers/projectsModalOpenReducer';
 import { projectReducer } from './Reducers/projectsInfoReducer';
 import { ScrollReducer } from './Reducers/scrollReducer';
 import { selectedIdxReducer } from './Reducers/selectedProjectIdx';
 
 const reducers = combineReducers<any>({
-  page: pageReducer,
   isOpen:modalOpenReducer,
-  skill:skillReducer,
-  pIsOpen:projectModalOpenReducer,
   project: projectReducer,
   scroll: ScrollReducer,
   selectedIdx: selectedIdxReducer
@@ -23,7 +17,7 @@ const reducers = combineReducers<any>({
 const persistConfig = {
     key: "root", // localStorage key 
     storage, // localStorage
-    whitelist: ["skill", "project"], // target (reducer name)
+    whitelist: ["project"], // target (reducer name)
   }
 
 
