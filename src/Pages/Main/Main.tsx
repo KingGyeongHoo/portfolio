@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { MainFont } from "./Components/MainFont"
 import { IntroTitle } from "./Components/IntroTitle"
 import { Linkbar } from "./Components/Linkbar"
+import Intro from "../Intro/Intro"
 
 import { flexCenter } from "../../Styles/GlobalStyle"
 
@@ -12,6 +13,7 @@ const Main = () => {
             <Linkbar></Linkbar>
             <MainFont></MainFont>
             <IntroTitle></IntroTitle>
+            <Intro></Intro>
         </MainContainer>
     )
 }

@@ -45,7 +45,6 @@ const InrtoContainer = styled.div<Scroll>`
     flex-direction: row;
     width: 100%;
     height: 100vh;
-    padding: 10%;
     background-color: ${({theme}) => theme.bgColor.intro};
     z-index: 10;
     .con {

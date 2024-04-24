@@ -29,9 +29,6 @@ function App() {
             <Main></Main>
           </section>
           <section>
-            <Intro></Intro>
-          </section>
-          <section>
             <Competency></Competency>
           </section>
           <section>
