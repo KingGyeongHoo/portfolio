@@ -13,8 +13,7 @@ const Competency = () => {
 }
 
 const CompetencyContainer = styled.div`
-    width: 100%;
-    /* height: 100vh; */
+    width: 94%;
     padding: 5% 3%;
     background-color: ${({theme}) => theme.bgColor.main};
 `

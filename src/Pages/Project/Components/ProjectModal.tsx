@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Project, StacksProps, Functions } from "../../../Data/projectData";
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter, ContentDivider, highlight } from "../../../Styles/GlobalStyle";
+import { LuExternalLink } from "react-icons/lu";
 
 import { IoCloseSharp } from "react-icons/io5";
 import { GoDotFill } from "react-icons/go";
@@ -24,6 +25,30 @@ const ProjectModal = () => {
         modalContent.scrollTop = 0;
     }
 
+  const openLink = (e:any) => {
+    if(e.target.innerText === 'Github'){
+      if(project.github.length < 1){
+        alert('준비중입니다!')
+      } else {
+        window.open(`${project.github}`, "_blank");
+      }
+      
+    } else if(e.target.innerText === 'Figma'){
+      if(project.figma.length < 1){
+        alert('준비중입니다!')
+      } else {
+        window.open(`${project.figma}`, "_blank");
+      }
+      
+    } else {
+      if(project.deploy.length < 1){
+        alert('준비중입니다!')
+      } else {
+        window.open(`${project.deploy}`, "_blank");
+      }
+      
+    }
+  }
   return (
     <ModalBackground onClick={closeModal} isOpen={isOpen}>
       <ModalContainer className="modal" onClick={(e) => e.stopPropagation()}>
@@ -48,6 +73,20 @@ const ProjectModal = () => {
               {project.desc}
             </p>
           </div>
+          <Links>
+            <div onClick={openLink}>
+              <span>Github</span>
+              <LuExternalLink color='#bbbbbb'></LuExternalLink>
+            </div>
+            <div onClick={openLink}>
+              <span>배포 링크</span>
+              <LuExternalLink color='#bbbbbb'></LuExternalLink>
+            </div>
+            <div onClick={openLink}>
+              <span>Figma</span>
+              <LuExternalLink color='#bbbbbb'></LuExternalLink>
+            </div>
+          </Links>
         </ContentDivider>
         <ContentDivider>
           <div className="title">
@@ -137,7 +176,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 75%;
-  height: 90%;
+  height: 80%;
   padding:3%;
   background-color: white;
   border-radius: 10px;
@@ -151,6 +190,29 @@ const ModalContainer = styled.div`
     }
   }
 `
+
+const Links = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 5%;
+    span{
+      margin-right: 2px;
+      font-size: 21px;
+      @media(max-width : 600px){
+        font-size: 12px;
+      }
+      color: ${({theme}) => theme.fontColor.light_gray};
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+`
+
 const TechUl = styled.ul`
   width: 100%;
   margin-bottom: 1.5%;
@@ -162,12 +224,15 @@ const TechUl = styled.ul`
     margin: 1% 0;
     p{
       font-size: 27px;
+      @media(max-width : 600px){
+        font-size: 12px;
+      }
       overflow-wrap: break-word;
     }
     p.stack-type{
       width: 12%;
       text-align: right;
-      font-weight: 700;
+      font-weight: 900;
     }
     p.stack-stackname{
       width: 85%;
@@ -190,10 +255,16 @@ const MyroleUl = styled.ul`
     ${highlight};
     margin-left: -2%;
     font-size:24px;
+    @media(max-width : 600px){
+      font-size: 16px;
+    }
   }
   li{
     margin: 1% 0;
     font-size: 20px;
+    @media(max-width : 600px){
+      font-size: 14px;
+    }
   }
 `
 

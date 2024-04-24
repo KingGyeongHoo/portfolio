@@ -5,8 +5,8 @@ export const GlobalStyles = createGlobalStyle`
   *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    /* box-sizing: border-box; */
+    font-family: 'Inter', Arial, sans-serif;
   }
 `;
 
@@ -25,6 +25,9 @@ export const Title = styled.h1`
   font-size: 72px;
   font-weight: 900;
   color: black;
+  @media(max-width : 600px){
+    font-size: 36px;
+  }
 `
 
 export const ContentDivider = styled.div`
@@ -42,6 +45,9 @@ export const ContentDivider = styled.div`
             margin: 0 2%;
             color: black;
             font-size: 36px;
+            @media(max-width : 600px){
+              font-size: 18px;
+            }
             font-weight: 900;
         }
         div{
@@ -59,6 +65,9 @@ export const ContentDivider = styled.div`
         height: auto;
         h3{
           font-size: 30px;
+          @media(max-width : 600px){
+            font-size: 15px;
+          }
         }
         h3.name{
             ${highlight};
@@ -68,6 +77,9 @@ export const ContentDivider = styled.div`
         }
         div{
             width: 6px;
+            @media(max-width : 600px){
+              width: 3px;
+            }
             height: auto;
             margin: 0 2%;
             background-color: ${({ theme }) => theme.fontColor.dark_gray};
@@ -79,6 +91,9 @@ export const ContentDivider = styled.div`
       p{
         text-align: left;
         font-size: 21px;
+        @media(max-width : 600px){
+          font-size: 12px;
+        }
         color:${({theme}) => theme.fontColor.dark_gray};
       }
       p.describe-lines{

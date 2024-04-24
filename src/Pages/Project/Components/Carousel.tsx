@@ -38,8 +38,7 @@ export const Carousel = () => {
         }
     }, [idx])
     const { ref, inView } = useInView({
-        threshold: 0.3,
-        triggerOnce: true,
+        threshold: 0.5
       });
 
     const MoveButton = ({ dir }: Direction) => {
@@ -94,7 +93,7 @@ const CarouselContainer = styled.div<IsShown>`
     ${(props) =>
     props.isShown &&
     css`
-      animation: ${fadeInAnimation} 0.5s ease-in-out forwards;
+      animation: ${fadeInAnimation} 0.3s ease-in-out forwards;
     `};
 `
 const MoveButtonDiv = styled.div<Direction>`
@@ -112,9 +111,15 @@ const CarouselDiv = styled.div<Left>`
     position: absolute;
     top: 50%;
     left:${({ idx }) => 34 - idx * 33.333}%;
+    @media(max-width : 600px){
+        left: ${({ idx }) => 15 - idx * 70}%;
+    }
     display: flex;
     flex-direction: row;
     width: 132%;
+    @media(max-width : 600px){
+        width: 280%;
+    }
     height: 80%;
     align-items: center;
     transition: left 0.5s ease-in-out;

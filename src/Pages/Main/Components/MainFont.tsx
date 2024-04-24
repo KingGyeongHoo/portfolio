@@ -51,8 +51,8 @@ const FontDiv = styled.div<Scroll>`
         margin: 0;
         padding:0;
         @media(max-width: 600px){
-            font-size: 4em;
-            line-height: 50px;
+            font-size:${props => props.scroll/1.8}px;
+            overflow-wrap: break-word;
         }
         font-weight: 900;
         white-space: nowrap;

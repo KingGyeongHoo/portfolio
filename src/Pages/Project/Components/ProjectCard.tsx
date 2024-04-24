@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Project } from "../../../Data/projectData";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { flexCenter } from "../../../Styles/GlobalStyle";
 
@@ -55,6 +54,9 @@ export const ProjectCard = ({content, idx}:Content) => {
 const ProjectCardContainer = styled.div`
   display: flex;
   width: 33.3%;
+  @media(max-width : 600px){
+    width: 70%;
+  }
   height: 100%;
   background-color: rgba(0,0,0,0);
   margin: 0;
@@ -84,9 +86,15 @@ const ProjectContentDiv = styled.div<IsSelected>`
     h1{
       font-size: 42px;
       color: black;
+      @media(max-width : 600px){
+        font-size: 24px;
+      }
     }
     p{
       font-size: 20px;
+      @media(max-width : 600px){
+        font-size: 16px;
+      }
       color: ${({theme}) => theme.fontColor.dark_gray};
       margin-top: 1%;
     }
@@ -95,7 +103,11 @@ const ProjectContentDiv = styled.div<IsSelected>`
       bottom: 2%;
       right: 2%;
       font-size: 18px;
+      @media(max-width : 600px){
+        font-size: 14px;
+      }
       color:${({theme}) => theme.fontColor.highlight};
+      overflow-wrap: break-word;
     }
   }
 `
