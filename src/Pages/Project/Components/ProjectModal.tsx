@@ -19,9 +19,14 @@ const ProjectModal = () => {
       type: 'Modal_Close'
     })
   }
+  const modalContent = document.querySelector('.modal') as HTMLElement;
+    if(modalContent !== null){
+        modalContent.scrollTop = 0;
+    }
+
   return (
     <ModalBackground onClick={closeModal} isOpen={isOpen}>
-      <ModalContainer onClick={(e) => e.stopPropagation()}>
+      <ModalContainer className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="close">
           <div className="close-modal">
             <IoCloseSharp size='36' onClick={closeModal}></IoCloseSharp>
@@ -36,7 +41,7 @@ const ProjectModal = () => {
           <div className="content">
             <h3 className="name">{project.projectName}</h3>
             <div></div>
-            {/* <h3 className="date">{project.date}</h3> */}
+            <h3 className="date">{project.date}</h3>
           </div>
           <div className="describe">
             <p>
@@ -53,43 +58,59 @@ const ProjectModal = () => {
           <div className="content">
             <TechUl>
               {project.info.stacks.map((el: StacksProps, idx: number) => {
-                  return (
-                    <li key={idx}>
-                      <p className="stack-type">
-                        {el.type}
-                      </p>
-                      <p className="stack-stackname">
-                        {el.stack}
-                      </p>
-                    </li>
-                  )
-                })
+                return (
+                  <li key={idx}>
+                    <p className="stack-type">
+                      {el.type}
+                    </p>
+                    <p className="stack-stackname">
+                      {el.stack}
+                    </p>
+                  </li>
+                )
+              })
               }
             </TechUl>
           </div>
         </ContentDivider>
         <ContentDivider>
           <div className="title">
-              <GoDotFill size='24'></GoDotFill>
-              <h2>My Role</h2>
-              <div></div>
+            <GoDotFill size='24'></GoDotFill>
+            <h2>My Role</h2>
+            <div></div>
           </div>
           <MyroleDiv>
             {project.info.functions.map((el: Functions, idx: number) => {
-                return (
-                  <MyroleUl>
-                    <h3>
-                      {el.title}
-                    </h3>
-                    {el.function.map((content:string, idx:number) => {
-                      return <li>{content}</li>
-                    })}
-                  </MyroleUl>
-                )
-              })
+              return (
+                <MyroleUl>
+                  <h3>
+                    {el.title}
+                  </h3>
+                  {el.function.map((content: string, idx: number) => {
+                    return <li>{content}</li>
+                  })}
+                </MyroleUl>
+              )
+            })
             }
           </MyroleDiv>
-            
+        </ContentDivider>
+        <ContentDivider>
+          <div className="title">
+            <GoDotFill size='24'></GoDotFill>
+            <h2>느낀점</h2>
+            <div></div>
+          </div>
+          <div className="describe">
+            {project.info.feeling.split('.').map((el: string, idx: number) => {
+              return (
+                <p className="describe-lines">
+                  {el}
+                </p>
+              )
+            })
+            }
+          </div>
         </ContentDivider>
       </ModalContainer>
     </ModalBackground>
@@ -151,7 +172,7 @@ const TechUl = styled.ul`
     p.stack-stackname{
       width: 85%;
       text-align: left;
-      color: ${({theme}) => theme.fontColor.dark_gray};
+      color: ${({ theme }) => theme.fontColor.dark_gray};
       font-weight: 500;
     }
   }

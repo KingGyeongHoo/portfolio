@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import styled, {css, keyframes} from "styled-components";
+import { useInView } from "react-intersection-observer";
 import ProjectCard from "./ProjectCard";
 import { projectData, Project } from "../../../Data/projectData";
 
@@ -8,6 +9,9 @@ import { flexCenter } from "../../../Styles/GlobalStyle";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
 
+interface IsShown{
+    isShown:boolean;
+  }
 interface Direction {
     dir: string;
 }
@@ -33,6 +37,10 @@ export const Carousel = () => {
             })
         }
     }, [idx])
+    const { ref, inView } = useInView({
+        threshold: 0.3,
+        triggerOnce: true,
+      });
 
     const MoveButton = ({ dir }: Direction) => {
         return (
@@ -47,7 +55,7 @@ export const Carousel = () => {
     }
 
     return (
-        <CarouselContainer>
+        <CarouselContainer ref={ref} isShown={inView}>
             <MoveButton dir='left'></MoveButton>
             <CarouselDiv idx={idx}>
                 {projectData.map((el: Project, index: number) => <ProjectCard key={index} content={el} idx={index}></ProjectCard>)}
@@ -60,7 +68,18 @@ export const Carousel = () => {
     )
 }
 
-const CarouselContainer = styled.div`
+export const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const CarouselContainer = styled.div<IsShown>`
     position: relative;
     display: flex;
     flex-direction: row;
@@ -68,8 +87,15 @@ const CarouselContainer = styled.div`
     width: 100%;
     height: 80%;
     margin-top: 2%;
+    opacity: 0;
+    background-color: rgba(0,0,0,0);
     box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
     overflow: hidden;
+    ${(props) =>
+    props.isShown &&
+    css`
+      animation: ${fadeInAnimation} 0.5s ease-in-out forwards;
+    `};
 `
 const MoveButtonDiv = styled.div<Direction>`
     position: absolute;

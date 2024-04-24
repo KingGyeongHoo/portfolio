@@ -81,5 +81,8 @@ export const ContentDivider = styled.div`
         font-size: 21px;
         color:${({theme}) => theme.fontColor.dark_gray};
       }
+      p.describe-lines{
+        margin: 1% 0;
+      }
     }
 `
