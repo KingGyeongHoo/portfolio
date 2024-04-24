@@ -8,6 +8,7 @@ import { skillReducer } from './Reducers/skillsInfoReducer';
 import { projectModalOpenReducer } from './Reducers/projectsModalOpenReducer';
 import { projectReducer } from './Reducers/projectsInfoReducer';
 import { ScrollReducer } from './Reducers/scrollReducer';
+import { selectedIdxReducer } from './Reducers/selectedProjectIdx';
 
 const reducers = combineReducers<any>({
   page: pageReducer,
@@ -15,7 +16,8 @@ const reducers = combineReducers<any>({
   skill:skillReducer,
   pIsOpen:projectModalOpenReducer,
   project: projectReducer,
-  scroll: ScrollReducer
+  scroll: ScrollReducer,
+  selectedIdx: selectedIdxReducer
 })
 
 const persistConfig = {
