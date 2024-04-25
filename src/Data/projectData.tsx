@@ -127,29 +127,20 @@ export const projectData: Project[] = [
       mainFunction: ['Media Query를 통한 반응형 웹 구현']
       ,
       functions: [{
-        title: '메인 페이지',
-        function: ['Keyframe과 애니메이션을 이용한 타이핑 효과',
-          '버튼 클릭시 아래 페이지로 이동']
+        title: '메인 페이지 & Intro',
+        function: ['Scroll 이벤트를 활용한 반응형 웹 구현',
+          'Scroll 양을 전역 상태에 저장하고, props로 전달',
+        '전달받은 props에 따라 가시성, position, 크기 등을 업데이트']
       }, {
-        title: '내비게이션 바',
-        function: ['현재 페이지에 해당하는 박스에 하이라이트',
-          '스크롤시 이동하는 페이지에 따라 하이라이트 변경',
-          'section 태그로 페이지를 구분하여 클릭시 해당 박스가 가리키는 페이지(섹션)로 이동']
-      }, {
-        title: 'About',
-        function: ['가상 요소를 이용한 테두리 설정 및 Flexbox를 이용한 반응형 페이지 설계',
-          'Redux를 이용한 전역 상태 관리를 통해 현재 페이지 전달',
-          'useInView Hook을 통해 페이지가 화면에 보일시 Redux에 현재 페이지 저장']
-      }, {
-        title: 'Skills',
-        function: ['전역 상태관리로 Modal 및 스킬별 데이터 관리',
-          'Recharts를 이용한 숙련도, 사용빈도, 경험, 응용력, 공부기간 시각화',
-          '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
+        title: 'Education & Skills',
+        function: ['GlobalStyles를 이용한 전역 컴포넌트 및 스타일 저장',
+        '전역 스타일 활용으로 코드 중복 방지 및 가독성 향상 효과.']
       }, {
         title: 'Projects',
         function: [
-          `전역 상태관리로 Modal 및 프로젝트별 데이터 관리`,
-          '미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절']
+          `Position 속성을 활용한 Carousel 제작`,
+          '전역 상태관리로 Modal 및 프로젝트별 데이터 관리',
+        '미디어 쿼리를 이용한 컴포넌트 사이즈 조절']
       }
       ],
       feeling: '오래 전부터 \'내 홈페이지가 있었으면 좋겠다\'라는 생각을 갖고 있었는데, 마침 취업을 준비하며.'
