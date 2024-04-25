@@ -1,5 +1,5 @@
 # GH's Portfolio
-![MainImg](https://github.com/KingGyeongHoo/portfolio/assets/117385050/d67ad491-7e95-41b2-ba37-eff567a247ad)
+![image](https://github.com/KingGyeongHoo/portfolio/assets/117385050/b1970a13-7c4e-4375-9438-5633c6fd0758)
 
 ## 📃프로젝트 소개
 
@@ -8,6 +8,7 @@
 
 ### 📆개발 기간
 **2024.02~2024.03**
+**2024.04 (Renewal)**
 
 ## ✏목차
 1. **기술 스택**
@@ -22,40 +23,24 @@
 
 ## 💻주요 기능
 
-### 메인 페이지
- - **Keyframe과 애니메이션을 이용한 타이핑 효과**
-   - 페이지의 특정 텍스트를 타이핑하는 효과를 구현하기 위해 CSS의 Keyframe과 애니메이션을 활용했습니다.
-   - 텍스트가 자연스럽게 나타나고 사라지는 느낌을 주기 위해 디자인 및 타이밍을 조정했습니다.
- - **버튼 클릭시 아래 페이지로 이동**
-   - JavaScript의 스크롤링 기능을 사용하여 원하는 위치로 스크롤되도록 설정했습니다.
-   - 페이지 간의 부드러운 전환을 위해 애니메이션 효과를 추가했습니다.
-###  내비게이션 바
- - **현재 페이지에 해당하는 박스에 하이라이트**
-   - useInView와 Redux를 이용해 페이지 요소가 화면에 나타나면 현재 페이지 상태를 업데이트 하였습니다.
-   - 네비게이션 바에 있는 각 항목 중 현재 화면에 보이는 페이지와 관련된 항목에 하이라이트를 적용하여 사용자가 현재 위치를 쉽게 파악할 수 있도록 했습니다.
- - **클릭시 해당 박스가 가리키는 페이지로 이동**
-   - 네비게이션 바의 각 항목을 클릭하면 해당 항목이 가리키는 페이지로 자동으로 스크롤되도록 구현했습니다.
-   - section 태그를 사용해 이동 위치를 지정하고, querySelector를 이용해 해당 섹션으로 이동하도록 하였습니다.
-###  About
- - **가상 요소를 이용한 테두리 설정 및 Flexbox를 이용한 반응형 페이지 설계**
-   - Flexbox를 사용하여 반응형 디자인을 구현하고, before, after 요소를 통해 테두리를 설정하여 페이지의 레이아웃을 보다 유연하고 세련되게 디자인했습니다.
- - **Redux를 이용한 전역 상태 관리를 통해 현재 페이지 전달**
-   - Redux를 사용하여 전역 상태를 관리하고, 현재 페이지 정보를 저장하고 전달함으로써 페이지 간의 상태를 효과적으로 관리했습니다.
-   - 이를 통해 각 컴포넌트 간의 데이터 공유와 페이지 상태 관리를 향상시켰습니다.
- - **useInView Hook을 통해 페이지가 화면에 보일시 Redux에 현재 페이지 저장**
-   - useInView Hook을 사용하여 페이지의 가시성 여부를 감지하고, 가시성 여부가 감지되면 Redux에 현재 페이지 정보를 저장했습니다.
-   - 사용자가 스크롤하여 다른 페이지로 이동할 때마다 Redux 상태가 업데이트되어 현재 위치한 페이지를 정확히 파악할 수 있게 했습니다.
-###  Skills
- - **전역 상태관리로 Modal 및 스킬별 데이터 관리**
-   - Redux를 활용하여 전역 상태로 모달 창을 관리하고, 각 스킬의 데이터를 효율적으로 관리했습니다.
-   - 여러 컴포넌트 간에 데이터를 공유하고 관리함으로써 모달 창의 상태를 일관되게 유지하고 스킬 데이터를 효과적으로 관리했습니다.
- - **Recharts를 이용한 숙련도, 사용빈도, 경험, 응용력, 공부기간 시각화**
-   - Recharts 라이브러리를 활용하여 각 스킬의 숙련도, 사용 빈도, 경험, 응용력, 공부 기간 등을 시각적으로 표현하여 사용자가 각 스킬의 정보를 직관적으로 파악할 수 있게 했습니다.
+### 메인 페이지 / Intro
+ - **Scroll Event와 전역 상태 활용한 반응형 효과**
+   - 전역 상태에 스크롤 양을 저장한 뒤, Javascript의 scroll 이벤트가 발생하면 상태를 업데이트 하는 방식을 사용했습니다.
+   - 스크롤 양을 props로 전달하여 컴포넌트의 크기 및 가시성(투명도)을 조절했습니다.
+   - 상황에 따라 Position 및 display를 유동적으로 전환하고, 스크롤 양에 따라 위치를 변경했습니다.
+###  Education & Skills
+ - **GlobalStyles를 이용한 전역 스타일 지정**
+   - GlobalStyles에 컴포넌트 및 스타일을 저장한 뒤 필요에 따라 꺼내 씀으로써 코드의 중복을 방지하고 가독성을 높였습니다.
 ### Projects
+ - **Position 속성을 활용한 Carousel 제작**
+   - Position 속성을 absolute로 설정하고, left 속성을 조절함으로써 캐러셀이 움직이는 효과를 구현했습니다.
+   - index 속성을 통해 현재 선택된 프로젝트와 아닌 프로젝트를 구분하고, 크기 및 기능을 차별화했습니다.
  - **전역 상태관리로 Modal 및 프로젝트별 데이터 관리**
- - **미디어 쿼리를 이용해 창 크기에 따라 Modal 크기와 글씨 크기 조절**
-   - CSS의 미디어 쿼리를 활용하여 창의 크기에 따라 모달 창의 크기와 텍스트 크기를 동적으로 조절했습니다.
-   - 다양한 디바이스와 화면 크기에 대응하여 모달 창이 적절하게 표시되고 텍스트가 가독성 있게 표시되도록 했습니다.
+   - Modal의 가시성 여부를 전역 상태에 저장하여 컴포넌트 위치에 상관 없이 on/off 할 수 있게 만들었습니다.
+   - 프로젝트 정보 역시 전역 상태로 관리함으로써 Props-Drilling을 방지하고 다른 위치에 있는 컴포넌트에 쉽게 렌더링 할 수 있습니다.
+ - **미디어 쿼리를 이용해 창 크기에 따라 컴포넌트 글씨 크기 조절**
+   - CSS의 미디어 쿼리를 활용하여 윈도우 창의 크기에 따라 캐러셀 및 모달의 크기와 텍스트 크기를 동적으로 조절했습니다.
+   - 다양한 디바이스와 화면 크기에 대응하여 컴포넌트들이 적절하게 표시되고 텍스트가 가독성 있게 표시되도록 했습니다.
 
 ## 📎링크
 ### [배포](https://ghsong.netlify.app/)
@@ -63,50 +48,50 @@
 
 ## 📁폴더 구조
 ```
-📦src
- ┣ 📂Data
- ┃ ┣ 📜InfoData.tsx
- ┃ ┣ 📜SkillData.tsx
- ┃ ┗ 📜projectData.tsx
- ┣ 📂Pages
- ┃ ┣ 📂About
- ┃ ┃ ┣ 📂Components
- ┃ ┃ ┃ ┣ 📜Information.tsx
- ┃ ┃ ┃ ┣ 📜Text.tsx
- ┃ ┃ ┃ ┗ 📜Title.tsx
- ┃ ┃ ┗ 📜About.tsx
- ┃ ┣ 📂Main
- ┃ ┃ ┣ 📂Components
- ┃ ┃ ┃ ┣ 📜MainLeft.tsx
- ┃ ┃ ┃ ┗ 📜MainRight.tsx
- ┃ ┃ ┗ 📜Main.tsx
- ┃ ┣ 📂Navbar
- ┃ ┃ ┗ 📜Navbar.tsx
- ┃ ┣ 📂Project
- ┃ ┃ ┣ 📂Components
- ┃ ┃ ┃ ┣ 📜Card.tsx
- ┃ ┃ ┃ ┗ 📜ProjectsModal.tsx
- ┃ ┃ ┗ 📜Project.tsx
- ┃ ┗ 📂Skills
- ┃ ┃ ┣ 📂Components
- ┃ ┃ ┃ ┣ 📜Graph.tsx
- ┃ ┃ ┃ ┣ 📜GraphModal.tsx
- ┃ ┃ ┃ ┗ 📜SkillBox.tsx
- ┃ ┃ ┗ 📜Skills.tsx
- ┣ 📂Redux
- ┃ ┣ 📂Reducers
- ┃ ┃ ┣ 📜modalOpenReducer.tsx
- ┃ ┃ ┣ 📜pageReducer.tsx
- ┃ ┃ ┣ 📜projectsInfoReducer.tsx
- ┃ ┃ ┣ 📜projectsModalOpenReducer.tsx
- ┃ ┃ ┗ 📜skillsInfoReducer.tsx
- ┃ ┗ 📜Store.tsx
- ┣ 📜App.css
- ┣ 📜App.tsx
- ┣ 📜Pallete.tsx
- ┣ 📜index.css
- ┣ 📜index.tsx
- ┣ 📜react-app-env.d.ts
- ┣ 📜reportWebVitals.ts
- ┗ 📜setupTests.ts
+📂src
+ ┃ ┣ 📂Data
+ ┃ ┃ ┣ 📜EducationData.tsx
+ ┃ ┃ ┣ 📜SkillData.tsx
+ ┃ ┃ ┗ 📜projectData.tsx
+ ┃ ┣ 📂Pages
+ ┃ ┃ ┣ 📂Competency
+ ┃ ┃ ┃ ┣ 📂Components
+ ┃ ┃ ┃ ┃ ┣ 📜Education.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜Skill.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜Skillcard.tsx
+ ┃ ┃ ┃ ┗ 📜Competency.tsx
+ ┃ ┃ ┣ 📂Intro
+ ┃ ┃ ┃ ┣ 📂Components
+ ┃ ┃ ┃ ┃ ┗ 📜IntroCard.tsx
+ ┃ ┃ ┃ ┗ 📜Intro.tsx
+ ┃ ┃ ┣ 📂Main
+ ┃ ┃ ┃ ┣ 📂Components
+ ┃ ┃ ┃ ┃ ┣ 📜IntroTitle.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜Linkbar.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜MainFont.tsx
+ ┃ ┃ ┃ ┗ 📜Main.tsx
+ ┃ ┃ ┗ 📂Project
+ ┃ ┃ ┃ ┣ 📂Components
+ ┃ ┃ ┃ ┃ ┣ 📜Carousel.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ProjectCard.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜ProjectModal.tsx
+ ┃ ┃ ┃ ┗ 📜Project.tsx
+ ┃ ┣ 📂Redux
+ ┃ ┃ ┣ 📂Reducers
+ ┃ ┃ ┃ ┣ 📜modalOpenReducer.tsx
+ ┃ ┃ ┃ ┣ 📜projectsInfoReducer.tsx
+ ┃ ┃ ┃ ┣ 📜scrollReducer.tsx
+ ┃ ┃ ┃ ┗ 📜selectedProjectIdx.tsx
+ ┃ ┃ ┗ 📜Store.tsx
+ ┃ ┣ 📂Styles
+ ┃ ┃ ┣ 📜GlobalStyle.ts
+ ┃ ┃ ┗ 📜Theme.ts
+ ┃ ┣ 📜App.css
+ ┃ ┣ 📜App.tsx
+ ┃ ┗ 📜index.tsx
+ ┣ 📜.gitignore
+ ┣ 📜README.md
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┗ 📜tsconfig.json
   ```
