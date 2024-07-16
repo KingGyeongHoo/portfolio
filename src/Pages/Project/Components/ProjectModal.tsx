@@ -141,7 +141,7 @@ const ProjectModal = () => {
             <div></div>
           </div>
           <div className="describe">
-            {project.info.feeling.split('.').map((el: string, idx: number) => {
+            {project?.info?.feeling?.split('.').map((el: string, idx: number) => {
               return (
                 <p className="describe-lines">
                   {el}
