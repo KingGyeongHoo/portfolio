@@ -96,7 +96,7 @@ const ProjectModal = () => {
           </div>
           <div className="content">
             <TechUl>
-              {project.info.stacks.map((el: StacksProps, idx: number) => {
+              {project?.info?.stacks?.map((el: StacksProps, idx: number) => {
                 return (
                   <li key={idx}>
                     <p className="stack-type">
@@ -119,7 +119,7 @@ const ProjectModal = () => {
             <div></div>
           </div>
           <MyroleDiv>
-            {project.info.functions.map((el: Functions, idx: number) => {
+            {project?.info?.functions?.map((el: Functions, idx: number) => {
               return (
                 <MyroleUl>
                   <h3>

@@ -29,7 +29,7 @@ const IntroDiv = styled.div<Scroll>`
     opacity: ${props => props.scroll > 1000  ? (props.scroll - 800) / 1000 : '0'};
     transition: opacity 0.3s ease-out;
     p{
-        font-size: 40px;
+        font-size: 36px;
         @media(max-width : 600px){
             font-size: 18px;
           }

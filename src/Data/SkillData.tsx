@@ -28,12 +28,20 @@ export const SkillData:Skills[] = [
         url:'styledcomponents'
     },
     {
+        skill:'SCSS',
+        url:'sass'
+    },
+    {
         skill:'REDUX',
         url:'redux'
     },
     {
         skill:'RECOIL',
         url:'recoil'
+    },
+    {
+        skill:'MOBX',
+        url:'mobx'
     },
     {
         skill:'AXIOS',
