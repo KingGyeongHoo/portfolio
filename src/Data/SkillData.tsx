@@ -48,6 +48,10 @@ export const SkillData: Skills[] = [
     url: "recoil",
   },
   {
+    skill: "ZUSTAND",
+    url: "zotero",
+  },
+  {
     skill: "AXIOS",
     url: "axios",
   },

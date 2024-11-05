@@ -1,10 +1,8 @@
 import "./App.css";
-import React, { useState } from "react";
 import styled from "styled-components";
-import {ThemeProvider} from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 import Main from "./Pages/Main/Main";
-import Intro from "./Pages/Intro/Intro";
 import Competency from "./Pages/Competency/Competency";
 import Project from "./Pages/Project/Project";
 import { GlobalStyles } from "./Styles/GlobalStyle";
@@ -15,7 +13,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0;
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
   font-weight: 400;
   font-size: 16px;
 `;
@@ -26,13 +24,13 @@ function App() {
         <GlobalStyles />
         <main>
           <section className="Main">
-            <Main></Main>
+            <Main />
           </section>
           <section>
-            <Competency></Competency>
+            <Competency />
           </section>
           <section>
-            <Project></Project>
+            <Project />
           </section>
         </main>
       </ThemeProvider>
