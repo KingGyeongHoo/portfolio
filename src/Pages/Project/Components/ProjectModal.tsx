@@ -95,7 +95,9 @@ const ProjectModal = () => {
                 return (
                   <li key={idx}>
                     <p className="stack-type">{el.type}</p>
-                    <p className="stack-stackname">{el.stack?.join(", ")}</p>
+                    <p className="stack-stackname">
+                      {Array.isArray(el.stack) && el.stack.join(", ")}
+                    </p>
                   </li>
                 );
               })}
