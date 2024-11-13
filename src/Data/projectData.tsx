@@ -32,7 +32,7 @@ export const projectData: Project[] = [
     date: "2024.10 - 2024.11",
     title: "KT 요고 요금제 UI/UX 개선 프로젝트",
     desc: "미래내일 일경험 프로젝트형 - KT 요고 요금제 UI/UX 개선 프로젝트",
-    background: "#ffffff",
+    background: "#04cbb4",
     type: "Team Project",
     github: "https://github.com/KingGyeongHoo/yogosoda-project",
     deploy: "https://yogosoda-project.vercel.app/",
