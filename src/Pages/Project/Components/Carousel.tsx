@@ -123,9 +123,9 @@ const MoveButtonDiv = styled.div<Direction>`
 const CarouselDiv = styled.div<Left>`
   position: absolute;
   top: 50%;
-  left: ${({ idx }) => 34 - idx * 25}%;
+  left: ${({ idx }) => 37 - idx * 26.5}%;
   @media (max-width: 600px) {
-    left: ${({ idx }) => 15 - idx * 70}%;
+    left: ${({ idx }) => 25 - idx * 56}%;
   }
   display: flex;
   flex-direction: row;
