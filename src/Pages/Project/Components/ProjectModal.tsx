@@ -158,6 +158,7 @@ const ModalBackground = styled.div<IsOpen>`
   transition: opacity 0.3s ease-in-out;
 `;
 const ModalContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,6 +169,9 @@ const ModalContainer = styled.div`
   border-radius: 10px;
   overflow-y: scroll;
   .close {
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;

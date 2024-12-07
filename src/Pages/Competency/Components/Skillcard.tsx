@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { flexCenter } from "../../../Styles/GlobalStyle";
 import { Skills } from "../../../Data/SkillData";
 
-const SkillCard = ({ skill, url }: Skills) => {
+const SkillCard = ({ skill, url, description }: Skills) => {
   return (
     <SkillCardContainer>
       <img src={`https://simpleicons.org/icons/${url}.svg`} alt={skill}></img>
       <span>{skill}</span>
+      <p>{description}</p>
     </SkillCardContainer>
   );
 };
@@ -41,8 +42,26 @@ const SkillCardContainer = styled.div`
     margin-top: 20px;
     font-family: "Pretendard-Bold";
     font-size: 30px;
-    @media (max-width: 600px) {
+    @media (max-width: 1024px) {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
       font-size: 10px;
+      margin-top: 10px;
+    }
+  }
+  p {
+    text-align: center;
+    margin-top: 20px;
+    color: gray;
+    font-family: "Pretendard-regular";
+    @media (max-width: 1024px) {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      font-size: 7px;
       margin-top: 10px;
     }
   }
