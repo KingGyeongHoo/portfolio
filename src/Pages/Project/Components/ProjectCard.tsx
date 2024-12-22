@@ -45,6 +45,7 @@ export const ProjectCard = ({ content, idx }: Content) => {
           <h1>{content.projectName}</h1>
           <p>{content.title}</p>
           <span>{content.type}</span>
+          <span className="span-date">{content.date}</span>
         </div>
       </ProjectContentDiv>
     </ProjectCardContainer>
@@ -80,9 +81,10 @@ const ProjectContentDiv = styled.div<IsSelected>`
   .project-content {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 92%;
     height: 30%;
     padding: 4% 5%;
+    overflow: hidden;
     h1 {
       font-size: 42px;
       font-family: "Pretendard-Bold";
@@ -92,12 +94,14 @@ const ProjectContentDiv = styled.div<IsSelected>`
       }
     }
     p {
+      width: 100%;
       font-size: 20px;
       @media (max-width: 600px) {
         font-size: 16px;
       }
       color: ${({ theme }) => theme.fontColor.dark_gray};
       margin-top: 1%;
+      overflow: hidden;
     }
     span {
       position: absolute;
@@ -108,6 +112,17 @@ const ProjectContentDiv = styled.div<IsSelected>`
         font-size: 14px;
       }
       color: ${({ theme }) => theme.fontColor.highlight};
+      overflow-wrap: break-word;
+    }
+    .span-date {
+      position: absolute;
+      bottom: 2%;
+      left: 2%;
+      font-size: 18px;
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
+      color: ${({ theme }) => theme.fontColor.light_gray};
       overflow-wrap: break-word;
     }
   }

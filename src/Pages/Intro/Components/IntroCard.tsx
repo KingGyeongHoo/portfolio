@@ -5,12 +5,20 @@ import { MdArticle } from "react-icons/md";
 import { PiCertificateFill } from "react-icons/pi";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { PiProjectorScreenChartFill } from "react-icons/pi";
+import { LuExternalLink } from "react-icons/lu";
 
 interface Props {
   iconName: string;
 }
 
 const Content = ({ iconName }: Props) => {
+  const openLink = (e: any, target: string) => {
+    if (target === "solved") {
+      window.open("https://solved.ac/profile/fmaxgo", "_blank");
+    } else {
+      window.open("https://kinggh.tistory.com/", "_blank");
+    }
+  };
   if (iconName === "blog") {
     return (
       <>
@@ -21,7 +29,19 @@ const Content = ({ iconName }: Props) => {
 
         <div>
           <p>
-            학습 내용을 기억하기 위해 <span>블로그</span>를 운영 중입니다.
+            학습 내용을 기억하기 위해 <span>블로그</span>
+            <LuExternalLink
+              style={{
+                width: "16px",
+                height: "16px",
+                marginLeft: "2px",
+                marginRight: "2px",
+                filter:
+                  "invert(60%) sepia(37%) saturate(257%) hue-rotate(166deg) brightness(92%) contrast(84%)",
+              }}
+              onClick={(e) => openLink(e, "blog")}
+            />
+            를 운영 중입니다.
           </p>
           <p>Frontend Skill, 코딩 테스트 풀이, CS 지식 등 </p>
           <p>
@@ -59,7 +79,19 @@ const Content = ({ iconName }: Props) => {
           </p>
           <p>백준, 프로그래머스 알고리즘 문제를 꾸준히 풀고 있습니다.</p>
           <p>
-            현재까지 <span>400개</span> 이상의 문제를 해결했습니다.
+            현재 <span>골드IV</span>
+            <LuExternalLink
+              style={{
+                width: "16px",
+                height: "16px",
+                marginLeft: "2px",
+                marginRight: "2px",
+                filter:
+                  "invert(60%) sepia(37%) saturate(257%) hue-rotate(166deg) brightness(92%) contrast(84%)",
+              }}
+              onClick={(e) => openLink(e, "solved")}
+            />
+            티어를 유지하고 있습니다.
           </p>
         </div>
       </>
@@ -128,6 +160,13 @@ const CardContainer = styled.div`
       }
     }
   }
+`;
+
+const DirectImg = styled.img`
+  width: 5px;
+  height: 5px;
+  filter: invert(60%) sepia(37%) saturate(257%) hue-rotate(166deg)
+    brightness(92%) contrast(84%);
 `;
 
 export default IntroCard;
