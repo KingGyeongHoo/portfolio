@@ -38,6 +38,7 @@ const Content = ({ iconName }: Props) => {
                 marginRight: "2px",
                 filter:
                   "invert(60%) sepia(37%) saturate(257%) hue-rotate(166deg) brightness(92%) contrast(84%)",
+                cursor: "pointer",
               }}
               onClick={(e) => openLink(e, "blog")}
             />
@@ -79,7 +80,7 @@ const Content = ({ iconName }: Props) => {
           </p>
           <p>백준, 프로그래머스 알고리즘 문제를 꾸준히 풀고 있습니다.</p>
           <p>
-            현재 <span>골드IV</span>
+            현재 <span>골드3</span>
             <LuExternalLink
               style={{
                 width: "16px",
@@ -88,6 +89,7 @@ const Content = ({ iconName }: Props) => {
                 marginRight: "2px",
                 filter:
                   "invert(60%) sepia(37%) saturate(257%) hue-rotate(166deg) brightness(92%) contrast(84%)",
+                cursor: "pointer",
               }}
               onClick={(e) => openLink(e, "solved")}
             />

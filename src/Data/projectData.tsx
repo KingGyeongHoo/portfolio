@@ -296,12 +296,12 @@ export const projectData: Project[] = [
             "React",
             "Styled-Components",
             "Redux",
-            "AXIOS",
+            "React-Query",
           ],
         },
         {
           type: "Backend",
-          stack: ["AWS"],
+          stack: ["AWS-sdk"],
         },
         {
           type: "Deploy",
@@ -329,6 +329,7 @@ export const projectData: Project[] = [
           function: [
             "KakaoMap API를 사용한 지도 어플리케이션 렌더링",
             "aws-sdk 및 S3를 이용한 데이터 통신 및 위치 렌더링",
+            "React-Query를 이용한 데이터 통신 상태 관리 및 캐싱",
             "필터링된 조건에 부합하는 충전소들만 지도에 표시",
             "충전소 클릭시 충전기명, 사용 가능 여부 표시",
             "지도 이동 위치에 따라 상단 지역 주소 변경",
@@ -363,6 +364,7 @@ export const projectData: Project[] = [
         "카카오맵 API와 Recharts 라이브러리를 주력으로 사용했는데, 초기에는 혼란스럽고 헷갈렸지만 시행착오를 거치고, 개발 문서를 읽음으로써 점차적으로 이를 극복할 수 있었습니다.\n" +
         "특히, API의 다양한 기능과 활용법을 이해하는 과정에서 큰 성취감을 느꼈습니다.\n" +
         "처음에는 카카오맵의 기능을 이해하고 구현하는것 조차 어려웠으나 익숙해진 후에는 원하는 대로 맵을 개조하여 프로젝트에 필요한 기능을 추가할 수 있었습니다.\n" +
+        "이후 리팩토링 과정에서 React-Query를 학습하고, 직접 사용해 보며 새로운 기술 스택을 적용해 보기도 했습니다.\n" +
         "다만, 이 프로젝트를 개발하면서 반응형 웹 디자인에 대한 고려가 부족했다는 점은 아쉽게 생각합니다.\n" +
         "반응형 웹은 만족스러운 UX를 위해 매우 중요한 부분이라고 생각하기 때문에, 앞으로는 이를 고려하여 보다 사용자 친화적이고 다양한 디바이스에서 최적화된 경험을 제공할 수 있도록 노력하겠습니다.\n" +
         "또한 프로젝트는 협업이었지만, 개발 자체는 혼자 진행했기에 백엔드 개발자를 한명이라도 섭외하여 함께 작업하며 협업 능력을 키웠으면 어땠을까 하는 아쉬움도 조금은 남습니다.\n",
@@ -396,7 +398,7 @@ export const projectData: Project[] = [
         },
         {
           type: "Backend",
-          stack: ["Java", "Springboot", "MySQL", "JWT", "AWS"],
+          stack: ["Java", "Springboot", "MySQL", "JWT", "AWS-sdk"],
         },
         {
           type: "Deploy",

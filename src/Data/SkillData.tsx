@@ -7,17 +7,17 @@ export const SkillData: Skills[] = [
   {
     skill: "JAVASCRIPT",
     url: "javascript",
-    description: "개발언어",
+    description: "개발 언어",
   },
   {
     skill: "TYPESCRIPT",
     url: "typescript",
-    description: "개발언어",
+    description: "개발 언어",
   },
   {
     skill: "REACT",
     url: "react",
-    description: "프레임워크",
+    description: "라이브러리",
   },
   {
     skill: "NEXT.JS",
@@ -91,7 +91,7 @@ export const SkillData: Skills[] = [
   },
   {
     skill: "PHOTOSHOP",
-    url: "adobephotoshop",
+    url: "producthunt",
     description: "디자인 툴",
   },
 ];
