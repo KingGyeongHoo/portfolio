@@ -52,7 +52,7 @@ export const projectData: Project[] = [
         },
         {
           type: "Backend",
-          stack: ["Express"],
+          stack: ["Next.js"],
         },
         {
           type: "Deploy",
