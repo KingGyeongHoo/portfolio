@@ -95,7 +95,7 @@ const Loader = styled.div`
   }
 
   &::before {
-    border: 1px solid #333;
+    border: 1px solid ${({ theme }) => theme.fontColor.dark_gray};
     top: -1px;
     left: -1px;
     opacity: 0;
@@ -103,7 +103,7 @@ const Loader = styled.div`
   }
 
   &::after {
-    background-color: #333;
+    background-color: ${({ theme }) => theme.fontColor.dark_gray};
     animation-name: ${loader2_2};
   }
 
