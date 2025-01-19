@@ -123,6 +123,22 @@ const ProjectModal = () => {
             })}
           </MyroleDiv>
         </ContentDivider>
+        {project?.info?.troubleShooting && (
+          <ContentDivider>
+            <div className="title">
+              <GoDotFill size="24"></GoDotFill>
+              <h2>Trouble Shooting</h2>
+              <div></div>
+            </div>
+            <MyroleDiv>
+              <MyroleUl>
+                {project?.info?.troubleShooting?.map((el: string) => {
+                  return <li>{el}</li>;
+                })}
+              </MyroleUl>
+            </MyroleDiv>
+          </ContentDivider>
+        )}
         <ContentDivider>
           <div className="title">
             <GoDotFill size="24"></GoDotFill>

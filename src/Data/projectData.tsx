@@ -15,6 +15,7 @@ export interface Info {
   stacks: StacksProps[];
   mainFunction: string[];
   functions: Functions[];
+  troubleShooting?: string[];
   feeling: string;
 }
 export interface StacksProps {
@@ -94,6 +95,10 @@ export const projectData: Project[] = [
           ],
         },
       ],
+      troubleShooting: [
+        "이미지로 제공되던 UI들을 컴포넌트화하여 초기 로딩 속도 약 70% 이상 개선 및 리소스 용량 12% 감소",
+        "Next의 Image 태그 도입으로 페이지 및 컨텐츠 로딩 속도 약 50% 감소",
+      ],
       feeling:
         "미래내일 일경험 사업 프로젝트형 코스에 참여하며 진행하게 된 프로젝트입니다.\n" +
         "기존 KT 요고 요금제 페이지를 클론하는 작업과, 기존 UI/UX에서 개선이 필요한 부분을 찾아 변경사항을 적용하는 작업을 동시에 진행했습니다.\n" +
@@ -153,7 +158,6 @@ export const projectData: Project[] = [
           title: "부동산 검색",
           function: [
             "REST API를 이용해 검색 조건에 맞는 데이터를 GET한 뒤 검색 결과 컴포넌트에 렌더링",
-            "디바운싱을 통해 타이핑 이벤트 완료시 요청을 보냄으로써 검색 성능 개선 및 서버 부하 최소화",
             "indexOf 메서드로 검색 결과 중 현재 검색어에 해당되는 부분만 하이라이트 처리",
             "Recoil을 활용한 전역 상태 관리로 클릭한 부동산의 데이터를 결과 페이지로 전송",
           ],
@@ -168,10 +172,17 @@ export const projectData: Project[] = [
           ],
         },
         {
+          title: "가격 예측",
+          function: [
+            "Google Generative AI를 도입하여 기존 데이터를 바탕으로 3개월 후의 데이터 예측",
+            "Recharts 라이브러리를 이용해 가격 데이터를 그래프로 시각화하여 직관적으로 처리",
+          ],
+        },
+        {
           title: "관련 뉴스 크롤링",
           function: [
             "네이버 검색 API를 이용해 관련 뉴스 크롤링",
-            "Recoil State에 저장해놓은 부동산 데이터와 정확도순, 최신순 정렬 상태를 url query로 전달하여 조건에 맞는 뉴스 데이터 GET",
+            "url query를 조작하여 조건에 맞는 뉴스 데이터 Get",
             "useState와 Array 메서드를 이용해 받아온 뉴스 데이터 페이지네이션",
           ],
         },
@@ -180,9 +191,14 @@ export const projectData: Project[] = [
           function: [
             "데이터를 서버측에서 관리 및 네이버 API 연동을 위한 사이드 서버를 구축",
             "Next.js의 API Routes를 활용하여 서버 구현",
-            "네이버 API를 사이드 서버에서 중계함으로써 CORS 정책 준수",
           ],
         },
+      ],
+      troubleShooting: [
+        "부동산 검색시 디바운싱 기능을 도입하여 검색 성능 개선 및 서버 트래픽 약 80% 감소",
+        "사이드 서버에서 데이터를 관리함으로써 클라이언트 번들 용량 30% 이상 감소",
+        "Naver API 이용시 발생하는 CORS Error를 사이드 서버 중계를 통해 해결",
+        "API 삭제로 인해 중단된 가격 예측 서비스를 Google Generative AI API를 이용해 간접 구현",
       ],
       feeling:
         "정말 오랜만에 다른 분들, 특히 AI 개발자 분들과 협업하며 진행한 팀 프로젝트입니다.\n" +
@@ -193,8 +209,8 @@ export const projectData: Project[] = [
         "또한, 요즘 핫한 CSS 전처리기인 SCSS 방식을 이용해 컴포넌트를 디자인하는 방법을 배우며 CSS 스킬을 하나 더 추가 할 수 있었습니다.\n" +
         "그리고 프로젝트를 리팩토링하는 과정에서 Next.js를 활용해 사이드 서버를 직접 구축하고 배포까지 하였습니다.\n" +
         "프로젝트가 오래되어 백엔드 API가 모두 비활성화 되었고, 네이버 API의 정책상 클라이언트에서 API를 직접 호출 할 수 없어 서버를 구축하게 되었습니다.\n" +
-        "기존 Express.js가 아닌 Next.js를 활용함으로써 최신 기술에 대한 동향을 익힐 수 있었고, 배포 역시 아주 쉽게 진행 할 수 있었습니다.\n" +
-        "비록 이번 프로젝트에서는 이미 학습이 완료되어있는 AI 데이터를 가져와 사용했지만, 언젠가는 웹에서 설정한 조건에 따라 실시간으로 학습하고 결과를 보여주는 웹 사이트를 만들어 보고 싶다는 생각을 했습니다.\n",
+        "기존 Express.js가 아닌 Next.js의 API Routes를 활용함으로써 최신 기술에 대한 동향을 익힐 수 있었고, 배포 역시 아주 쉽게 진행 할 수 있었습니다.\n" +
+        "비록 이번 프로젝트에서는 생성형 AI를 이용해 간접적인 예측 데이터를 사용했지만, 언젠가는 웹에서 설정한 조건에 따라 실시간으로 학습하고 결과를 보여주는 웹 사이트를 만들어 보고 싶다는 생각을 했습니다.\n",
     },
   },
   {
@@ -356,6 +372,9 @@ export const projectData: Project[] = [
             `연간 이용량 표기 및 전체 순위 표시`,
           ],
         },
+      ],
+      troubleShooting: [
+        "AWS S3 Bucket에 데이터를 저장하여 클라이언트 번들 용량 13mb감소 및 초기 로딩 속도 7s 이상 개선",
       ],
       feeling:
         "학교 동기의 스타트업 경진대회 출품을 도와주기 위해 시작했지만, 여러 라이브러리와 API를 다뤄보는 과정에서 흥미를 느껴 본격적으로 개발하게 되었습니다.\n" +
