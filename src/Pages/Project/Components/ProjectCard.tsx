@@ -39,6 +39,7 @@ export const ProjectCard = ({ content, idx }: Content) => {
         <div className="project-img">
           <img
             src={`${process.env.PUBLIC_URL}/img/projects/${content.file}`}
+            alt={content.projectName}
           ></img>
         </div>
         <div className="project-content">
