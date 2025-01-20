@@ -29,7 +29,7 @@ const Content = ({ iconName }: Props) => {
 
         <div>
           <p>
-            학습 내용을 기억하기 위해 <span>블로그</span>
+            학습한 내용을 정리하기 위해 <span>블로그</span>
             <LuExternalLink
               style={{
                 width: "16px",

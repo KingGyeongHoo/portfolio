@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { StacksProps, Functions } from "../../../Data/projectData";
+import {
+  StacksProps,
+  Functions,
+  TroubleShooting,
+} from "../../../Data/projectData";
 import { useSelector, useDispatch } from "react-redux";
 import { ContentDivider, highlight } from "../../../Styles/GlobalStyle";
 import { LuExternalLink } from "react-icons/lu";
@@ -132,8 +136,13 @@ const ProjectModal = () => {
             </div>
             <MyroleDiv>
               <MyroleUl>
-                {project?.info?.troubleShooting?.map((el: string) => {
-                  return <li>{el}</li>;
+                {project?.info?.troubleShooting?.map((el: TroubleShooting) => {
+                  return (
+                    <li>
+                      {el.trouble}
+                      <p>→ {el.solution}</p>
+                    </li>
+                  );
                 })}
               </MyroleUl>
             </MyroleDiv>
@@ -266,10 +275,17 @@ const MyroleUl = styled.ul`
     }
   }
   li {
+    display: flex;
+    flex-direction: column;
     margin: 1% 0;
     font-size: 20px;
     @media (max-width: 600px) {
       font-size: 14px;
+    }
+    p {
+      margin: 1% 0 1% 1%;
+      color: ${({ theme }) => theme.fontColor.highlight};
+      font-weight: bold;
     }
   }
 `;

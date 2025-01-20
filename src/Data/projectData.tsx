@@ -15,7 +15,7 @@ export interface Info {
   stacks: StacksProps[];
   mainFunction: string[];
   functions: Functions[];
-  troubleShooting?: string[];
+  troubleShooting?: TroubleShooting[];
   feeling: string;
 }
 export interface StacksProps {
@@ -25,6 +25,10 @@ export interface StacksProps {
 export interface Functions {
   title: string;
   function: string[];
+}
+export interface TroubleShooting {
+  trouble: string;
+  solution: string;
 }
 export const projectData: Project[] = [
   {
@@ -96,10 +100,29 @@ export const projectData: Project[] = [
         },
       ],
       troubleShooting: [
-        "이미지로 제공되던 UI들을 컴포넌트화하여 리소스 용량 12% 감소",
-        "랜딩 페이지를 추가 및 SSR 방식 도입으로 페이지 최초 렌더링 속도 70% 이상 감소",
-        "Next의 Image 태그를 사용하여 페이지, 컨텐츠 로딩 속도 약 50% 감소",
-        "LightHouse를 이용한 성능 테스트 및 alt 속성 부여를 통한 SEO 최적화",
+        {
+          trouble:
+            "UI가 하나의 이미지로 제공되어 리소스 용량이 커지는 현상 발생",
+          solution:
+            "이미지로 제공되던 UI들을 컴포넌트화하여 리소스 용량 약 12% 감소 효과",
+        },
+        {
+          trouble:
+            "다운받을 컨텐츠가 많아 초기 로딩 속도가 약 7~8초 이상 소요되는 현상 발생",
+          solution:
+            "랜딩 페이지를 추가하여 초기 다운로드 속도를 줄이고, SSR 방식을 통해 페이지 이동시 컨텐츠를 다운받아 최초 렌더링 속도 70% 이상 감소",
+        },
+        {
+          trouble:
+            "각 페이지 접속시 컨텐츠 로딩 속도가 약 3초 이상 지연되는 현상 발생",
+          solution:
+            "HTML의 <img> 태그 대신 Lazy Loading이 지원되는 Next의 <Image> 태그를 사용하여 페이지, 컨텐츠 로딩 속도 약 50% 감소",
+        },
+        {
+          trouble: "SEO 최적화가 이루어지지 않은 문제 발생",
+          solution:
+            "LightHouse를 이용한 성능 테스트 및 alt 속성 부여를 통한 SEO 최적화",
+        },
       ],
       feeling:
         "미래내일 일경험 사업 프로젝트형 코스에 참여하며 진행하게 된 프로젝트입니다.\n" +
@@ -167,7 +190,7 @@ export const projectData: Project[] = [
         {
           title: "서비스 소개",
           function: [
-            "useInView와 useRef를 이용해 화면에 컴포넌트가 감지될시 투명도를 변경하여 시각화",
+            "React-Intersection-Observer 라이브러리를 이용해 화면에 컴포넌트가 감지될시 투명도를 변경하여 시각화",
             "keyframe, animation을 이용해 아래에서부터 나타나는 애니메이션 효과 적용",
             "TOP 버튼 클릭시 scrollTo를 top으로 설정하여 화면 맨 위(검색창)로 이동",
             "미디어 쿼리를 이용한 반응형 웹 제작 및 모바일 버전 최적화",
@@ -185,7 +208,7 @@ export const projectData: Project[] = [
           function: [
             "네이버 검색 API를 이용해 관련 뉴스 크롤링",
             "url query를 조작하여 조건에 맞는 뉴스 데이터 Get",
-            "useState와 Array 메서드를 이용해 받아온 뉴스 데이터 페이지네이션",
+            "Array 자료구조를 이용해 받아온 뉴스 데이터 페이지네이션",
           ],
         },
         {
@@ -197,10 +220,30 @@ export const projectData: Project[] = [
         },
       ],
       troubleShooting: [
-        "부동산 검색시 디바운싱 기능을 도입하여 검색 성능 개선 및 서버 트래픽 약 80% 감소",
-        "사이드 서버에서 데이터를 관리함으로써 클라이언트 번들 용량 30% 이상 감소",
-        "Naver API 이용시 발생하는 CORS Error를 사이드 서버 중계를 통해 해결",
-        "API 삭제로 인해 중단된 가격 예측 서비스를 Google Generative AI API를 이용해 간접 구현",
+        {
+          trouble:
+            "부동산 검색시 타이핑 횟수만큼 서버에 HTTP 요청이 전송되어 트래픽이 비정상적으로 높아지는 현상 발생",
+          solution:
+            "useSearch Hook에 디바운싱 기능을 도입하여 검색 성능 개선 및 서버 트래픽 약 80% 감소",
+        },
+        {
+          trouble:
+            "백엔드 API 삭제로 부동산, 가격 데이터를 클라이언트에 보관해 번들 용량이 커지는 현상 발생",
+          solution:
+            "사이드 서버를 구축하고 데이터를 서버 측에서 관리함으로써 클라이언트 번들 용량 30% 이상 감소",
+        },
+        {
+          trouble:
+            "Naver 검색 API 이용시 클라이언트에서 바로 요청을 보내면 CORS Error 발생 (네이버 정책상)",
+          solution:
+            "클라이언트 - 사이드 서버 - Naver API - 사이드 서버 - 클라이언트의 과정으로 검색 결과를 중계하여 CORS Error 해결",
+        },
+        {
+          trouble:
+            "프로젝트 종료 후 AI 데이터 및 서버 API가 소실되어 가격 예측 정보 미제공",
+          solution:
+            "Google Generative AI API를 활용해 예측 결과를 JSON으로 받아와 가격 예측 간접 구현",
+        },
       ],
       feeling:
         "정말 오랜만에 다른 분들, 특히 AI 개발자 분들과 협업하며 진행한 팀 프로젝트입니다.\n" +
@@ -279,6 +322,14 @@ export const projectData: Project[] = [
           ],
         },
       ],
+      troubleShooting: [
+        {
+          trouble:
+            "웹 성능이 최적화되지 않아 렌더링, 컨텐츠 표시가 느려지는 오류 발생",
+          solution: "LightHouse를 활용해 웹 페이지 성능 검사 후 최적화 진행",
+        },
+      ],
+
       feeling:
         "오래 전부터 '내 홈페이지가 있었으면 좋겠다'라는 생각을 갖고 있었는데, 마침 취업을 준비하며.\n" +
         "'포트폴리오를 웹 페이지를 만들어 보는것이 어떻냐'는 조언을 받아 제작하게 된 개인 포트폴리오 사이트입니다.\n" +
@@ -376,7 +427,18 @@ export const projectData: Project[] = [
         },
       ],
       troubleShooting: [
-        "AWS S3 Bucket에 데이터를 저장하여 클라이언트 번들 용량 13mb감소 및 초기 로딩 속도 7s 이상 개선",
+        {
+          trouble:
+            "6만개 이상의 데이터를 클라이언트에서 처리해 로딩 속도 및 번들 용량이 비정상적으로 커지는 현상 발생",
+          solution:
+            "AWS S3 Bucket에 데이터를 저장한 뒤 SDK를 통해 접근함으로써 클라이언트 번들 용량 13mb감소 및 초기 로딩 속도 7s 이상 개선",
+        },
+        {
+          trouble:
+            "KakaoMap 마커에 Hover시 InfoWindow 컨텐츠가 제대로 표기되지 않는 오류 발생",
+          solution:
+            "템플릿 리터럴을 사용한 동적 HTML 생성 방식을 채택하여 InfoWindow 객체에 직접 HTML 요소를 전달하는 방식으로 문제 해결",
+        },
       ],
       feeling:
         "학교 동기의 스타트업 경진대회 출품을 도와주기 위해 시작했지만, 여러 라이브러리와 API를 다뤄보는 과정에서 흥미를 느껴 본격적으로 개발하게 되었습니다.\n" +
