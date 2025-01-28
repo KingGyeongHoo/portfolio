@@ -46,7 +46,7 @@
    - 다양한 디바이스와 화면 크기에 대응하여 컴포넌트들이 적절하게 표시되고 텍스트가 가독성 있게 표시되도록 했습니다.
 
 ## 📎링크
-### [배포](https://ghsong.netlify.app/)
+### [배포](https://ghsong.me/)
 ### [Figma](https://www.figma.com/file/hlUe473MkhgZR6NyhG7Nx8/Portfolio?type=design&node-id=62%3A14&mode=design&t=pkHbpdN6TtxdqW8M-1)
 
 ## 📁폴더 구조
