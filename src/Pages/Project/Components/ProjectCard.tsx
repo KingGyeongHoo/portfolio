@@ -90,6 +90,9 @@ const ProjectContentDiv = styled.div<IsSelected>`
       font-size: 42px;
       font-family: "Pretendard-Bold";
       color: black;
+      @media (max-width: 1080px) {
+        font-size: 32px;
+      }
       @media (max-width: 600px) {
         font-size: 24px;
       }
@@ -97,6 +100,9 @@ const ProjectContentDiv = styled.div<IsSelected>`
     p {
       width: 100%;
       font-size: 20px;
+      @media (max-width: 1080px) {
+        font-size: 18px;
+      }
       @media (max-width: 600px) {
         font-size: 16px;
       }
@@ -109,8 +115,11 @@ const ProjectContentDiv = styled.div<IsSelected>`
       bottom: 2%;
       right: 2%;
       font-size: 18px;
-      @media (max-width: 600px) {
+      @media (max-width: 1080px) {
         font-size: 14px;
+      }
+      @media (max-width: 600px) {
+        font-size: 12px;
       }
       color: ${({ theme }) => theme.fontColor.highlight};
       overflow-wrap: break-word;
@@ -120,8 +129,11 @@ const ProjectContentDiv = styled.div<IsSelected>`
       bottom: 2%;
       left: 2%;
       font-size: 18px;
-      @media (max-width: 600px) {
+      @media (max-width: 1080px) {
         font-size: 14px;
+      }
+      @media (max-width: 600px) {
+        font-size: 12px;
       }
       color: ${({ theme }) => theme.fontColor.light_gray};
       overflow-wrap: break-word;

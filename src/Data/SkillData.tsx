@@ -31,7 +31,7 @@ export const SkillData: Skills[] = [
   },
   {
     skill: "CSS",
-    url: "css3",
+    url: "css",
     description: "스타일시트 언어",
   },
   {

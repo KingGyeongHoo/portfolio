@@ -36,6 +36,9 @@ const IntroDiv = styled.div<Scroll>`
   transition: opacity 0.3s ease-out;
   p {
     font-size: 36px;
+    @media (max-width: 1080px) {
+      font-size: 24px;
+    }
     @media (max-width: 600px) {
       font-size: 18px;
     }

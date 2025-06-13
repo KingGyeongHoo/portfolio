@@ -42,7 +42,7 @@ const SkillCardContainer = styled.div`
     margin-top: 20px;
     font-family: "Pretendard-Bold";
     font-size: 30px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
       font-size: 20px;
       margin-top: 10px;
     }
