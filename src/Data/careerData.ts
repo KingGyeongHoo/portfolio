@@ -6,8 +6,13 @@ export interface CareerProps {
 
 export const careerData: CareerProps[] = [
   {
+    name: "Traverse",
+    role: "Frontend Engineer",
+    date: "2025.08 -",
+  },
+  {
     name: "주식회사 코스타",
-    role: "프론트엔드 개발 연구원",
-    date: "2025.02 -",
+    role: "Frontend Engineer",
+    date: "2025.02 - 2025.07",
   },
 ];
