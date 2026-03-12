@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import DecryptedText from "@/components/ui/DecryptedText";
-import Galaxy from "@/components/ui/Galaxy";
 import BlurText from "@/components/ui/BlurText";
+import OceanBackground from "@/components/ui/OceanBackground";
+import TurtleMascot from "@/components/ui/TurtleMascot";
 
 interface IntroProps {
   className?: string;
@@ -27,7 +28,7 @@ export const Intro = ({ className }: IntroProps) => {
     <>
       <section
         ref={containerRef}
-        className={`relative h-[300vh] w-full bg-black ${className || ""}`}
+        className={`relative h-[300vh] w-full bg-[#0ea5e9] ${className || ""}`}
       >
         <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center">
           <motion.div
@@ -36,15 +37,20 @@ export const Intro = ({ className }: IntroProps) => {
           >
             {/* 3D Background */}
             <div className="absolute inset-0 z-0">
-              <Galaxy
-                transparent={true}
-                starSpeed={0.8}
-                speed={1.5}
-                density={1.2}
-                glowIntensity={0.5}
-                twinkleIntensity={0.6}
-              />
+              <OceanBackground />
             </div>
+
+            {/* Turtle Mascot */}
+            <motion.div
+              style={{
+                y: useTransform(scrollYProgress, [0, 1], [0, 800]),
+                x: useTransform(scrollYProgress, [0, 1], [0, -200]),
+                rotate: useTransform(scrollYProgress, [0, 1], [15, -15]),
+              }}
+              className="absolute z-10 top-[20%] right-[15%] md:right-[25%]"
+            >
+              <TurtleMascot size={160} />
+            </motion.div>
 
             {/* Text Content */}
             <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pointer-events-none text-center px-4">
@@ -56,11 +62,11 @@ export const Intro = ({ className }: IntroProps) => {
                   revealDirection="center"
                   sequential={true}
                   maxIterations={15}
-                  className="text-white"
-                  encryptedClassName="text-slate-600"
+                  className="text-white drop-shadow-lg"
+                  encryptedClassName="text-sky-200"
                 />
               </h1>
-              <p className="text-lg md:text-2xl text-slate-300 font-light tracking-wider uppercase">
+              <p className="text-lg md:text-2xl text-sky-100 font-medium tracking-wider uppercase drop-shadow">
                 <DecryptedText
                   text="Frontend Developer"
                   speed={40}
@@ -77,7 +83,7 @@ export const Intro = ({ className }: IntroProps) => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 1.5 }}
-              className="text-[10px] text-zinc-400 tracking-[0.3em] uppercase"
+              className="text-[10px] text-sky-200 tracking-[0.3em] uppercase drop-shadow"
             >
               Scroll Down
             </motion.span>
@@ -90,14 +96,14 @@ export const Intro = ({ className }: IntroProps) => {
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              className="w-[1px] bg-gradient-to-b from-zinc-400 to-transparent"
+              className="w-[1px] bg-gradient-to-b from-sky-200 to-transparent"
             />
           </div>
         </div>
       </section>
 
       {/* Second Page / About Section */}
-      <section className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center px-4 overflow-hidden z-10">
+      <section className="relative w-full min-h-screen bg-[#075985] flex flex-col items-center justify-center px-4 overflow-hidden z-10">
         <div className="w-full mx-auto flex flex-col items-center gap-12 text-center text-balance break-keep">
           <BlurText
             text="개발이란, 사용자가 만족하는 방향으로 계속 변화해야 한다고 생각합니다."

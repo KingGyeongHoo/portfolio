@@ -72,10 +72,10 @@ export const Career = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen bg-black py-32 px-4 md:px-12 lg:px-24 overflow-hidden z-20"
+      className="relative w-full min-h-screen bg-sky-900 py-32 px-4 md:px-12 lg:px-24 overflow-hidden z-20"
     >
       {/* React-bits styled Aurora Background */}
-      <Aurora colorStops={["#3b82f6", "#8b5cf6", "#3b82f6"]} speed={0.5} />
+      <Aurora colorStops={["#0284c7", "#0369a1", "#075985"]} speed={0.5} />
 
       <div className="relative max-w-5xl mx-auto z-10 text-white">
         {/* Header */}
@@ -86,19 +86,19 @@ export const Career = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-24 text-center md:text-left"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6">
-            <Terminal size={16} className="text-zinc-400" />
-            <span className="text-sm font-medium tracking-wider text-zinc-300 uppercase">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-950/40 backdrop-blur-sm mb-6 shadow-sm">
+            <Terminal size={16} className="text-sky-300" />
+            <span className="text-sm font-medium tracking-wider text-sky-200 uppercase">
               Experience
             </span>
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
-            Career <span className="text-zinc-600">Path</span>
+            Career <span className="text-sky-400">Path</span>
           </h2>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative border-l border-zinc-800/80 ml-4 md:ml-8 pl-8 md:pl-16 space-y-24">
+        <div className="relative border-l border-sky-400/30 ml-4 md:ml-8 pl-8 md:pl-16 space-y-24">
           {EXPERIENCES.map((exp, index) => (
             <motion.div
               key={exp.id}
@@ -113,7 +113,7 @@ export const Career = () => {
               className="relative group"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-[45px] md:-left-[81px] top-1 w-[26px] h-[26px] md:w-[34px] md:h-[34px] flex items-center justify-center bg-zinc-950 border border-zinc-700/80 rounded-full group-hover:border-zinc-400 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:bg-zinc-900 transition-all duration-300 z-10">
+              <div className="absolute -left-[45px] md:-left-[81px] top-1 w-[26px] h-[26px] md:w-[34px] md:h-[34px] flex items-center justify-center bg-sky-950 border border-sky-400/50 rounded-full group-hover:border-sky-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] group-hover:bg-sky-900 transition-all duration-300 z-10">
                 <span className="text-sm md:text-base leading-none translate-y-[-1px]">
                   {exp.icon}
                 </span>
@@ -128,11 +128,11 @@ export const Career = () => {
                       <h3 className="text-3xl md:text-4xl font-semibold text-white tracking-tight mb-2">
                         {exp.company}
                       </h3>
-                      <p className="text-lg md:text-xl text-zinc-400 font-light">
+                      <p className="text-lg md:text-xl text-sky-200 font-medium">
                         {exp.role}
                       </p>
                     </div>
-                    <div className="text-sm md:text-base text-zinc-500 font-mono tracking-widest bg-zinc-900/50 px-3 py-1 rounded-md self-start md:self-auto border border-zinc-800/50 mb-auto">
+                    <div className="text-sm md:text-base text-sky-300 font-mono tracking-widest bg-sky-950/50 px-3 py-1 rounded-md self-start md:self-auto border border-sky-500/30 mb-auto shadow-sm">
                       {exp.period}
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export const Career = () => {
                       {exp.skills.map((skill, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 text-xs md:text-sm font-medium text-blue-200 bg-blue-900/20 border border-blue-800/30 rounded-full backdrop-blur-md"
+                          className="px-3 py-1 text-xs md:text-sm font-medium text-sky-100 bg-sky-500/20 border border-sky-400/30 rounded-full backdrop-blur-md shadow-sm"
                         >
                           {skill}
                         </span>
@@ -153,11 +153,11 @@ export const Career = () => {
                 </div>
 
                 {/* Projects */}
-                <div className="grid gap-6 text-zinc-300">
+                <div className="grid gap-6 text-sky-100">
                   {exp.projects.map((project, pIndex) => (
                     <div
                       key={pIndex}
-                      className="p-6 md:p-8 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:bg-zinc-900/50 hover:border-zinc-700/50 transition-colors"
+                      className="p-6 md:p-8 rounded-[40px] rounded-br-[10px] bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.1),inset_0_0_20px_rgba(255,255,255,0.05)] hover:bg-white/10 hover:border-white/20 transition-colors"
                     >
                       <h4 className="text-xl md:text-2xl font-medium text-white mb-6">
                         {project.title}
@@ -168,9 +168,9 @@ export const Career = () => {
                           {project.tasks.map((task, tIndex) => (
                             <li
                               key={tIndex}
-                              className="flex items-start gap-4 text-zinc-400 font-light text-base md:text-lg leading-relaxed break-keep"
+                              className="flex items-start gap-4 text-sky-200 font-light text-base md:text-lg leading-relaxed break-keep"
                             >
-                              <div className="mt-[8px] min-w-[6px] h-[6px] rounded-full bg-zinc-600" />
+                              <div className="mt-[8px] min-w-[6px] h-[6px] rounded-full bg-sky-400" />
                               {task}
                             </li>
                           ))}
@@ -183,7 +183,7 @@ export const Career = () => {
                             <a
                               key={lIndex}
                               href={link.url}
-                              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 text-sm md:text-base text-zinc-300 hover:text-white transition-colors border border-zinc-700/50"
+                              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-950/50 hover:bg-sky-800 text-sm md:text-base text-sky-200 hover:text-white transition-colors border border-sky-500/30 shadow-sm"
                             >
                               {link.label}
                               <ExternalLink size={14} className="opacity-70" />
