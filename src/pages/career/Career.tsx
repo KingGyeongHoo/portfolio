@@ -25,8 +25,8 @@ const EXPERIENCES = [
       {
         title: "기업 홈페이지 및 서비스 홍보 페이지 개발",
         links: [
-          { label: "Traverse Homepage", url: "#" },
-          { label: "TranSight Landing Page", url: "#" },
+          { label: "Traverse Homepage", url: "https://traverse.kr/" },
+          { label: "TranSight Landing Page", url: "https://www.transight.io/" },
         ],
       },
     ],
@@ -183,6 +183,8 @@ export const Career = () => {
                             <a
                               key={lIndex}
                               href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-950/50 hover:bg-sky-800 text-sm md:text-base text-sky-200 hover:text-white transition-colors border border-sky-500/30 shadow-sm"
                             >
                               {link.label}
